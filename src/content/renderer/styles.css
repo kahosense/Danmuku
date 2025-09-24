@@ -1,0 +1,61 @@
+:host {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483647;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.danmaku-container {
+  position: absolute;
+  inset: 8% 2% auto 2%;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.danmaku-lane {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.danmaku-comment {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(30, 41, 59, 0.75);
+  color: #f8fafc;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  transform: translateX(100%);
+  will-change: transform;
+  transition: opacity 0.3s ease;
+  opacity: 0.95;
+}
+
+.danmaku-comment.persona-alex {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+.danmaku-comment.persona-jordan {
+  background: rgba(34, 197, 94, 0.8);
+}
+
+.danmaku-comment.persona-sam {
+  background: rgba(236, 72, 153, 0.8);
+}
+
+.danmaku-comment.persona-casey {
+  background: rgba(245, 158, 11, 0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .danmaku-comment {
+    transition: transform 0.3s ease;
+  }
+}
