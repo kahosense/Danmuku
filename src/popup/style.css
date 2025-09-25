@@ -76,6 +76,16 @@ body {
   gap: 8px;
 }
 
+.feedback-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.feedback-button {
+  flex: 1 1 100px;
+}
+
 .persona-list label {
   display: flex;
   gap: 6px;

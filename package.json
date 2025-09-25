@@ -16,6 +16,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
+    "replay:cues": "vite-node --config src/tools/vite.replay.config.ts src/tools/replay-session.ts",
     "test:watch": "vitest watch"
   },
   "keywords": [],

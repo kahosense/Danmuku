@@ -1,6 +1,6 @@
 import './style.css';
 import { sendMessage, type RuntimeMessage } from '../shared/messages';
-import type { UserPreferences } from '../shared/types';
+import type { UserPreferences, FeedbackCategory } from '../shared/types';
 
 let currentPreferences: UserPreferences | null = null;
 
@@ -44,6 +44,14 @@ function render(root: HTMLDivElement) {
             `
           )
           .join('')}
+      </div>
+    </section>
+    <section class="section feedback">
+      <h2>快速反馈</h2>
+      <div class="feedback-buttons">
+        <button class="button feedback-button" data-feedback="too_noisy">弹幕太多</button>
+        <button class="button feedback-button" data-feedback="too_robotic">太像机器人</button>
+        <button class="button feedback-button" data-feedback="great">很不错</button>
       </div>
     </section>
     <footer class="footer">
@@ -90,6 +98,28 @@ function render(root: HTMLDivElement) {
       preferences: { developerMode: !currentPreferences?.developerMode }
     });
   });
+
+  root
+    .querySelectorAll<HTMLButtonElement>('.feedback-button')
+    .forEach((button) => {
+      const category = button.dataset.feedback as FeedbackCategory | undefined;
+      if (!category) {
+        return;
+      }
+      const original = button.textContent ?? '';
+      button.addEventListener('click', async () => {
+        button.disabled = true;
+        await sendMessage({
+          type: 'SUBMIT_USER_FEEDBACK',
+          feedback: { category }
+        });
+        button.textContent = '已记录';
+        setTimeout(() => {
+          button.disabled = false;
+          button.textContent = original;
+        }, 1600);
+      });
+    });
 }
 
 async function init() {

@@ -4,7 +4,8 @@ import type {
   LLMStatus,
   PlaybackStatus,
   SubtitleCue,
-  UserPreferences
+  UserPreferences,
+  FeedbackCategory
 } from './types';
 
 export type RuntimeMessage =
@@ -64,7 +65,36 @@ export type RuntimeMessage =
     }
   | {
       type: 'REQUEST_LLM_STATUS';
-    };
+    }
+  | {
+      type: 'REQUEST_PROMPT_VARIANTS';
+    }
+  | {
+      type: 'PROMPT_VARIANTS_RESPONSE';
+      activeId: string;
+      variants: Array<{
+        id: string;
+        label: string;
+        promptVersion: string;
+        description?: string;
+      }>;
+    }
+  | {
+      type: 'SET_PROMPT_VARIANT';
+      id: string;
+    }
+  | {
+      type: 'SUBMIT_USER_FEEDBACK';
+      feedback: {
+        category: FeedbackCategory;
+        note?: string | null;
+      };
+    }
+  | {
+      type: 'USER_FEEDBACK_RECORDED';
+      entryId: string;
+    }
+;
 
 export function sendMessage<T extends RuntimeMessage>(message: T): Promise<RuntimeMessage | undefined> {
   return new Promise((resolve) => {

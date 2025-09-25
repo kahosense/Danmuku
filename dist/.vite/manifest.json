@@ -5,22 +5,22 @@
     "src": "../../../@crx/manifest",
     "isEntry": true
   },
-  "_index.ts-loader-qyOoeE7p.js": {
-    "file": "assets/index.ts-loader-qyOoeE7p.js",
-    "src": "_index.ts-loader-qyOoeE7p.js"
+  "_index.ts-loader-C90tlnxY.js": {
+    "file": "assets/index.ts-loader-C90tlnxY.js",
+    "src": "_index.ts-loader-C90tlnxY.js"
   },
   "_messages-BoMeRyd0.js": {
     "file": "assets/messages-BoMeRyd0.js",
     "name": "messages"
   },
   "src/background/index.ts": {
-    "file": "assets/index.ts-CjWz162N.js",
+    "file": "assets/index.ts-8CRSmpEi.js",
     "name": "index.ts",
     "src": "src/background/index.ts",
     "isEntry": true
   },
   "src/content/index.ts": {
-    "file": "assets/index.ts-kMtZQN0K.js",
+    "file": "assets/index.ts-NWJomeyB.js",
     "name": "index.ts",
     "src": "src/content/index.ts",
     "isEntry": true,
@@ -29,7 +29,7 @@
     ]
   },
   "src/popup/index.html": {
-    "file": "assets/index.html-CuPOfJtk.js",
+    "file": "assets/index.html-D_5ueg3H.js",
     "name": "index.html",
     "src": "src/popup/index.html",
     "isEntry": true,
@@ -37,7 +37,7 @@
       "_messages-BoMeRyd0.js"
     ],
     "css": [
-      "assets/index-DdyqAXma.css"
+      "assets/index-DiDV82e1.css"
     ]
   }
 }

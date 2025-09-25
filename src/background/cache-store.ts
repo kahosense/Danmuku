@@ -7,6 +7,9 @@ interface CommentRecord extends GeneratedComment {
   personaId: string;
   cueId: string;
   promptHash?: string;
+  promptVersion?: string;
+  sceneTone?: string;
+  sceneEnergy?: string;
   size: number;
   lastAccessed: number;
 }
@@ -380,3 +383,5 @@ const defaultOpenDb =
     : openDB;
 
 export const cacheStore = new CacheStore({}, defaultOpenDb);
+
+export type { CommentRecord as CachedCommentRecord };

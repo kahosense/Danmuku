@@ -1,7 +1,15 @@
 import { orchestrator } from './orchestrator';
 import { cacheStore } from './cache-store';
 import { llmClient } from './llm-client';
-import { PERSONAS } from './personas';
+import {
+  getActivePersonaVariant,
+  getActivePersonas,
+  initializePersonaRegistry,
+  listPersonaVariants,
+  setActivePersonaVariant,
+  subscribePersonaVariant
+} from './personas';
+import { feedbackStore } from '../shared/feedback-store';
 import { logger } from '../shared/logger';
 import { preferenceStore, DEFAULT_PREFERENCES } from '../shared/settings';
 import type { RuntimeMessage } from '../shared/messages';
@@ -9,6 +17,10 @@ import type { LLMStatus, OrchestratorMetrics, UserPreferences } from '../shared/
 
 chrome.runtime.onInstalled.addListener(() => {
   logger.info('Netflix AI Danmaku extension installed.');
+});
+
+initializePersonaRegistry().catch((error) => {
+  logger.error('[background] Failed to initialize persona registry', error);
 });
 
 let cachedPreferences: UserPreferences | null = null;
@@ -106,6 +118,60 @@ chrome.runtime.onMessage.addListener((message: RuntimeMessage, sender, sendRespo
           llmStatusByTab.set(tabId, status);
         }
         sendResponse({ type: 'LLM_STATUS_UPDATE', status });
+        return;
+      }
+      case 'REQUEST_PROMPT_VARIANTS': {
+        const variants = listPersonaVariants().map((variant) => ({
+          id: variant.id,
+          label: variant.label,
+          promptVersion: variant.promptVersion,
+          description: variant.description
+        }));
+        const active = getActivePersonaVariant();
+        sendResponse({
+          type: 'PROMPT_VARIANTS_RESPONSE',
+          activeId: active.id,
+          variants
+        });
+        return;
+      }
+      case 'SET_PROMPT_VARIANT': {
+        if (typeof message.id === 'string') {
+          try {
+            await setActivePersonaVariant(message.id);
+          } catch (error) {
+            logger.warn('[background] Failed to set prompt variant', error);
+          }
+        }
+        const variants = listPersonaVariants().map((variant) => ({
+          id: variant.id,
+          label: variant.label,
+          promptVersion: variant.promptVersion,
+          description: variant.description
+        }));
+        const active = getActivePersonaVariant();
+        sendResponse({
+          type: 'PROMPT_VARIANTS_RESPONSE',
+          activeId: active.id,
+          variants
+        });
+        return;
+      }
+      case 'SUBMIT_USER_FEEDBACK': {
+        try {
+          const entry = await feedbackStore.record({
+            category: message.feedback.category,
+            note: message.feedback.note ?? null
+          });
+          logger.info('[background] Feedback captured', {
+            category: entry.category,
+            note: entry.note
+          });
+          sendResponse({ type: 'USER_FEEDBACK_RECORDED', entryId: entry.id });
+        } catch (error) {
+          logger.warn('[background] Failed to record feedback', error);
+          sendResponse({ type: 'USER_FEEDBACK_RECORDED', entryId: '' });
+        }
         return;
       }
       case 'REGENERATE_FROM_TIMESTAMP': {
@@ -215,7 +281,25 @@ if (LLM_ENDPOINT && LLM_API_KEY) {
 // Expose personas for popup via chrome.runtime API (optional)
 chrome.runtime.onConnect.addListener((port) => {
   if (port.name === 'persona-stream') {
-    port.postMessage({ personas: PERSONAS });
+    const pushVariant = () => {
+      const variant = getActivePersonaVariant();
+      const personas = getActivePersonas();
+      port.postMessage({ personas, variantId: variant.id, promptVersion: variant.promptVersion });
+    };
+
+    const unsubscribe = subscribePersonaVariant(() => {
+      try {
+        pushVariant();
+      } catch (error) {
+        logger.warn('[background] Failed to push persona variant update', error);
+      }
+    });
+
+    pushVariant();
+
+    port.onDisconnect.addListener(() => {
+      unsubscribe();
+    });
   }
 });
 

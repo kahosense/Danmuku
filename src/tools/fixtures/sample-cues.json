@@ -1,0 +1,35 @@
+[
+  [
+    {
+      "contentId": "demo-episode",
+      "cueId": "cue-001",
+      "text": "HERO: We need to move now!",
+      "startTime": 12000,
+      "endTime": 14000,
+      "duration": 2000,
+      "source": "offline"
+    }
+  ],
+  [
+    {
+      "contentId": "demo-episode",
+      "cueId": "cue-002",
+      "text": "SIDEKICK: Are you sure this is a good idea?",
+      "startTime": 18000,
+      "endTime": 21000,
+      "duration": 3000,
+      "source": "offline"
+    }
+  ],
+  [
+    {
+      "contentId": "demo-episode",
+      "cueId": "cue-003",
+      "text": "MONTAGE: Flashbacks of training sequences.",
+      "startTime": 24000,
+      "endTime": 27000,
+      "duration": 3000,
+      "source": "offline"
+    }
+  ]
+]

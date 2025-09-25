@@ -99,7 +99,17 @@ export class DanmakuRenderer {
   }
 
   #renderComment(comment: GeneratedComment) {
-    const lane = this.#nextAvailableLane();
+    const slot = this.#nextAvailableLane();
+    if (slot.waitMs > 0) {
+      window.setTimeout(() => {
+        if (this.#enabled) {
+          this.#renderComment(comment);
+        }
+      }, slot.waitMs);
+      return;
+    }
+
+    const lane = slot.lane;
     const bubble = document.createElement('div');
     bubble.className = `danmaku-comment persona-${comment.personaId}`;
     bubble.textContent = comment.text;
@@ -139,19 +149,23 @@ export class DanmakuRenderer {
     });
   }
 
-  #nextAvailableLane() {
+  #nextAvailableLane(): { lane: LaneState; waitMs: number } {
     const now = Date.now();
     let candidate = this.#lanes[0];
+    let waitMs = Math.max(0, candidate.busyUntil - now);
     for (const lane of this.#lanes) {
-      if (lane.busyUntil <= now) {
+      const laneWait = Math.max(0, lane.busyUntil - now);
+      if (laneWait === 0) {
         candidate = lane;
+        waitMs = 0;
         break;
       }
-      if (lane.busyUntil < candidate.busyUntil) {
+      if (laneWait < waitMs) {
         candidate = lane;
+        waitMs = laneWait;
       }
     }
-    return candidate;
+    return { lane: candidate, waitMs };
   }
 
   #calculateDuration(distance: number, textLength: number, fallbackMs: number) {

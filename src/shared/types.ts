@@ -10,6 +10,16 @@ export interface SubtitleCue {
 
 export type DensitySetting = 'low' | 'medium' | 'high';
 
+export type FeedbackCategory = 'too_noisy' | 'too_robotic' | 'great' | 'other';
+
+export interface FeedbackEntry {
+  id: string;
+  category: FeedbackCategory;
+  note: string | null;
+  createdAt: number;
+}
+
+
 export interface PersonaToggleState {
   [personaId: string]: boolean;
 }
@@ -53,12 +63,14 @@ export interface OrchestratorMetrics {
   llmCalls: number;
   averageLLMLatencyMs: number;
   averageGenerationLatencyMs: number;
+  candidatesGenerated: number;
   skippedByThrottle: number;
   skippedByHeuristics: number;
   skippedByLock: number;
   duplicatesFiltered: number;
   sanitizedDrops: number;
   fallbackResponses: number;
+  prunedByReranker: number;
   cacheSizeGlobalBytes: number;
   cacheSizeActiveBytes: number;
   activeContentId: string | null;
