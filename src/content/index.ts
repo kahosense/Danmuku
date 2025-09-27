@@ -107,6 +107,10 @@ chrome.runtime.onMessage.addListener((message: RuntimeMessage, _sender, sendResp
   if (message.type === 'METRICS_UPDATE') {
     const totalRequests = message.metrics.cacheHits + message.metrics.cacheMisses;
     const cacheHitRate = totalRequests > 0 ? message.metrics.cacheHits / totalRequests : 0;
+    const dynamicBans = message.metrics.dynamicBanTermsApplied ?? 0;
+    const keywordEvaluations = message.metrics.keywordEvaluations ?? 0;
+    const filteredDrops = message.metrics.filteredKeywordDrops ?? 0;
+    const keywordFilterRate = keywordEvaluations > 0 ? filteredDrops / keywordEvaluations : 0;
     updateDeveloperHUD({
       cacheHitRate,
       avgLLMLatencyMs: message.metrics.averageLLMLatencyMs,
@@ -114,7 +118,15 @@ chrome.runtime.onMessage.addListener((message: RuntimeMessage, _sender, sendResp
       cacheSizeActiveMb: message.metrics.cacheSizeActiveBytes / (1024 * 1024),
       cacheSizeGlobalMb: message.metrics.cacheSizeGlobalBytes / (1024 * 1024),
       fallbackResponses: message.metrics.fallbackResponses,
-      windowCommentTotal: message.metrics.windowCommentTotal ?? 0
+      windowCommentTotal: message.metrics.windowCommentTotal ?? 0,
+      dynamicBans,
+      toneWarnings: message.metrics.toneRepetitionWarnings ?? 0,
+      hotwordReminders: message.metrics.personaHotwordReminders ?? 0,
+      keywordFilterRate,
+      duplicateHardRejects: message.metrics.duplicateHardRejects ?? 0,
+      semanticRejects: message.metrics.semanticRejects ?? 0,
+      lowRelevanceDrops: message.metrics.lowRelevanceDrops ?? 0,
+      styleFitDrops: message.metrics.styleFitDrops ?? 0
     });
     if (currentPreferences?.developerMode) {
       console.debug('[content] Metrics update', message.metrics);

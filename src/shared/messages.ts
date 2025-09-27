@@ -96,6 +96,31 @@ export type RuntimeMessage =
     }
 ;
 
+export function formatGuidelineList(lines: readonly string[]): string {
+  return lines
+    .map((line) => line?.trim())
+    .filter((line): line is string => Boolean(line))
+    .map((line, index) => `${index + 1}. ${line}`)
+    .join('\n');
+}
+
+export function formatSubtitleWindow(cues: readonly SubtitleCue[]): string {
+  return cues
+    .map((cue) => {
+      const normalized = cue.text?.trim();
+      if (!normalized) {
+        return null;
+      }
+      const ms = cue.startTime > 1000 ? cue.startTime : cue.startTime * 1000;
+      const timestampSeconds = Math.max(0, Math.floor(ms / 1000));
+      const minutes = String(Math.floor(timestampSeconds / 60)).padStart(2, '0');
+      const seconds = String(timestampSeconds % 60).padStart(2, '0');
+      return `[${minutes}:${seconds}] ${normalized}`;
+    })
+    .filter((line): line is string => Boolean(line))
+    .join('\n');
+}
+
 export function sendMessage<T extends RuntimeMessage>(message: T): Promise<RuntimeMessage | undefined> {
   return new Promise((resolve) => {
     chrome.runtime.sendMessage(message, (response) => {

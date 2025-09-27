@@ -12,6 +12,14 @@ interface DeveloperStats {
   segmentsGenerated: number;
   truncatedComments: number;
   avgCommentLength: number;
+  dynamicBans: number;
+  toneWarnings: number;
+  hotwordReminders: number;
+  keywordFilterRate: number;
+  duplicateHardRejects: number;
+  semanticRejects: number;
+  lowRelevanceDrops: number;
+  styleFitDrops: number;
 }
 
 export class DeveloperHUD {
@@ -29,7 +37,15 @@ export class DeveloperHUD {
     activeLanes: 0,
     segmentsGenerated: 0,
     truncatedComments: 0,
-    avgCommentLength: 0
+    avgCommentLength: 0,
+    dynamicBans: 0,
+    toneWarnings: 0,
+    hotwordReminders: 0,
+    keywordFilterRate: 0,
+    duplicateHardRejects: 0,
+    semanticRejects: 0,
+    lowRelevanceDrops: 0,
+    styleFitDrops: 0
   };
 
   constructor() {
@@ -79,6 +95,30 @@ export class DeveloperHUD {
     if (partial.avgCommentLength !== undefined) {
       this.#stats.avgCommentLength = partial.avgCommentLength;
     }
+    if (partial.dynamicBans !== undefined) {
+      this.#stats.dynamicBans = partial.dynamicBans;
+    }
+    if (partial.toneWarnings !== undefined) {
+      this.#stats.toneWarnings = partial.toneWarnings;
+    }
+    if (partial.hotwordReminders !== undefined) {
+      this.#stats.hotwordReminders = partial.hotwordReminders;
+    }
+    if (partial.keywordFilterRate !== undefined) {
+      this.#stats.keywordFilterRate = partial.keywordFilterRate;
+    }
+    if (partial.duplicateHardRejects !== undefined) {
+      this.#stats.duplicateHardRejects = partial.duplicateHardRejects;
+    }
+    if (partial.semanticRejects !== undefined) {
+      this.#stats.semanticRejects = partial.semanticRejects;
+    }
+    if (partial.lowRelevanceDrops !== undefined) {
+      this.#stats.lowRelevanceDrops = partial.lowRelevanceDrops;
+    }
+    if (partial.styleFitDrops !== undefined) {
+      this.#stats.styleFitDrops = partial.styleFitDrops;
+    }
     this.#container.innerHTML = this.#renderHTML();
   }
 
@@ -93,6 +133,7 @@ export class DeveloperHUD {
     const cacheActive = this.#stats.cacheSizeActiveMb.toFixed(2);
     const cacheGlobal = this.#stats.cacheSizeGlobalMb.toFixed(2);
     const avgLen = this.#stats.avgCommentLength.toFixed(1);
+    const keywordRatePercent = (this.#stats.keywordFilterRate * 100).toFixed(1);
     return `
       <div><strong>Dev HUD</strong></div>
       <div>字幕批次: ${this.#stats.cues}</div>
@@ -106,6 +147,14 @@ export class DeveloperHUD {
       <div>活跃车道: ${this.#stats.activeLanes}</div>
       <div>分段数: ${this.#stats.segmentsGenerated} 截断: ${this.#stats.truncatedComments}</div>
       <div>平均长度: ${avgLen}</div>
+      <div>禁词触发: ${this.#stats.dynamicBans}</div>
+      <div>Tone 警示: ${this.#stats.toneWarnings}</div>
+      <div>热词提醒: ${this.#stats.hotwordReminders}</div>
+      <div>关键词过滤率: ${keywordRatePercent}%</div>
+      <div>硬去重拒绝: ${this.#stats.duplicateHardRejects}</div>
+      <div>语义拒绝: ${this.#stats.semanticRejects}</div>
+      <div>低关联拒绝: ${this.#stats.lowRelevanceDrops}</div>
+      <div>风格拒绝: ${this.#stats.styleFitDrops}</div>
     `;
   }
 }

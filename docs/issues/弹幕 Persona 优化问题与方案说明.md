@@ -75,6 +75,11 @@ Few-shot 扩展：为每个 sub-persona 增加 2–3 个例子，体现语言差
 
 候选池 + Reranker：利用 reranker 挑选多样性更高的弹幕，避免同质化。
 
+更新记录（2025-02）
+- 已在 `src/shared/persona/roster.seed.json` 中落地默认虚拟观众池，并通过 `src/shared/persona/roster.ts` 动态加载，便于后续追加或调权。
+- `src/background/orchestrator.ts` 在构建提示词时自动注入 `virtualUser` 元数据（traits、toneVariant、speechTics）并串联三条内存线索，确保同一虚拟观众的发言具有延续性。
+- 记忆相关事件会在开发者模式下输出 `[orchestrator] memory:*` 日志，方便排查权重、记忆淘汰等行为。
+
 总结
 
 仅靠扩展 persona 数量无法解决“机械感”。

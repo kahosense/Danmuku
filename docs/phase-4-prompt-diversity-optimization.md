@@ -23,25 +23,25 @@
 
 ## 2. 任务拆解（建议 3 周封装，按模块推进）
 
-### Week 1 — SceneTone 与 Prompt 基础改造
-- **任务 1.1：细化 SceneTone 判定**
+### Week 1 — SceneTone 与 Prompt 基础改造 ☑
+- **任务 1.1：细化 SceneTone 判定** ✅
   - 扩充 tone 枚举（例如 `thrilling`、`bittersweet`、`mystery` 等），引入情绪词典或轻量模型降低误判。
   - 产出结构新增 `intensity`/`confidence` 字段，为后续 prompt 调整提供参考。
-- **任务 1.2：Tone 使用方式调整**
+- **任务 1.2：Tone 使用方式调整** ✅
   - 将 `Scene tone: tense` 替换为轮换模板，并按 `intensity` 加入“探索其他细节”的提示。
   - 如果连续多次 tone 相同，在提示中加入醒目指令：“避免重复刚才的措辞，描述其他细节/角度”。
-- **任务 1.3：动态关键词过滤**
+- **任务 1.3：动态关键词过滤** ✅
   - 在 prompt 构建时维护“近期高频词”集合，将其从 `Notable keywords` 中剔除或改写为同义词。
   - 给系统消息追加 `Never reuse: {给定禁词列表}` 字段。
 
-### Week 2 — Reranker、记忆与缓存
-- **任务 2.1：重复度打分增强**
+### Week 2 — Reranker、记忆与缓存 ☑
+- **任务 2.1：重复度打分增强** ✅
   - 对候选文本提取 n-gram，与 persona/global 记忆比对，计算 `phrasePenaltyScore`；得分过高直接丢弃或大幅减分。
   - 增大 `keywordNoveltyScore` 权重，使重复话题难以突围。
-- **任务 2.2：记忆层禁词管理**
+- **任务 2.2：记忆层禁词管理** ✅
   - `#rememberOutput` 增加高频名词/形容词统计，超阈值时写入 persona 的 `disallowedPhrases`。
   - 在 prompt 末尾附带“上次用了这些词：...，请换说法”。
-- **任务 2.3：缓存策略更新**
+- **任务 2.3：缓存策略更新** ✅
   - 缓存记录存储 `keywordHash`，回放时若场景关键词差异较大则避免复用；若差异小但禁词触发，触发“rewrite”流程。
 
 ### Week 3 — 虚拟子人格与监控
@@ -55,6 +55,8 @@
   - Dev HUD 新增“重复词命中率”“禁词触发次数”“重写次数”等指标。
   - 日志打点重复事件，方便运营/产品定位问题场景。
 
+> 当前（Week 3）进展：已为高重复 persona 扩展专属禁词与 few-shot，并在 Dev HUD 中展示“禁词触发”“Tone 警示”“关键词过滤率”等实时指标；下一步将评估多候选 Rewrite 策略与日志打点精度。
+
 ---
 
 ## 3. 成功验收标准
@@ -62,6 +64,8 @@
 - 人工评审对“语言多样性”指标评分较 Phase 3 基线提升 ≥ 30%。
 - Dev HUD 观察到 `phrasePenalty`、`rewrite` 指标均在可控范围，且不会激增 fallback 调用。
 - 所有自动化测试（unit + replay）通过，新增重复度测试用例覆盖率 ≥ 80%。
+
+> 进展（2025-W40）：Phase 4 三段真实场景 trigram 重复率已降至 **49.88%**（Phase 3 基线 78.51% → 降低 28.63 个百分点），后续将通过 persona 专属禁词与 Dev HUD 指标继续逼近 50% 下降目标。
 
 ---
 
@@ -74,6 +78,8 @@
 
 ## 5. 启动前准备
 - 汇总 Phase 3 数据：重复率、top 重复词列表，作为对照基线。
+  - 2025-W39 基线：trigram 重复率 78.51%，最高频片段为 `i have a`、`yes please uh`、`deep down inside` 等（见 `docs/review/reports/2025-W39.md`）。
+  - 2025-W40 阶段性成效：Phase 4 实测 trigram 重复率 49.88%，重复短语集中在 hype/感性 persona 的开场语（详见 `docs/review/reports/2025-W40.md`）。
 - 确定可用预算：是否允许多一次 LLM 请求（rewrite/A-B）？若否，先做 prompt + reranker 优化。
 - 调整 QA 用例：设计“连续 tense 场景”脚本，作为 Phase 4 回归测试。
 

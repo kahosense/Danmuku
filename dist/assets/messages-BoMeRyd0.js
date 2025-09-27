@@ -1,1 +1,0 @@
-function n(r){return new Promise(e=>{chrome.runtime.sendMessage(r,s=>{if(chrome.runtime.lastError){console.warn("[shared/messages] sendMessage error",chrome.runtime.lastError.message),e(void 0);return}e(s)})})}export{n as s};

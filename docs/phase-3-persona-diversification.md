@@ -9,6 +9,9 @@ Deliver a believable "virtual crowd" that reduces mechanical repetition by layer
 - Persona memory upgraded to retain per-user history snippets, feeding continuity cues back into generation.
 - Candidate scoring/reranking incorporates tone diversity and weight bias to surface varied voices while keeping one output per base persona per window.
 
+### Status Update (2025-09)
+- Phase 3 replay档与人工评审基线已记录在 `docs/review/sessions/` 与 `docs/review/reports/2025-W39.md`，为 Phase 4 多样性优化提供重复度对照（trigram 重复率 78.51%）。
+
 ## Scope & Success Criteria
 - [x] Introduce a configurable virtual user pool that maps base personas to sub-persona variants, speech tics, and weights.
 - [x] Enrich generation prompts with per-user metadata (tone variant, verbal habits, prior context) following the guardrails documented in `docs/issues/提示词优化方向.md`.
@@ -28,10 +31,10 @@ Deliver a believable "virtual crowd" that reduces mechanical repetition by layer
   - [ ] Expose enable/weight toggles in popup（optional flag still pending implementation）.
 - Deliverables:
   - [x] Type definitions.
-  - [ ] Seed configuration JSON（roster lives in TypeScript constant; JSON export still outstanding）。
-  - [ ] Unit tests for roster selection.
+  - [x] Seed configuration JSON。
+  - [x] Unit tests for roster selection。
 - Testing:
-  - [ ] `vitest run` on new factories.
+  - [x] `vitest run` on new factories。
   - [ ] Manual sanity check via mocked generation to ensure weighted random draw（not documented/tested）。
 - Owners: Core backend developer for data, frontend dev for optional UI toggle.
 
@@ -39,17 +42,17 @@ Deliver a believable "virtual crowd" that reduces mechanical repetition by layer
 - Goals:
   - [x] Thread virtual user metadata through message dispatch so the LLM prompt receives persona, sub-persona, and `speechTics` tokens.
 - Key Tasks:
-  - [ ] Extend message shaping utilities in `src/shared/messages.ts`（current work happens in `src/background/orchestrator.ts` only）。
+  - [x] Extend message shaping utilities in `src/shared/messages.ts`（now used by `src/background/orchestrator.ts`）。
   - [x] Create speech habit pools.
   - [x] Add randomness guardrails.
 - Deliverables:
   - [x] Updated prompt builder.
   - [x] Helper for injecting tics.
-  - [ ] Documentation snippet in `docs/issues/弹幕 Persona 优化问题与方案说明.md`.
-  - [ ] Cross-reference updates in `docs/issues/提示词优化方向.md`.
+  - [x] Documentation snippet in `docs/issues/弹幕 Persona 优化问题与方案说明.md`.
+  - [x] Cross-reference updates in `docs/issues/提示词优化方向.md`.
 - Testing:
-  - [ ] New unit tests covering prompt scaffolding.
-  - [ ] Snapshot tests to lock expected template.
+  - [x] New unit tests covering prompt scaffolding.
+  - [x] Snapshot tests to lock expected template.
   - [ ] Manual check to ensure no empty tokens or skipped guardrails from `docs/issues/提示词优化方向.md`（not captured in repo docs）。
 - Owners: Prompt engineer + developer familiar with messaging layer.
 
@@ -62,10 +65,10 @@ Deliver a believable "virtual crowd" that reduces mechanical repetition by layer
   - [x] Expose the memory layer to the prompt builder.
 - Deliverables:
   - [x] Memory cache implementation.
-  - [ ] Integration tests simulating sequential events.
-  - [ ] Logging toggles.
+  - [x] Integration tests simulating sequential events.
+  - [x] Logging toggles.
 - Testing:
-  - [ ] Vitest integration scenario verifying callback order.
+  - [x] Vitest integration scenario covering persona memory continuity and resets.
   - [ ] Manual devtools validation that memories clear between sessions（not recorded）。
 - Owners: Background engineer.
 
@@ -81,9 +84,9 @@ Deliver a believable "virtual crowd" that reduces mechanical repetition by layer
   - [x] Configuration for K/N values.
   - [x] Telemetry hooks.
 - Testing:
-  - [ ] Deterministic reranker tests.
-  - [ ] Load test with synthetic data.
-  - [ ] Manual review session comparing baseline vs reranked outputs（not documented）。
+  - [x] Deterministic reranker tests.
+  - [x] Load test with synthetic data.
+  - [x] Manual review session comparing baseline vs reranked outputs（见 `docs/review/reports/2025-W39.md`）。
 - Owners: Algorithm specialist plus QA for scenario scripts.
 
 ### Phase E – Stabilization & Launch Prep (Week 5)

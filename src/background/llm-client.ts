@@ -12,6 +12,7 @@ export interface LLMRequestOptions {
   maxTokens?: number;
   temperature?: number;
   topP?: number;
+  presencePenalty?: number;
   timeoutMs?: number;
   maxRetries?: number;
   signal?: AbortSignal;
@@ -80,7 +81,8 @@ export class LLMClient {
               messages: options.messages,
               max_tokens: options.maxTokens ?? 80,
               temperature: options.temperature ?? 0.8,
-              top_p: options.topP ?? 0.9
+              top_p: options.topP ?? 0.9,
+              presence_penalty: options.presencePenalty ?? 0.5
             }),
             signal: controller.signal
           });

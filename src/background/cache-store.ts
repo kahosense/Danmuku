@@ -9,6 +9,8 @@ interface CommentRecord extends GeneratedComment {
   promptHash?: string;
   promptVersion?: string;
   sceneTone?: string;
+  sceneToneIntensity?: string;
+  sceneToneConfidence?: number;
   sceneEnergy?: string;
   size: number;
   lastAccessed: number;

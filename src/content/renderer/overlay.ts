@@ -1,4 +1,5 @@
 import type { GeneratedComment } from '../../shared/types';
+import { getRealtimePlaybackPositionMs, getLatestPlaybackPositionMs } from '../playback-observer';
 import styles from './styles.css?inline';
 
 interface LaneState {
@@ -10,9 +11,7 @@ const LANE_COUNT = 4;
 const BASE_DURATION_MS = 6000;
 const COMMENT_PADDING = 32;
 const LANE_GAP_MS = 350;
-const LONG_TEXT_THRESHOLD = 60;
-const MAX_SEGMENTS = 3;
-const SEGMENT_DELAY_MS = 350;
+const LONG_TEXT_THRESHOLD = 90;
 const SPEED_FAST = 190; // px per second
 const SPEED_MEDIUM = 150;
 const SPEED_SLOW = 115;
@@ -26,6 +25,9 @@ export class DanmakuRenderer {
   #renderedIds = new Set<string>();
   #batchSegments = 0;
   #batchTruncated = 0;
+  #laneLocks = new Map<string, LaneState>();
+  #segmentsRemaining = new Map<string, number>();
+  #scheduledTimers = new Map<string, number>();
 
   constructor(private host: HTMLElement) {
     this.#root = host.attachShadow({ mode: 'open' });
@@ -53,6 +55,10 @@ export class DanmakuRenderer {
   }
 
   clear() {
+    this.#scheduledTimers.forEach((timerId) => {
+      window.clearTimeout(timerId);
+    });
+    this.#scheduledTimers.clear();
     this.#lanes.forEach((lane) => {
       lane.element.innerHTML = '';
       lane.busyUntil = 0;
@@ -68,48 +74,87 @@ export class DanmakuRenderer {
     this.#batchSegments = 0;
     this.#batchTruncated = 0;
 
-    for (const comment of comments) {
+    const scheduled = [...comments].sort((a, b) => a.renderAt - b.renderAt);
+
+    for (const comment of scheduled) {
       if (this.#renderedIds.has(comment.id)) {
         continue;
       }
       const segments = this.#splitLongComment(comment);
+      const baseId = comment.id;
+      this.#segmentsRemaining.set(baseId, segments.length);
       this.#batchSegments += segments.length;
-      if (segments.length > 1) {
-        this.#batchTruncated += segments.length - 1;
+      if (comment.text.trim().length > LONG_TEXT_THRESHOLD) {
+        this.#batchTruncated += 1;
       }
-      segments.forEach((segment, index) => {
+      segments.forEach((segment) => {
         if (this.#renderedIds.has(segment.id)) {
           return;
         }
         this.#renderedIds.add(segment.id);
-        const delay = index * SEGMENT_DELAY_MS;
-        if (delay > 0) {
-          window.setTimeout(() => {
-            if (this.#enabled) {
-              this.#renderComment(segment);
-            }
-          }, delay);
-        } else {
-          this.#renderComment(segment);
-        }
+        this.#scheduleCommentRender(segment, baseId);
       });
     }
 
     this.#emitMetrics();
   }
 
-  #renderComment(comment: GeneratedComment) {
-    const slot = this.#nextAvailableLane();
+  #scheduleCommentRender(comment: GeneratedComment, baseId?: string) {
+    if (!this.#enabled) {
+      return;
+    }
+
+    const realtimePosition = getRealtimePlaybackPositionMs();
+    const fallbackPosition = getLatestPlaybackPositionMs();
+    const playbackPosition = realtimePosition > 0 ? realtimePosition : fallbackPosition;
+    const waitMs = Math.max(0, comment.renderAt - playbackPosition);
+
+    if (waitMs > 0) {
+      const existing = this.#scheduledTimers.get(comment.id);
+      if (existing !== undefined) {
+        window.clearTimeout(existing);
+      }
+      const timerId = window.setTimeout(() => {
+        this.#scheduledTimers.delete(comment.id);
+        if (!this.#enabled) {
+          return;
+        }
+        this.#renderComment(comment, baseId);
+      }, waitMs);
+      this.#scheduledTimers.set(comment.id, timerId);
+      return;
+    }
+
+    this.#renderComment(comment, baseId);
+  }
+
+  #renderComment(comment: GeneratedComment, baseId?: string) {
+    const timerId = this.#scheduledTimers.get(comment.id);
+    if (timerId !== undefined) {
+      window.clearTimeout(timerId);
+      this.#scheduledTimers.delete(comment.id);
+    }
+
+    const parentId = baseId ?? this.#extractBaseId(comment.id);
+    const slot = this.#nextAvailableLane(parentId);
     if (slot.waitMs > 0) {
       window.setTimeout(() => {
         if (this.#enabled) {
-          this.#renderComment(comment);
+          this.#renderComment(comment, parentId);
         }
       }, slot.waitMs);
       return;
     }
 
     const lane = slot.lane;
+    const now = Date.now();
+    const estimatedDuration = Number.isFinite(comment.durationMs)
+      ? Math.max(comment.durationMs, BASE_DURATION_MS)
+      : BASE_DURATION_MS;
+    const prelockUntil = now + estimatedDuration + LANE_GAP_MS;
+    if (lane.busyUntil < prelockUntil) {
+      lane.busyUntil = prelockUntil;
+    }
     const bubble = document.createElement('div');
     bubble.className = `danmaku-comment persona-${comment.personaId}`;
     bubble.textContent = comment.text;
@@ -134,7 +179,7 @@ export class DanmakuRenderer {
       });
 
       const releaseAt = Date.now() + duration;
-      lane.busyUntil = releaseAt + LANE_GAP_MS;
+      lane.busyUntil = Math.max(lane.busyUntil, releaseAt + LANE_GAP_MS);
       const busyMarker = lane.busyUntil;
 
       animation.finished
@@ -145,12 +190,28 @@ export class DanmakuRenderer {
             lane.busyUntil = Date.now();
           }
           this.#renderedIds.delete(comment.id);
+          if (parentId) {
+            const remaining = (this.#segmentsRemaining.get(parentId) ?? 1) - 1;
+            if (remaining <= 0) {
+              this.#segmentsRemaining.delete(parentId);
+              this.#laneLocks.delete(parentId);
+            } else {
+              this.#segmentsRemaining.set(parentId, remaining);
+            }
+          }
         });
     });
   }
 
-  #nextAvailableLane(): { lane: LaneState; waitMs: number } {
+  #nextAvailableLane(baseId?: string): { lane: LaneState; waitMs: number } {
     const now = Date.now();
+    if (baseId) {
+      const locked = this.#laneLocks.get(baseId);
+      if (locked) {
+        return { lane: locked, waitMs: Math.max(0, locked.busyUntil - now) };
+      }
+    }
+
     let candidate = this.#lanes[0];
     let waitMs = Math.max(0, candidate.busyUntil - now);
     for (const lane of this.#lanes) {
@@ -164,6 +225,9 @@ export class DanmakuRenderer {
         candidate = lane;
         waitMs = laneWait;
       }
+    }
+    if (baseId) {
+      this.#laneLocks.set(baseId, candidate);
     }
     return { lane: candidate, waitMs };
   }
@@ -181,46 +245,23 @@ export class DanmakuRenderer {
   }
 
   #splitLongComment(comment: GeneratedComment) {
-    if (comment.text.length <= LONG_TEXT_THRESHOLD) {
-      return [comment];
+    const trimmed = comment.text.trim();
+    if (trimmed.length <= LONG_TEXT_THRESHOLD) {
+      return [{ ...comment, text: trimmed }];
     }
 
-    const segments: string[] = [];
-    const sentences = comment.text
-      .split(/(?<=[.!?])\s+/)
-      .map((part) => part.trim())
-      .filter(Boolean);
-
-    for (const sentence of sentences) {
-      if (sentence.length <= LONG_TEXT_THRESHOLD) {
-        segments.push(sentence);
-        continue;
+    const truncated = trimmed.slice(0, LONG_TEXT_THRESHOLD - 1).trimEnd();
+    return [
+      {
+        ...comment,
+        text: `${truncated}…`
       }
-      const words = sentence.split(/\s+/);
-      let buffer: string[] = [];
-      for (const word of words) {
-        if ([...buffer, word].join(' ').length > LONG_TEXT_THRESHOLD) {
-          segments.push(buffer.join(' '));
-          buffer = [word];
-        } else {
-          buffer.push(word);
-        }
-      }
-      if (buffer.length) {
-        segments.push(buffer.join(' '));
-      }
-    }
+    ];
+  }
 
-    const limited = segments.slice(0, MAX_SEGMENTS);
-    if (limited.length === 0) {
-      return [comment];
-    }
-
-    return limited.map((segment, index) => ({
-      ...comment,
-      id: `${comment.id}::${index}`,
-      text: segment.trim()
-    }));
+  #extractBaseId(id: string) {
+    const separatorIndex = id.indexOf('::');
+    return separatorIndex === -1 ? id : id.slice(0, separatorIndex);
   }
 
   #emitMetrics() {

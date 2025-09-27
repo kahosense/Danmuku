@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2025-09-26T02:33:42.820Z",
+  "input": "docs/review/sessions/2025-Phase3-review-Fforfamily.json",
+  "transcript": [
+    {
+      "cueIds": [
+        "unknown-459897-462897-tm5vf0"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_supportive",
+          "text": "my heart sam_supportive: deep down inside,you still want his approval. deep down inside, you still want h",
+          "renderAtMs": 460735.7999999998
+        },
+        {
+          "personaId": "jordan_formalist",
+          "text": "composition-wise jordan_formalist: deep down inside,you still want his approval. deep down inside, you still want h...",
+          "renderAtMs": 460996.7999999998
+        },
+        {
+          "personaId": "alex_hypecast",
+          "text": "alex_hypecast: deep down inside,you still want his approval. deep down inside, you still want h.",
+          "renderAtMs": 461246.7999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 12,
+        "prunedByReranker": 9
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-468925-471925-4butra"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_fangirl",
+          "text": "sam_fangirl: If you keep waitingfor your father to apologize, If you keep waiting for your fa...",
+          "renderAtMs": 469785.0999999996
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 5,
+        "prunedByReranker": 4
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-468925-471925-4butra"
+      ],
+      "comments": [
+        {
+          "personaId": "jordan_skeptic",
+          "text": "jordan_skeptic: If you keep waitingfor your father to apologize, If you keep waiting for your fa",
+          "renderAtMs": 469901.0999999996
+        },
+        {
+          "personaId": "casey_theatrical",
+          "text": "casey_theatrical: If you keep waitingfor your father to apologize, If you keep waiting for your fa",
+          "renderAtMs": 470194.0999999996
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 7,
+        "prunedByReranker": 5
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-477954-480954-ilyowu"
+      ],
+      "comments": [
+        {
+          "personaId": "jordan_structuralist",
+          "text": "jordan_structuralist: Can't I have a Saturdayon this long march to the grave Can't I have a Saturday o, narratively.",
+          "renderAtMs": 478811.7999999998
+        },
+        {
+          "personaId": "sam_grounded",
+          "text": "sam_grounded: Can't I have a Saturdayon this long march to the grave Can't I have a Saturday o, my heart",
+          "renderAtMs": 479373.7999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 4,
+        "prunedByReranker": 2
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-477954-480954-ilyowu"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_memer",
+          "text": "alex_memer: Can't I have a Saturdayon this long march to the grave Can't I have a Saturday o...",
+          "renderAtMs": 478851.7999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 4,
+        "prunedByReranker": 3
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-486974-489974-4wexz4",
+        "unknown-487146-490146-jmfqtu"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_deadpan",
+          "text": "casey_deadpan: This is why women live longer than men! This is why women live longer than men!",
+          "renderAtMs": 487726.5
+        },
+        {
+          "personaId": "alex_watchparty",
+          "text": "alex_watchparty: This is why women live longer than men! This is why women live longer than men!",
+          "renderAtMs": 487784.5
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 3,
+        "prunedByReranker": 1
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-496990-499990-dve8vo"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_quipper",
+          "text": "casey_quipper: Just tell that fucking VivianI said hello! You look great, honey! Just tell that!",
+          "renderAtMs": 497511.2999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    }
+  ]
+}

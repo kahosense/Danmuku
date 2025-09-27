@@ -1,0 +1,1357 @@
+{
+  "generatedAt": "2025-09-26T07:46:16.022Z",
+  "transcript": [
+    {
+      "cueIds": [
+        "manual-0"
+      ],
+      "comments": [
+        {
+          "id": "unknown-24042-27042-g8wmqu::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "structurally The repetition drives home the chaos, really amplifying the stakes for everyone involved.",
+          "createdAt": 1758872625971,
+          "renderAt": 24953.60000000056,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-24042-27042-g8wmqu::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Did anyone else catch how frantic the background crowd looks? Total chaos vibes!",
+          "createdAt": 1758872627731,
+          "renderAt": 25236.60000000056,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-1"
+      ],
+      "comments": [
+        {
+          "id": "unknown-25049-28049-93qqcg::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Dang, the chaos is real—totally gives me those classic news frenzy vibes!",
+          "createdAt": 1758872627047,
+          "renderAt": 25629.60000000056,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-25049-28049-93qqcg::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That frantic repetition amplifies the chaos, visually mirroring the emotional stakes crashing down around them., composition-wise.",
+          "createdAt": 1758872628626,
+          "renderAt": 25934.60000000056,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-2"
+      ],
+      "comments": [
+        {
+          "id": "unknown-26050-29050-93qqcg::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Honestly, if Mr. ****** doesn’t move, I’m bringing a glitter cannon for effect!",
+          "createdAt": 1758872627159,
+          "renderAt": 26668.800000000745,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-26050-29050-93qqcg::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "structurally The repetition amplifies urgency but risks feeling melodramatic—needs a shift to keep it fresh.",
+          "createdAt": 1758872628933,
+          "renderAt": 26782.800000000745,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-3"
+      ],
+      "comments": [
+        {
+          "id": "unknown-28052-31052-ujrhno::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Excuse me, but nothing says ‘family drama’ like a media swarm and a cape in the mix!",
+          "createdAt": 1758872629163,
+          "renderAt": 28750.700000000186,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-4"
+      ],
+      "comments": [
+        {
+          "id": "unknown-19028-22028-pml3f0::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "aww I love how her determined stance stands out in the chaos—total boss energy!",
+          "createdAt": 1758872625728,
+          "renderAt": 20099.200000000186,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-19028-22028-pml3f0::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Looks like a game of human Jenga, but nobody's winning., wild...",
+          "createdAt": 1758872627463,
+          "renderAt": 20444.200000000186,
+          "durationMs": 5420
+        },
+        {
+          "id": "unknown-19028-22028-pml3f0::alex_memer",
+          "personaId": "alex_memer",
+          "text": "let's go Can you believe how chaotic that reporter scrum is? Total throwback to those classic news chases!",
+          "createdAt": 1758872629631,
+          "renderAt": 20363.200000000186,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-5"
+      ],
+      "comments": [
+        {
+          "id": "unknown-23041-26041-g8wmqu::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "The repetition in the subtitles feels heavy-handed—could've been more impactful with a lighter touch., narratively.",
+          "createdAt": 1758872629653,
+          "renderAt": 23971.900000000373,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-23041-26041-g8wmqu::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "dang the tension? Everyone’s on edge like it’s the final seconds of a game!",
+          "createdAt": 1758872627837,
+          "renderAt": 24419.900000000373,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-6"
+      ],
+      "comments": [
+        {
+          "id": "unknown-22041-25041-g8wmqu::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "aww You can feel the pressure building—everyone’s just trying to grab a piece of the truth",
+          "createdAt": 1758872626038,
+          "renderAt": 23215.60000000056,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-7"
+      ],
+      "comments": [
+        {
+          "id": "unknown-29053-32053-ujrhno::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "aww Wow, that repetitive focus really shows how overwhelming it must feel for them—so much pressure!",
+          "createdAt": 1758872630173,
+          "renderAt": 30127.400000000373,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-8"
+      ],
+      "comments": [
+        {
+          "id": "unknown-27051-30051-93qqcg::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "wild Is this a rescue mission or just someone really into personal space?",
+          "createdAt": 1758872628499,
+          "renderAt": 27579,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-27051-30051-93qqcg::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "the tension? This is like a last-second play with the clock running out!",
+          "createdAt": 1758872630394,
+          "renderAt": 27751,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-9"
+      ],
+      "comments": [
+        {
+          "id": "unknown-21039-24039-pml3f0::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "structurally Feels like a chaotic circus—doesn’t anyone care about the story anymore?",
+          "createdAt": 1758872627543,
+          "renderAt": 22203.200000000186,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-21039-24039-pml3f0::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Looks like we’ve got a reporter buffet—everyone’s trying to scoop the same story!",
+          "createdAt": 1758872631246,
+          "renderAt": 22299.200000000186,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-21039-24039-pml3f0::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The way her eyes scan the crowd, searching for connection, just tugs at my heartstrings., aww...",
+          "createdAt": 1758872625872,
+          "renderAt": 22460.200000000186,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-10"
+      ],
+      "comments": [
+        {
+          "id": "unknown-20029-23029-pml3f0::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "You can really feel the pressure in the air; it’s like they’re all craving validation.",
+          "createdAt": 1758872625755,
+          "renderAt": 21052,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-20029-23029-pml3f0::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "honestly Wow, it’s like a game of musical chairs, but everyone forgot the music.",
+          "createdAt": 1758872631287,
+          "renderAt": 21374,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-11"
+      ],
+      "comments": [
+        {
+          "id": "unknown-46095-49095-gi65ae::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Man, the media's really going for the jugular—this is like a bad play call in the fourth quarter!",
+          "createdAt": 1758872647381,
+          "renderAt": 47258.10000000056,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-12"
+      ],
+      "comments": [
+        {
+          "id": "unknown-43522-46522-gi65ae::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The relentless focus on media intrusion heightens vulnerability, framing their isolation amid external scrutiny.",
+          "createdAt": 1758872648486,
+          "renderAt": 44697.10000000056,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-43522-46522-gi65ae::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you feel the tension? It's like a reality TV reunion special gone wild!",
+          "createdAt": 1758872646650,
+          "renderAt": 44894.10000000056,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-43522-46522-gi65ae::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "wild Yikes, I see the tabloid team took \"no story too outrageous\" as a personal challenge.",
+          "createdAt": 1758872652102,
+          "renderAt": 45209.10000000056,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-13"
+      ],
+      "comments": [
+        {
+          "id": "unknown-47096-50096-gi65ae::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Sounds like a reality show where the prize is your privacy—who wouldn’t want that?",
+          "createdAt": 1758872650141,
+          "renderAt": 48198.10000000056,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-47096-50096-gi65ae::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Dang, the way they keep repeating that line really drives home the pressure—talk about relentless!",
+          "createdAt": 1758872652417,
+          "renderAt": 48456.10000000056,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-14"
+      ],
+      "comments": [
+        {
+          "id": "unknown-50099-53099-w0o2qy::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That desperate look in their eyes while they talk about limits—such a mix of hope and urgency!, my heart...",
+          "createdAt": 1758872653432,
+          "renderAt": 50820.5,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-50099-53099-w0o2qy::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "The echoing lines just drag out the absurdity—where's the depth in this storytelling chaos?",
+          "createdAt": 1758872651384,
+          "renderAt": 50916.5,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-15"
+      ],
+      "comments": [
+        {
+          "id": "unknown-51101-54101-q51z8a::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Excuse me, but who knew credit card limits were a plot twist in this saga?",
+          "createdAt": 1758872654040,
+          "renderAt": 51800,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-16"
+      ],
+      "comments": [
+        {
+          "id": "unknown-49097-52097-w0o2qy::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "structurally The repetitive line drives home the media's relentless pressure, but it could use a fresh angle to avoid redundancy.",
+          "createdAt": 1758872651887,
+          "renderAt": 49857.300000000745,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-49097-52097-w0o2qy::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "What a plot twist—turns out privacy's just a myth in this reality show",
+          "createdAt": 1758872650177,
+          "renderAt": 50061.300000000745,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-17"
+      ],
+      "comments": [
+        {
+          "id": "unknown-52104-55104-q51z8a::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "There’s a desperate hope behind that, like they’re reaching for something bigger than themselves.",
+          "createdAt": 1758872653201,
+          "renderAt": 53004.60000000056,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-52104-55104-q51z8a::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "structurally The insistence on “no limits” hints at reckless abandon—definitely sets up for some big consequences later",
+          "createdAt": 1758872654934,
+          "renderAt": 53372.60000000056,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-18"
+      ],
+      "comments": [
+        {
+          "id": "unknown-45096-48096-gi65ae::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Wow, that relentless focus really makes you sense their struggle—so tough to navigate all that noise.",
+          "createdAt": 1758872655141,
+          "renderAt": 46136.800000000745,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-45096-48096-gi65ae::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This feels like a desperate bid for attention; isn't there a more subtle way to convey that?",
+          "createdAt": 1758872653280,
+          "renderAt": 46169.800000000745,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-45096-48096-gi65ae::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Wow, at this point, the media's practically a family member—someone call the therapist!",
+          "createdAt": 1758872646275,
+          "renderAt": 46537.800000000745,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-19"
+      ],
+      "comments": [
+        {
+          "id": "unknown-48312-51312-w0o2qy::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "Honestly, the desperation in that statement shows just how overwhelming this all really is for them., aww.",
+          "createdAt": 1758872655149,
+          "renderAt": 49224.5,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-48312-51312-w0o2qy::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The media's relentless digging sets a dark tone, really tightening the screws on the character's arc.",
+          "createdAt": 1758872649620,
+          "renderAt": 49409.5,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-48312-51312-w0o2qy::alex_memer",
+          "personaId": "alex_memer",
+          "text": "buddy Man, the relentless media scrutiny is just brutal—like a bad reality show we can't escape!",
+          "createdAt": 1758872651369,
+          "renderAt": 49421.5,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-20"
+      ],
+      "comments": [
+        {
+          "id": "unknown-65295-68295-vksu1a::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Wow, the media's really turned this into a circus— they’re waiting for a big reveal!",
+          "createdAt": 1758872666312,
+          "renderAt": 66144.10000000056,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-21"
+      ],
+      "comments": [
+        {
+          "id": "unknown-68133-71133-vksu1a::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Trucks and lights? Sounds like they’re auditioning for a role in your living room!",
+          "createdAt": 1758872669327,
+          "renderAt": 69300.30000000075,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-22"
+      ],
+      "comments": [
+        {
+          "id": "unknown-71138-74138-tak4e4::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The camera's tight framing here emphasizes their entrapment, making each pause feel loaded with tension.",
+          "createdAt": 1758872672364,
+          "renderAt": 72233.40000000037,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-23"
+      ],
+      "comments": [
+        {
+          "id": "unknown-76144-79144-y1bvls::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "I can sense how trapped they feel—trying to find the silver lining in all that chaos.",
+          "createdAt": 1758872677312,
+          "renderAt": 77074.90000000037,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-24"
+      ],
+      "comments": [
+        {
+          "id": "unknown-75143-78143-y1bvls::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The way they pause, that heavy sigh— they’re carrying the weight of the world together.",
+          "createdAt": 1758872676079,
+          "renderAt": 76331.80000000075,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-25"
+      ],
+      "comments": [
+        {
+          "id": "unknown-77146-80146-y1bvls::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "aww The weight of their words really captures how deeply this loss is hitting them.",
+          "createdAt": 1758872680073,
+          "renderAt": 77945.5,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-26"
+      ],
+      "comments": [
+        {
+          "id": "unknown-78427-81427-1u8yge::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Oh, the drama is strong with this one—let's hope these “innocent people” are ready for a sequel!",
+          "createdAt": 1758872681098,
+          "renderAt": 79370.20000000019,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-78427-81427-1u8yge::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s heartbreaking seeing those innocent lives caught in the middle—just shows how fragile everything is",
+          "createdAt": 1758872679245,
+          "renderAt": 79724.20000000019,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-27"
+      ],
+      "comments": [
+        {
+          "id": "unknown-80146-83146-1u8yge::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Wow, the repetition really drives home their innocence—like a sad loop from a classic drama.",
+          "createdAt": 1758872681615,
+          "renderAt": 81238.90000000037,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-28"
+      ],
+      "comments": [
+        {
+          "id": "unknown-79146-82146-1u8yge::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "This crowd’s chanting sounds like a group therapy session gone rogue—everyone’s remembering but no one's healing!",
+          "createdAt": 1758872687419,
+          "renderAt": 80152.5,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-79146-82146-1u8yge::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "the crowd's really rallying? This moment’s heating up like a playoff game!",
+          "createdAt": 1758872685271,
+          "renderAt": 80430.5,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-29"
+      ],
+      "comments": [
+        {
+          "id": "unknown-81226-84226-j8bmvi::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "The way the crowd’s chanting is echoing the stakes—feels like we’re all in this together, right?",
+          "createdAt": 1758872684029,
+          "renderAt": 81830,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-30"
+      ],
+      "comments": [
+        {
+          "id": "unknown-82148-85148-j8bmvi::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "narratively The crowd's chant feels like a pressure cooker, pushing the characters toward a boiling point—intense stakes ahead.",
+          "createdAt": 1758872688837,
+          "renderAt": 82607.30000000075,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-31"
+      ],
+      "comments": [
+        {
+          "id": "unknown-88169-91169-e0d39s::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "structurally This chant’s drowning out nuance—why not let the gravity of the moment speak for itself?",
+          "createdAt": 1758872689274,
+          "renderAt": 88737.30000000075,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-32"
+      ],
+      "comments": [
+        {
+          "id": "unknown-89520-92520-zrsxg::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Ah yes, nothing screams justice like a courtroom drama narrated by a celebrity’s PR team.",
+          "createdAt": 1758872690769,
+          "renderAt": 90147.20000000019,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-33"
+      ],
+      "comments": [
+        {
+          "id": "unknown-99194-102194-58boge::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Wild how “going on with our lives” feels like the sequel nobody asked for!",
+          "createdAt": 1758872700247,
+          "renderAt": 100002.60000000056,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-34"
+      ],
+      "comments": [
+        {
+          "id": "unknown-97192-100192-58boge::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The echoing lines create a haunting sense of inevitability, underscoring their collective apathy and emotional disconnect.",
+          "createdAt": 1758872698639,
+          "renderAt": 98078.70000000019,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-97192-100192-58boge::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Dang, it’s like they’re stuck in a loop—definitely giving me vibes from those old-school psychological thrillers!",
+          "createdAt": 1758872700609,
+          "renderAt": 98402.70000000019,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-35"
+      ],
+      "comments": [
+        {
+          "id": "unknown-100195-103195-u1n3sk::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The echoing line hits hard, layering guilt and complicity, visually underlined by their close-up expressions.",
+          "createdAt": 1758872701097,
+          "renderAt": 100947.40000000037,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-36"
+      ],
+      "comments": [
+        {
+          "id": "unknown-101196-104196-u1n3sk::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This feels like an overzealous echo—couldn't they trust the audience to grasp the weight of the moment?, structurally.",
+          "createdAt": 1758872712047,
+          "renderAt": 101802.5,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-101196-104196-u1n3sk::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": ", the intensity of that repetition is like a drumbeat—definitely hitting home on some real issues, huh?",
+          "createdAt": 1758872707941,
+          "renderAt": 102032.5,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-37"
+      ],
+      "comments": [
+        {
+          "id": "unknown-107504-110504-3kwuxu::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "You can feel the heaviness in the air; it’s like a shared sigh of frustration.",
+          "createdAt": 1758872708823,
+          "renderAt": 108647.60000000056,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-38"
+      ],
+      "comments": [
+        {
+          "id": "unknown-110214-113214-3kwuxu::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That subtle glance they share, it’s like they’re silently promising to navigate this together—so sweet!",
+          "createdAt": 1758872713038,
+          "renderAt": 111079.10000000056,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-39"
+      ],
+      "comments": [
+        {
+          "id": "unknown-112224-115224-hesrds::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "The echoes of the past really amplify the tension—it's like history is haunting them right now.",
+          "createdAt": 1758872713176,
+          "renderAt": 113341.80000000075,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-40"
+      ],
+      "comments": [
+        {
+          "id": "unknown-108213-111213-3kwuxu::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Ah, the city’s a stage—unfortunately, it looks like we’re stuck in the same act.",
+          "createdAt": 1758872712048,
+          "renderAt": 109181.30000000075,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-108213-111213-3kwuxu::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "The tension is thick—those vintage outfits really set the scene for all this drama, huh?",
+          "createdAt": 1758872713795,
+          "renderAt": 109490.30000000075,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-41"
+      ],
+      "comments": [
+        {
+          "id": "unknown-111215-114215-3kwuxu::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s tough to watch—really highlights how much they all need understanding and connection right now.",
+          "createdAt": 1758872712448,
+          "renderAt": 112367.60000000056,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-111215-114215-3kwuxu::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Ah, 1994—when social dynamics were as tangled as your grandma’s holiday lights.",
+          "createdAt": 1758872714133,
+          "renderAt": 112592.60000000056,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-42"
+      ],
+      "comments": [
+        {
+          "id": "unknown-113230-116230-hesrds::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Wow, repeating ‘94 like it’s the hottest gossip—what's next, a time machine?, wild.",
+          "createdAt": 1758872714330,
+          "renderAt": 114234.20000000019,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-43"
+      ],
+      "comments": [
+        {
+          "id": "unknown-109214-112214-3kwuxu::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetition feels like a heavy drumbeat, really hammering home the weight of those dynamics—definitely sets the stage for conflict., structurally.",
+          "createdAt": 1758872712878,
+          "renderAt": 110384.90000000037,
+          "durationMs": 7620
+        },
+        {
+          "id": "unknown-109214-112214-3kwuxu::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "the stakes here? It’s like the final buzzer’s about to sound!",
+          "createdAt": 1758872714765,
+          "renderAt": 110655.90000000037,
+          "durationMs": 5420
+        },
+        {
+          "id": "unknown-109214-112214-3kwuxu::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s tough seeing them carry that weight—just wishing they could find some peace amidst all this noise.",
+          "createdAt": 1758872710462,
+          "renderAt": 110777.90000000037,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-44"
+      ],
+      "comments": [
+        {
+          "id": "unknown-122260-125260-i0m1uo::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "excuse me So, just how many times do we need to hear about this \"central defense\"? I've lost count!",
+          "createdAt": 1758872723635,
+          "renderAt": 123078.5,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-45"
+      ],
+      "comments": [
+        {
+          "id": "unknown-121259-124259-i0m1uo::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The repetition here builds a suffocating tension, amplifying their desperation and highlighting the weight of their choices.",
+          "createdAt": 1758872722392,
+          "renderAt": 122439.80000000075,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-46"
+      ],
+      "comments": [
+        {
+          "id": "unknown-123554-126554-t6hk8y::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Right? It’s like they’re running in circles—totally gives me flashbacks to courtroom dramas where every word counts!, dang.",
+          "createdAt": 1758872726614,
+          "renderAt": 124631.5,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-123554-126554-t6hk8y::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "composition-wise The repetition here builds a mounting pressure, pushing characters to confront the weight of their decisions.",
+          "createdAt": 1758872724630,
+          "renderAt": 124771.5,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-47"
+      ],
+      "comments": [
+        {
+          "id": "unknown-131353-134353-d3g2uu::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "honestly Ah, the plot thickens like a bowl of oatmeal—stickier and harder to swallow!",
+          "createdAt": 1758872732491,
+          "renderAt": 132333.30000000075,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-48"
+      ],
+      "comments": [
+        {
+          "id": "unknown-132276-135276-d3g2uu::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "honestly Looks like the real drama isn’t just in the courtroom—it’s in the scriptwriting.",
+          "createdAt": 1758872733617,
+          "renderAt": 133428.90000000037,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-49"
+      ],
+      "comments": [
+        {
+          "id": "unknown-136163-139163-q6son4::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s so disheartening to see how deeply this impacts everyone—everyone deserves to feel heard and valued., my heart.",
+          "createdAt": 1758872737068,
+          "renderAt": 137354.30000000075,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-50"
+      ],
+      "comments": [
+        {
+          "id": "unknown-134279-137279-d3g2uu::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That moment when their eyes meet, you can just feel the unspoken support—like a warm hug.",
+          "createdAt": 1758872735439,
+          "renderAt": 135301.80000000075,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-51"
+      ],
+      "comments": [
+        {
+          "id": "unknown-133277-136277-d3g2uu::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "You can sense the heartbreak in their eyes; it’s a tough reminder of how far we still have to go.",
+          "createdAt": 1758872738221,
+          "renderAt": 134340.80000000075,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-133277-136277-d3g2uu::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": ", the way they’re drilling down on those statements is like pouring salt on an open wound, right?",
+          "createdAt": 1758872740169,
+          "renderAt": 134456.80000000075,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-52"
+      ],
+      "comments": [
+        {
+          "id": "unknown-137279-140279-q6son4::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The relentless focus on those statements amplifies tension, making it clear we're heading for a major clash.",
+          "createdAt": 1758872742360,
+          "renderAt": 138123.30000000075,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-53"
+      ],
+      "comments": [
+        {
+          "id": "unknown-139281-142281-dg8pcc::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "structurally This relentless score just feels like it's trying too hard—let the dialogue breathe a bit, you know?",
+          "createdAt": 1758872742397,
+          "renderAt": 140236.60000000056,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-54"
+      ],
+      "comments": [
+        {
+          "id": "unknown-138777-141777-dg8pcc::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "This a critical turning point—everyone’s on edge, just waiting for that bombshell to drop!",
+          "createdAt": 1758872743800,
+          "renderAt": 139851.30000000075,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-55"
+      ],
+      "comments": [
+        {
+          "id": "unknown-142781-145781-k6wqvs::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Honestly, at this point, they could just hire a skywriter for all these decisions!",
+          "createdAt": 1758872745789,
+          "renderAt": 143958.90000000037,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-56"
+      ],
+      "comments": [
+        {
+          "id": "unknown-148203-151203-fgzfqu::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you believe they’re weighing this decision like it’s the final season of a reality show?",
+          "createdAt": 1758872749483,
+          "renderAt": 148832.30000000075,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-57"
+      ],
+      "comments": [
+        {
+          "id": "unknown-149293-152293-fgzfqu::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "composition-wise The repetition really drives home the stakes, forcing everyone to grapple with the gravity of Fuhrman's role.",
+          "createdAt": 1758872750399,
+          "renderAt": 150108.7000000002,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-58"
+      ],
+      "comments": [
+        {
+          "id": "unknown-152295-155295-2pzmne::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "I never knew 'important role' had a repeat button—this must be an echo chamber!",
+          "createdAt": 1758872753473,
+          "renderAt": 153245.7000000002,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-59"
+      ],
+      "comments": [
+        {
+          "id": "unknown-153675-156675-chys0g::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "yikes Looks like the evidence is the only thing getting a workout—what a stretch.",
+          "createdAt": 1758872754408,
+          "renderAt": 154712.5,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-60"
+      ],
+      "comments": [
+        {
+          "id": "unknown-159050-162050-3g9ba0::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "no way Dang, this is the kind of moment that flips the whole game—everyone’s feeling the pressure!",
+          "createdAt": 1758872762094,
+          "renderAt": 159929.5,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-61"
+      ],
+      "comments": [
+        {
+          "id": "unknown-160884-163884-exkv0a::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "That tension is so palpable—everyone feels the weight of those accusations looming over them",
+          "createdAt": 1758872762046,
+          "renderAt": 161870.5,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-62"
+      ],
+      "comments": [
+        {
+          "id": "unknown-164559-167559-hi5bc0::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "It’s like they’re beating us over the head with this—where’s the subtlety that could actually make it impactful?",
+          "createdAt": 1758872765419,
+          "renderAt": 165444,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-63"
+      ],
+      "comments": [
+        {
+          "id": "unknown-161313-164313-exkv0a::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That worried furrow on Darden's brow really shows how heavy this situation is for everyone involved., aww.",
+          "createdAt": 1758872764260,
+          "renderAt": 162390.7000000002,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-161313-164313-exkv0a::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "The way the camera lingers on Darden’s face really captures the weight of those words, doesn't it?, vibe check.",
+          "createdAt": 1758872765964,
+          "renderAt": 162692.7000000002,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-64"
+      ],
+      "comments": [
+        {
+          "id": "unknown-163316-166316-exkv0a::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Oh, darling, it’s like a Shakespearean play—everyone’s got a role and nobody's winning!",
+          "createdAt": 1758872766552,
+          "renderAt": 164509.40000000037,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-163316-166316-exkv0a::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "The repetition here really underscores the struggle; it’s like a weight they can’t shake off.",
+          "createdAt": 1758872764633,
+          "renderAt": 164665.40000000037,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-65"
+      ],
+      "comments": [
+        {
+          "id": "unknown-160313-163313-3g9ba0::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The echoing allegations really build a sense of impending conflict—something's gotta give soon., structurally.",
+          "createdAt": 1758872765019,
+          "renderAt": 161117.80000000075,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-66"
+      ],
+      "comments": [
+        {
+          "id": "unknown-165849-168849-r0q7gg::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The bloody glove is a powerful visual cue, pushing the narrative toward a pivotal moment of truth",
+          "createdAt": 1758872766949,
+          "renderAt": 166744.30000000075,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-67"
+      ],
+      "comments": [
+        {
+          "id": "unknown-162315-165315-exkv0a::alex_memer",
+          "personaId": "alex_memer",
+          "text": "dang Man, that glove moment is straight out of a crime thriller—classic dramatic reveal!",
+          "createdAt": 1758872768526,
+          "renderAt": 163253.30000000075,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-162315-165315-exkv0a::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s rough watching all these accusations swirl—everyone just wants to be understood and supported.",
+          "createdAt": 1758872765143,
+          "renderAt": 163432.30000000075,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    }
+  ]
+}

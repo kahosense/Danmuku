@@ -75,6 +75,15 @@ export interface OrchestratorMetrics {
   cacheSizeActiveBytes: number;
   activeContentId: string | null;
   windowCommentTotal?: number;
+  dynamicBanTermsApplied?: number;
+  keywordEvaluations?: number;
+  filteredKeywordDrops?: number;
+  toneRepetitionWarnings?: number;
+  personaHotwordReminders?: number;
+  duplicateHardRejects?: number;
+  semanticRejects?: number;
+  lowRelevanceDrops?: number;
+  styleFitDrops?: number;
 }
 
 export interface OrchestratorResult {

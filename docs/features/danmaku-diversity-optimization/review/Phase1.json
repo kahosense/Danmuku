@@ -1,0 +1,237 @@
+{
+  "generatedAt": "2025-09-27T03:14:40.548Z",
+  "transcript": [
+    {
+      "cueIds": [
+        "manual-0"
+      ],
+      "comments": [
+        {
+          "id": "unknown-24202-27202-ipskbu::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Honestly, why are we debating feet when zucchini kugel is clearly the culinary MVP here?",
+          "createdAt": 1758942782163,
+          "renderAt": 24828.400000000373,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-1"
+      ],
+      "comments": [
+        {
+          "id": "unknown-36346-39346-rjjycq::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "Who loses a $400 food processor and forgets about it? Feels a plot hole., structurally...",
+          "createdAt": 1758942799726,
+          "renderAt": 37271.10000000056,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-2"
+      ],
+      "comments": [
+        {
+          "id": "unknown-38349-41349-q5hlq8::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "$400 for a food processor? They better be making gourmet meals or running a restaurant!",
+          "createdAt": 1758942798363,
+          "renderAt": 39133.799999999814,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-3"
+      ],
+      "comments": [
+        {
+          "id": "unknown-61072-64072-ej0iw0::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Last-minute dinner invites: the real test of Mom's culinary superhero status!",
+          "createdAt": 1758942818449,
+          "renderAt": 61529.5,
+          "durationMs": 5420
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-4"
+      ],
+      "comments": [
+        {
+          "id": "unknown-57394-60394-9qt8rk::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Broccoli casserole? That’s the ultimate dinner party secret weapon—let’s go!, let's go.",
+          "createdAt": 1758942817820,
+          "renderAt": 57962.40000000037,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-5"
+      ],
+      "comments": [
+        {
+          "id": "unknown-60398-63398-nr38m0::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "Dinner last minute? Classic sitcom trope—convenient but feels a bit too scripted.",
+          "createdAt": 1758942825608,
+          "renderAt": 61317.40000000037,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-6"
+      ],
+      "comments": [
+        {
+          "id": "unknown-57949-60949-nr38m0::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Broccoli casserole: the ultimate last-minute dinner hero—classic mom move, am I right?",
+          "createdAt": 1758942817604,
+          "renderAt": 58637,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-57949-60949-nr38m0::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Broccoli casserole? Ah yes, the dish that says, “Surprise dinner! I’m palate!”!",
+          "createdAt": 1758942815850,
+          "renderAt": 58914,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-7"
+      ],
+      "comments": [
+        {
+          "id": "unknown-55954-58954-9qt8rk::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "Aww, the tension is thick—broccoli casserole moments are where bonds super form, right?",
+          "createdAt": 1758942829770,
+          "renderAt": 56461.10000000056,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-8"
+      ],
+      "comments": [
+        {
+          "id": "unknown-99505-102505-1jc6d6::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Alvin Orangutan's Fettuccine Explosion? Sounds a wild dish—what's next, dancing throwback.",
+          "createdAt": 1758942857342,
+          "renderAt": 100111.40000000037,
+          "durationMs": 5420
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-9"
+      ],
+      "comments": [
+        {
+          "id": "unknown-106447-109447-u7cp76::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The excitement in their eyes is so sweet—making knishes together pure love!, my heart.",
+          "createdAt": 1758942869589,
+          "renderAt": 107303.20000000019,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-10"
+      ],
+      "comments": [
+        {
+          "id": "unknown-110321-113321-ntt6da::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Isadora’s barking has officially reached a volume where even the neighbors are choices!",
+          "createdAt": 1758942867723,
+          "renderAt": 111030.79999999981,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-11"
+      ],
+      "comments": [
+        {
+          "id": "unknown-109527-112527-rzkg8w::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Making knishes with Isadora barking? This is a chaotic masterpiece I didn’t know I needed!",
+          "createdAt": 1758942867160,
+          "renderAt": 109948.70000000019,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-12"
+      ],
+      "comments": [
+        {
+          "id": "unknown-111864-114864-et055s::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "Making mom’s knishes? It’s like a warm hug wrapped in nostalgia!, my heart!",
+          "createdAt": 1758942871552,
+          "renderAt": 112317.60000000056,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-13"
+      ],
+      "comments": [
+        {
+          "id": "unknown-108447-111447-rzkg8w::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Isadora’s barking is low-key the star of this knish-making party!",
+          "createdAt": 1758942870551,
+          "renderAt": 109020,
+          "durationMs": 5200
+        }
+      ],
+      "metrics": {}
+    }
+  ]
+}

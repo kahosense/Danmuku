@@ -1,12 +1,25 @@
 import type { SubtitleCue } from '../shared/types';
 
-export type SceneTone = 'calm' | 'tense' | 'humorous' | 'sad' | 'romantic' | 'confused';
+export type SceneTone =
+  | 'calm'
+  | 'tense'
+  | 'humorous'
+  | 'sad'
+  | 'romantic'
+  | 'confused'
+  | 'thrilling'
+  | 'bittersweet'
+  | 'mystery';
+
+export type ToneIntensity = 'low' | 'medium' | 'high';
 
 export interface SceneAnalysis {
   summary: string;
   keywords: string[];
   speakers: string[];
   tone: SceneTone;
+  toneIntensity: ToneIntensity;
+  toneConfidence: number;
   energy: 'low' | 'medium' | 'high';
   hasQuestion: boolean;
   hasExclamation: boolean;
@@ -70,24 +83,178 @@ function collectKeywords(text: string) {
     .map(([word]) => word);
 }
 
-function detectTone(text: string): SceneTone {
+interface ToneSignal {
+  tone: SceneTone;
+  intensity: ToneIntensity;
+  confidence: number;
+}
+
+const TONE_RULES: Array<{
+  tone: SceneTone;
+  patterns: RegExp[];
+  weight: number;
+  intensity: ToneIntensity;
+}> = [
+  {
+    tone: 'tense',
+    patterns: [/[!?]{2,}/, /\brun\b/, /\bnow\b/, /\bmove\b/, /\bgun\b/, /\bthreat/i],
+    weight: 1.2,
+    intensity: 'high'
+  },
+  {
+    tone: 'thrilling',
+    patterns: [
+      /\bchase\b/i,
+      /\bescape\b/i,
+      /explosion/i,
+      /\bcliffhanger\b/i,
+      /\brace\b/i,
+      /\bstandoff\b/i
+    ],
+    weight: 1.3,
+    intensity: 'high'
+  },
+  {
+    tone: 'bittersweet',
+    patterns: [
+      /\bproud of you\b/i,
+      /\bthank you\b/i,
+      /\bmiss you\b/i,
+      /\bfarewell\b/i,
+      /\bso happy for you\b/i
+    ],
+    weight: 1.1,
+    intensity: 'medium'
+  },
+  {
+    tone: 'mystery',
+    patterns: [
+      /\bclue\b/i,
+      /\binvestigate\b/i,
+      /\bcase\b/i,
+      /\bsuspect\b/i,
+      /\bmystery\b/i,
+      /\bsecret\b/i,
+      /\bhidden\b/i
+    ],
+    weight: 1,
+    intensity: 'medium'
+  },
+  {
+    tone: 'humorous',
+    patterns: [/(haha|lol|funny|joke|laugh|comedy)/i],
+    weight: 1,
+    intensity: 'medium'
+  },
+  {
+    tone: 'romantic',
+    patterns: [/(love|kiss|sweet|adorable|romantic|date|flirt)/i],
+    weight: 0.9,
+    intensity: 'medium'
+  },
+  {
+    tone: 'sad',
+    patterns: [/(sorry|cry|sad|tears|hurt|heartbroken|funeral|mourning)/i],
+    weight: 1,
+    intensity: 'medium'
+  },
+  {
+    tone: 'confused',
+    patterns: [/(what|why|how|huh|who|where)/i, /\?\s*$/],
+    weight: 0.8,
+    intensity: 'medium'
+  }
+];
+
+const INTENSITY_WEIGHT: Record<ToneIntensity, number> = {
+  low: 1,
+  medium: 2,
+  high: 3
+};
+
+function numericToIntensity(value: number): ToneIntensity {
+  if (value >= 2.5) {
+    return 'high';
+  }
+  if (value >= 1.7) {
+    return 'medium';
+  }
+  return 'low';
+}
+
+function detectTone(text: string, energy: 'low' | 'medium' | 'high'): ToneSignal {
   const lower = text.toLowerCase();
-  if (/[!?]{2,}/.test(text) || /shut up|run|now!/i.test(text)) {
-    return 'tense';
+  const scores = new Map<SceneTone, number>();
+  const intensityScores = new Map<SceneTone, number>();
+
+  const noteMatch = (tone: SceneTone, weight: number, intensity: ToneIntensity) => {
+    scores.set(tone, (scores.get(tone) ?? 0) + weight);
+    const numeric = INTENSITY_WEIGHT[intensity];
+    const current = intensityScores.get(tone) ?? 0;
+    intensityScores.set(tone, Math.max(current, numeric));
+  };
+
+  let matchedSignals = 0;
+
+  TONE_RULES.forEach((rule) => {
+    rule.patterns.forEach((pattern) => {
+      if (pattern.test(lower)) {
+        matchedSignals += 1;
+        noteMatch(rule.tone, rule.weight, rule.intensity);
+      }
+    });
+  });
+
+  const exclamationCount = (text.match(/!/g)?.length ?? 0);
+  const questionCount = (text.match(/\?/g)?.length ?? 0);
+
+  if (exclamationCount >= 2 || /do it now|hurry|we have to/i.test(lower)) {
+    matchedSignals += 1;
+    noteMatch('tense', 0.9 + exclamationCount * 0.1, exclamationCount >= 3 ? 'high' : 'medium');
   }
-  if (/(haha|lol|funny|joke|laugh)/i.test(lower)) {
-    return 'humorous';
+
+  if (energy === 'high') {
+    matchedSignals += 1;
+    noteMatch('thrilling', 0.7, 'high');
   }
-  if (/(love|kiss|sweet|adorable)/i.test(lower)) {
-    return 'romantic';
+
+  if (questionCount >= 2) {
+    matchedSignals += 1;
+    noteMatch('confused', 0.6 + questionCount * 0.05, 'medium');
   }
-  if (/(sorry|cry|sad|tears|hurt)/i.test(lower)) {
-    return 'sad';
+
+  const totalScore = Array.from(scores.values()).reduce((sum, value) => sum + value, 0);
+
+  let tone: SceneTone = 'calm';
+  let intensity: ToneIntensity = energy === 'high' ? 'medium' : 'low';
+  let confidence = 0.4;
+
+  if (totalScore > 0) {
+    const [bestTone, bestScore] = Array.from(scores.entries()).reduce(
+      (best, current) => (current[1] > best[1] ? current : best),
+      ['calm', 0] as [SceneTone, number]
+    );
+    tone = bestTone;
+    const intensityNumeric = intensityScores.get(bestTone) ?? (energy === 'high' ? 2 : 1);
+    intensity = numericToIntensity(intensityNumeric);
+    confidence = Math.min(0.95, Math.max(0.35, bestScore / (totalScore || 1)));
+  } else if (energy === 'medium' || energy === 'high') {
+    tone = energy === 'high' ? 'tense' : 'calm';
+    intensity = energy === 'high' ? 'medium' : 'low';
+    confidence = energy === 'high' ? 0.55 : 0.45;
   }
-  if (/(what|why|how|huh)/i.test(lower) || /\?/.test(text)) {
-    return 'confused';
+
+  if (tone === 'calm' && energy === 'medium' && questionCount > 0) {
+    tone = 'confused';
+    intensity = 'medium';
+    confidence = Math.max(confidence, 0.5);
   }
-  return 'calm';
+
+  return {
+    tone,
+    intensity,
+    confidence
+  };
 }
 
 function detectEnergy(text: string): 'low' | 'medium' | 'high' {
@@ -125,6 +292,8 @@ export function analyzeScene(cues: SubtitleCue[]): SceneAnalysis {
       keywords: [],
       speakers: [],
       tone: 'calm',
+      toneIntensity: 'low',
+      toneConfidence: 0.4,
       energy: 'low',
       hasQuestion: false,
       hasExclamation: false,
@@ -141,15 +310,17 @@ export function analyzeScene(cues: SubtitleCue[]): SceneAnalysis {
     )
   );
   const keywords = collectKeywords(text);
-  const tone = detectTone(text);
   const energy = detectEnergy(text);
+  const toneSignal = detectTone(text, energy);
   const summary = text.length > 160 ? `${text.slice(0, 157)}...` : text;
 
   return {
     summary,
     keywords,
     speakers,
-    tone,
+    tone: toneSignal.tone,
+    toneIntensity: toneSignal.intensity,
+    toneConfidence: toneSignal.confidence,
     energy,
     hasQuestion: /\?/.test(text),
     hasExclamation: /!/.test(text),

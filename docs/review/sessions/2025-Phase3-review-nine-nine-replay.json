@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2025-09-26T02:33:46.225Z",
+  "input": "docs/review/sessions/2025-Phase3-review-nine-nine.json",
+  "transcript": [
+    {
+      "cueIds": [
+        "unknown-319811-322811-f2d3hk"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_grounded",
+          "text": "sam_grounded: [cheers and applause] [cheers and applause]...",
+          "renderAtMs": 321003.4000000004
+        },
+        {
+          "personaId": "jordan_structuralist",
+          "text": "structurally jordan_structuralist: [cheers and applause] [cheers and applause].",
+          "renderAtMs": 320923.4000000004
+        },
+        {
+          "personaId": "casey_quipper",
+          "text": "honestly casey_quipper: [cheers and applause] [cheers and applause]",
+          "renderAtMs": 321257.4000000004
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 12,
+        "prunedByReranker": 9
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-328831-331831-uf28xs",
+        "unknown-328998-331998-vof7fg"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_hypecast",
+          "text": "alex_hypecast: I really am proud of you. I really am proud of you.",
+          "renderAtMs": 330003.30000000075
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 5,
+        "prunedByReranker": 4
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-328831-331831-uf28xs",
+        "unknown-328998-331998-vof7fg"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_supportive",
+          "text": "sam_supportive: I really am proud of you. I really am proud of you., aww",
+          "renderAtMs": 329979.30000000075
+        },
+        {
+          "personaId": "jordan_skeptic",
+          "text": "jordan_skeptic: I really am proud of you. I really am proud of you.",
+          "renderAtMs": 330425.30000000075
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 6,
+        "prunedByReranker": 4
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-338853-341853-uwhjso"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_fangirl",
+          "text": "sam_fangirl: but I have a terrible nightplanned for Amy. but I have a terrible night planned.",
+          "renderAtMs": 339815.30000000075
+        },
+        {
+          "personaId": "jordan_formalist",
+          "text": "jordan_formalist: but I have a terrible nightplanned for Amy. but I have a terrible night planned...",
+          "renderAtMs": 340007.30000000075
+        },
+        {
+          "personaId": "casey_theatrical",
+          "text": "casey_theatrical: but I have a terrible nightplanned for Amy. but I have a terrible night planned.",
+          "renderAtMs": 340410.30000000075
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 6,
+        "prunedByReranker": 3
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-347644-350644-inwno0",
+        "unknown-347859-350859-inwno0"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_watchparty",
+          "text": "alex_watchparty: Then some peel-and-eat shrimp for dinnerat a dangerously cheap seafood restauran.",
+          "renderAtMs": 348692.10000000056
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 2,
+        "prunedByReranker": 1
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-347644-350644-inwno0",
+        "unknown-347859-350859-inwno0"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_deadpan",
+          "text": "casey_deadpan: Then some peel-and-eat shrimp for dinnerat a dangerously cheap seafood restauran",
+          "renderAtMs": 349034.10000000056
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-356886-359886-jboar4"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_memer",
+          "text": "alex_memer: [all singing] ♪ Santiago Santiago ♪ [all singing] ♪ Santiago Santiago ♪",
+          "renderAtMs": 357915.4000000004
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    }
+  ]
+}

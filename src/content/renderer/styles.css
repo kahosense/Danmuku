@@ -25,7 +25,8 @@
 .danmaku-comment {
   position: absolute;
   top: 0;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 60%;
   padding: 4px 12px;
   border-radius: 999px;
   background: rgba(30, 41, 59, 0.75);
@@ -36,6 +37,7 @@
   will-change: transform;
   transition: opacity 0.3s ease;
   opacity: 0.95;
+  line-height: 1.35;
 }
 
 .danmaku-comment.persona-alex {

@@ -5,36 +5,39 @@
     "src": "../../../@crx/manifest",
     "isEntry": true
   },
-  "_index.ts-loader-C90tlnxY.js": {
-    "file": "assets/index.ts-loader-C90tlnxY.js",
-    "src": "_index.ts-loader-C90tlnxY.js"
+  "_index.ts-loader-BkMofOhN.js": {
+    "file": "assets/index.ts-loader-BkMofOhN.js",
+    "src": "_index.ts-loader-BkMofOhN.js"
   },
-  "_messages-BoMeRyd0.js": {
-    "file": "assets/messages-BoMeRyd0.js",
+  "_messages-BONoywxy.js": {
+    "file": "assets/messages-BONoywxy.js",
     "name": "messages"
   },
   "src/background/index.ts": {
-    "file": "assets/index.ts-8CRSmpEi.js",
+    "file": "assets/index.ts-Clbac902.js",
     "name": "index.ts",
     "src": "src/background/index.ts",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_messages-BONoywxy.js"
+    ]
   },
   "src/content/index.ts": {
-    "file": "assets/index.ts-NWJomeyB.js",
+    "file": "assets/index.ts-Dz6OiMWV.js",
     "name": "index.ts",
     "src": "src/content/index.ts",
     "isEntry": true,
     "imports": [
-      "_messages-BoMeRyd0.js"
+      "_messages-BONoywxy.js"
     ]
   },
   "src/popup/index.html": {
-    "file": "assets/index.html-D_5ueg3H.js",
+    "file": "assets/index.html-DKbGjLS7.js",
     "name": "index.html",
     "src": "src/popup/index.html",
     "isEntry": true,
     "imports": [
-      "_messages-BoMeRyd0.js"
+      "_messages-BONoywxy.js"
     ],
     "css": [
       "assets/index-DiDV82e1.css"

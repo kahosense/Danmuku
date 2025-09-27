@@ -1,0 +1,3 @@
+function i(e){return e.map(t=>t?.trim()).filter(t=>!!t).map((t,r)=>`${r+1}. ${t}`).join(`
+`)}function m(e){return e.map(t=>{const r=t.text?.trim();if(!r)return null;const s=t.startTime>1e3?t.startTime:t.startTime*1e3,n=Math.max(0,Math.floor(s/1e3)),o=String(Math.floor(n/60)).padStart(2,"0"),a=String(n%60).padStart(2,"0");return`[${o}:${a}] ${r}`}).filter(t=>!!t).join(`
+`)}function l(e){return new Promise(t=>{chrome.runtime.sendMessage(e,r=>{if(chrome.runtime.lastError){console.warn("[shared/messages] sendMessage error",chrome.runtime.lastError.message),t(void 0);return}t(r)})})}export{i as a,m as f,l as s};

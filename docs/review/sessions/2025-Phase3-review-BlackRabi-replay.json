@@ -1,0 +1,159 @@
+{
+  "generatedAt": "2025-09-26T02:33:38.950Z",
+  "input": "docs/review/sessions/2025-Phase3-review-BlackRabi.json",
+  "transcript": [
+    {
+      "cueIds": [
+        "unknown-110292-113292-l38qo",
+        "unknown-110531-113531-yd35i8"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_supportive",
+          "text": "sam_supportive: Yes, please. Uh… Yes, please. Uh…, my heart.",
+          "renderAtMs": 111669.90000000037
+        },
+        {
+          "personaId": "jordan_structuralist",
+          "text": "jordan_structuralist: Yes, please. Uh… Yes, please. Uh…, structurally.",
+          "renderAtMs": 111704.90000000037
+        },
+        {
+          "personaId": "casey_deadpan",
+          "text": "casey_deadpan: Yes, please. Uh… Yes, please. Uh…, honestly...",
+          "renderAtMs": 112120.90000000037
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 12,
+        "prunedByReranker": 9
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-122657-125657-k81b7e"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_watchparty",
+          "text": "let's go alex_watchparty: -I'm not gonna fuckin' beg you, Jake.-Yeah. How long can you stay? -I'm not gonn.",
+          "renderAtMs": 123284.40000000037
+        },
+        {
+          "personaId": "jordan_skeptic",
+          "text": "jordan_skeptic: -I'm not gonna fuckin' beg you, Jake.-Yeah. How long can you stay? -I'm not gonn, narratively.",
+          "renderAtMs": 123627.40000000037
+        },
+        {
+          "personaId": "sam_fangirl",
+          "text": "sam_fangirl: -I'm not gonna fuckin' beg you, Jake.-Yeah. How long can you stay? -I'm not gonn",
+          "renderAtMs": 123803.40000000037
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 9,
+        "prunedByReranker": 6
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-131313-134313-vm6odc"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_quipper",
+          "text": "casey_quipper: Is that right? What you do, sell it? Is that right? What you do, sell it?",
+          "renderAtMs": 131879.2000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 4,
+        "prunedByReranker": 3
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-132782-135782-rqbagw"
+      ],
+      "comments": [
+        {
+          "personaId": "jordan_formalist",
+          "text": "narratively jordan_formalist: I haven't closed it yet, I haven't closed it yet,...",
+          "renderAtMs": 133549.2000000002
+        },
+        {
+          "personaId": "sam_grounded",
+          "text": "sam_grounded: I haven't closed it yet, I haven't closed it yet,.",
+          "renderAtMs": 133914.2000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 4,
+        "prunedByReranker": 2
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-140347-143347-8lneao"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_hypecast",
+          "text": "alex_hypecast: Very nice. What did you get? Very nice. What did you get?",
+          "renderAtMs": 141027.90000000037
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 3,
+        "prunedByReranker": 2
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-142355-145355-o52t4u",
+        "unknown-142619-145619-p9v2cg"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_theatrical",
+          "text": "casey_theatrical: But with Mom's mortgage and all, But with Mom's mortgage and all,...",
+          "renderAtMs": 143730.7000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-150377-153377-fx30j2"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_memer",
+          "text": "alex_memer: -For the whole house?-[Jake] Yeah. -For the whole house? -[Jake] Yeah.",
+          "renderAtMs": 151074.7000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    }
+  ]
+}

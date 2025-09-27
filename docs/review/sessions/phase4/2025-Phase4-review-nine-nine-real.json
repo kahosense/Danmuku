@@ -1,0 +1,1453 @@
+{
+  "generatedAt": "2025-09-26T06:29:18.926Z",
+  "transcript": [
+    {
+      "cueIds": [
+        "manual-0"
+      ],
+      "comments": [
+        {
+          "id": "unknown-39274-42274-ll1ses::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That repetitive chuckle feels like a defense mechanism, underscoring both hope and vulnerability in their journey.",
+          "createdAt": 1758867739011,
+          "renderAt": 40056.40000000014,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-39274-42274-ll1ses::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can you believe they’re really banking on that “third time’s the charm” vibe? Classic move!",
+          "createdAt": 1758867737304,
+          "renderAt": 40279.40000000014,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-1"
+      ],
+      "comments": [
+        {
+          "id": "unknown-46284-49284-ga8uu6::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "If at first you don’t succeed, just keep chuckling until it’s charming!",
+          "createdAt": 1758867739139,
+          "renderAt": 47186.30000000005,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-2"
+      ],
+      "comments": [
+        {
+          "id": "unknown-45086-48086-ga8uu6::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Aww, that little chuckle feels so hopeful—like they really believe this time could be special!",
+          "createdAt": 1758867737650,
+          "renderAt": 45980.90000000014,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-45086-48086-ga8uu6::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can you believe they keep saying that? It’s like they’re trying to jinx themselves!",
+          "createdAt": 1758867739410,
+          "renderAt": 46146.90000000014,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-3"
+      ],
+      "comments": [
+        {
+          "id": "unknown-43265-46265-402q5a::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "aww Aww, they're really embracing hope—such a sweet reminder that persistence pays off!",
+          "createdAt": 1758867736186,
+          "renderAt": 44283.10000000009,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-43265-46265-402q5a::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "That repeated phrase feels more like filler than a clever nod to past failures., structurally...",
+          "createdAt": 1758867739569,
+          "renderAt": 44354.10000000009,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-43265-46265-402q5a::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Guess this is the Olympic Games of optimism—he’s going for gold!",
+          "createdAt": 1758867737850,
+          "renderAt": 44903.10000000009,
+          "durationMs": 5420
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-4"
+      ],
+      "comments": [
+        {
+          "id": "unknown-41281-44281-ll1ses::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetition hints at a deeper insecurity, which could pay off later if it builds tension.",
+          "createdAt": 1758867739739,
+          "renderAt": 42082.19999999995,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-41281-44281-ll1ses::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "my heart Aww, their little hopeful stumbles just make me wanna root for them even more!",
+          "createdAt": 1758867735596,
+          "renderAt": 42391.19999999995,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-5"
+      ],
+      "comments": [
+        {
+          "id": "unknown-41930-44930-402q5a::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you believe they're using \"third time's the charm\"? Classic sitcom move!, buddy.",
+          "createdAt": 1758867738205,
+          "renderAt": 42924.60000000009,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-41930-44930-402q5a::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Ah, the classic hope mantra—sounds like a motivational poster in a therapy waiting room.",
+          "createdAt": 1758867739964,
+          "renderAt": 43111.60000000009,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-41930-44930-402q5a::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "structurally That repetition feels like a nervous tick—really highlights their fragile state beneath the surface confidence.",
+          "createdAt": 1758867734626,
+          "renderAt": 43580.60000000009,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-6"
+      ],
+      "comments": [
+        {
+          "id": "unknown-47286-50286-ga8uu6::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "aww Aww, their hope wrapped in those chuckles is so sweet—it’s like a little light in the chaos!",
+          "createdAt": 1758867740051,
+          "renderAt": 48377.69999999995,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-7"
+      ],
+      "comments": [
+        {
+          "id": "unknown-40280-43280-ll1ses::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Can you believe they’re going for it again? Let’s see if this really is the charm!",
+          "createdAt": 1758867738342,
+          "renderAt": 41286.80000000005,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-40280-43280-ll1ses::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "aww It’s like they’re trying to convince themselves—there’s hope in that struggle.",
+          "createdAt": 1758867732850,
+          "renderAt": 41678.80000000005,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-40280-43280-ll1ses::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "honestly Sounds like someone’s trying to manifest their best life—let’s hope it works better than last time!",
+          "createdAt": 1758867740189,
+          "renderAt": 41842.80000000005,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-8"
+      ],
+      "comments": [
+        {
+          "id": "unknown-38485-41485-ll1ses::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Aww, that little spark in their eyes says everything—like hope is finally blooming!",
+          "createdAt": 1758867733310,
+          "renderAt": 39351.10000000009,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-38485-41485-ll1ses::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Honestly, if “third time’s the charm” were a person, it’d be an overzealous cheerleader!",
+          "createdAt": 1758867737130,
+          "renderAt": 39328.10000000009,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-38485-41485-ll1ses::alex_memer",
+          "personaId": "alex_memer",
+          "text": "buddy Can you believe the optimism? It’s like a classic feel-good movie moment!",
+          "createdAt": 1758867740552,
+          "renderAt": 39601.10000000009,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-9"
+      ],
+      "comments": [
+        {
+          "id": "unknown-48167-51167-cs6cis::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "I love that hopeful vibe, but I wonder what’s got them nervous about speed dating.",
+          "createdAt": 1758867740746,
+          "renderAt": 49097.19999999995,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-10"
+      ],
+      "comments": [
+        {
+          "id": "unknown-44282-47282-402q5a::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "buddy Man, third time’s gotta be the charm—let’s go, I’m feeling it!",
+          "createdAt": 1758867740895,
+          "renderAt": 45212,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-44282-47282-402q5a::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "They really hope this time will be different—it's that mix of hope and anxiety in the air.",
+          "createdAt": 1758867737089,
+          "renderAt": 45481,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-11"
+      ],
+      "comments": [
+        {
+          "id": "unknown-64364-67364-htva1c::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "structurally So, is this just a family ritual or a clumsy way to highlight his dating woes?",
+          "createdAt": 1758867760669,
+          "renderAt": 65165,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-64364-67364-htva1c::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It’s sweet, but I feel their nervousness—those expectations can really weigh on you., my heart.",
+          "createdAt": 1758867764133,
+          "renderAt": 65762,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-64364-67364-htva1c::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Dang, it’s like a broken record with that “show interest” line—maybe less pressure and more chill, huh?, let's go.",
+          "createdAt": 1758867762418,
+          "renderAt": 66081,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-12"
+      ],
+      "comments": [
+        {
+          "id": "unknown-65312-68312-htva1c::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That yawning moment subtly breaks tension, suggesting a deeper disconnection amid the surface-level chatter.",
+          "createdAt": 1758867763374,
+          "renderAt": 66123.1000000001,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-65312-68312-htva1c::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Oh, sweetie, at this rate, he’s gonna need a treasure map to find a match!",
+          "createdAt": 1758867761684,
+          "renderAt": 66372.1000000001,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-65312-68312-htva1c::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "dang Dang, the pressure’s on! I’m rooting for this match to finally happen!",
+          "createdAt": 1758867759811,
+          "renderAt": 66804.1000000001,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-13"
+      ],
+      "comments": [
+        {
+          "id": "unknown-71322-74322-x9o2o8::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "structurally That cycle of interruptions feels like a metaphor for unresolved conflict—definitely sets the stage for a breakthrough.",
+          "createdAt": 1758867763987,
+          "renderAt": 71746,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-14"
+      ],
+      "comments": [
+        {
+          "id": "unknown-73324-76324-gt6c5y::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Wow, that’s a masterclass in avoiding the question—next level political training right there!",
+          "createdAt": 1758867765878,
+          "renderAt": 74030.80000000005,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-15"
+      ],
+      "comments": [
+        {
+          "id": "unknown-68526-71526-h1q50g::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Cian’s really digging deep here—should we start looking for a crystal ball?",
+          "createdAt": 1758867762946,
+          "renderAt": 69209.80000000005,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-68526-71526-h1q50g::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Wow, they really need to switch up their game plan if they're stuck on that question!, vibe check.",
+          "createdAt": 1758867764591,
+          "renderAt": 69681.80000000005,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-68526-71526-h1q50g::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That circular questioning really amplifies the character's vulnerability—perfect setup for a pivotal breakthrough down the line.",
+          "createdAt": 1758867766257,
+          "renderAt": 69858.80000000005,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-16"
+      ],
+      "comments": [
+        {
+          "id": "unknown-70244-73244-x9o2o8::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Man, those yawns are like a throwback to every awkward school presentation ever!",
+          "createdAt": 1758867764805,
+          "renderAt": 70851.30000000005,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-70244-73244-x9o2o8::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Honestly, at this point, maybe they should try speed dating… or a personality transplant.",
+          "createdAt": 1758867766549,
+          "renderAt": 70946.30000000005,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-17"
+      ],
+      "comments": [
+        {
+          "id": "unknown-72364-75364-gt6c5y::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "wild Excuse me, but this repetition is about to win an award for Best Dramatic Loop!",
+          "createdAt": 1758867764946,
+          "renderAt": 73099.19999999995,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-72364-75364-gt6c5y::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Dang, this back-and-forth is giving me serious sitcom vibes—like, where’s the laugh track when you need it?",
+          "createdAt": 1758867766737,
+          "renderAt": 73157.19999999995,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-18"
+      ],
+      "comments": [
+        {
+          "id": "unknown-66563-69563-pedmye::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Aww, it’s so relatable when you’re just searching for answers—it makes them feel so human.",
+          "createdAt": 1758867766823,
+          "renderAt": 67469.40000000014,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-66563-69563-pedmye::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That yawning moment cuts through the tension, revealing exhaustion amid all that forced optimism.",
+          "createdAt": 1758867761302,
+          "renderAt": 67408.40000000014,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-66563-69563-pedmye::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "If “of course” were an Olympic sport, we’d have a gold medalist right here!",
+          "createdAt": 1758867763015,
+          "renderAt": 67854.40000000014,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-19"
+      ],
+      "comments": [
+        {
+          "id": "unknown-74325-77325-gt6c5y::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "omg Omg, the way they keep searching for answers—it's so relatable and honestly just tugs at my heartstrings!",
+          "createdAt": 1758867767070,
+          "renderAt": 75504.19999999995,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-20"
+      ],
+      "comments": [
+        {
+          "id": "unknown-89600-92600-w0dhpm::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Yikes, I think they might be doing the same thing wrong—like, really committed to this strategy., yikes.",
+          "createdAt": 1758867786810,
+          "renderAt": 90686.80000000005,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-89600-92600-w0dhpm::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "let's go Wow, that repetition really drives home the struggle—let’s hope they figure it out soon!",
+          "createdAt": 1758867782304,
+          "renderAt": 90739.80000000005,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-21"
+      ],
+      "comments": [
+        {
+          "id": "unknown-92749-95749-w0dhpm::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Whoa, this repetition is like when you’re stuck on a loop in a video game—frustrating but relatable!",
+          "createdAt": 1758867793514,
+          "renderAt": 93804.80000000005,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-92749-95749-w0dhpm::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This feels like a loop of self-doubt—are we digging deeper or just spinning wheels here?",
+          "createdAt": 1758867785681,
+          "renderAt": 94004.80000000005,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-92749-95749-w0dhpm::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "This is less of a crisis and more of a self-help seminar on repeat!",
+          "createdAt": 1758867791758,
+          "renderAt": 94191.80000000005,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-22"
+      ],
+      "comments": [
+        {
+          "id": "unknown-95249-98249-w0dhpm::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "aww I sense their frustration—it's tough when you’re searching for answers that just won’t come.",
+          "createdAt": 1758867791572,
+          "renderAt": 96391.30000000005,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-95249-98249-w0dhpm::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That loop of self-doubt amplifies the emotional stakes, revealing a character trapped in their own confusion",
+          "createdAt": 1758867788031,
+          "renderAt": 96318.30000000005,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-95249-98249-w0dhpm::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "dang They’re really stuck on that, huh? Makes you wonder what’s holding them back!",
+          "createdAt": 1758867799252,
+          "renderAt": 96912.30000000005,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-23"
+      ],
+      "comments": [
+        {
+          "id": "unknown-110090-113090-w0dhpm::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetition deepens the character's inner turmoil, setting the stage for a crucial moment of clarity ahead",
+          "createdAt": 1758867803046,
+          "renderAt": 111095.40000000014,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-24"
+      ],
+      "comments": [
+        {
+          "id": "unknown-106421-109421-w0dhpm::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Omg, the way they’re spiraling in confusion just feels so real—it’s like they need a hug!, my heart",
+          "createdAt": 1758867800993,
+          "renderAt": 107358.6000000001,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-106421-109421-w0dhpm::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "wild Oh, darling, this loop is giving me déjà vu and a headache—where's the exit sign?",
+          "createdAt": 1758867803053,
+          "renderAt": 107587.6000000001,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-106421-109421-w0dhpm::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetitive self-doubt really tightens the emotional stakes—definitely foreshadowing a moment of clarity ahead.",
+          "createdAt": 1758867799099,
+          "renderAt": 107828.6000000001,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-25"
+      ],
+      "comments": [
+        {
+          "id": "unknown-108917-111917-w0dhpm::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "aww It’s tough to feel lost like that; it really shows how much they care to understand.",
+          "createdAt": 1758867801963,
+          "renderAt": 110075.5,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-108917-111917-w0dhpm::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Man, this is rough! Gotta believe they’ll crack the code soon—let’s see that breakthrough!, dang.",
+          "createdAt": 1758867806003,
+          "renderAt": 110029.5,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-108917-111917-w0dhpm::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "This internal monologue is longer than most people’s therapy sessions—at least they’re consistent., honestly.",
+          "createdAt": 1758867807751,
+          "renderAt": 110408.5,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-26"
+      ],
+      "comments": [
+        {
+          "id": "unknown-375845-378845-aq1j1y::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Omg, the tension is so real, but I love how they’re still clinging to that date!",
+          "createdAt": 1758868075361,
+          "renderAt": 376485.5,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-375845-378845-aq1j1y::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Can you believe they’re just stuck waiting for inspiration? That’s gotta be frustrating!",
+          "createdAt": 1758868073642,
+          "renderAt": 376683.5,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-375845-378845-aq1j1y::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "wild It’s like a dramatic waiting room—bring on the inspiration or at least a coffee!",
+          "createdAt": 1758868071568,
+          "renderAt": 376932.5,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-27"
+      ],
+      "comments": [
+        {
+          "id": "unknown-379703-382703-a1fti0::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "structurally The repetition underscores desperation, tightening the stakes around Santiago's fate—definitely a smart narrative choice.",
+          "createdAt": 1758868072104,
+          "renderAt": 380856,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-379703-382703-a1fti0::alex_memer",
+          "personaId": "alex_memer",
+          "text": "buddy Can you believe they're dragging Santiago into this? Classic buddy movie move!",
+          "createdAt": 1758868075493,
+          "renderAt": 381012,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-28"
+      ],
+      "comments": [
+        {
+          "id": "unknown-376981-379981-aq1j1y::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "honestly That sense of urgency really hangs in the air—waiting can be so heavy sometimes.",
+          "createdAt": 1758868073156,
+          "renderAt": 377958,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-376981-379981-aq1j1y::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Well, at this point, I’m ready for a dramatic monologue about that date!",
+          "createdAt": 1758868076659,
+          "renderAt": 378324,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-376981-379981-aq1j1y::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The repetition in dialogue builds tension—visually, it mirrors their stasis, amplifying the urgency for change.",
+          "createdAt": 1758868074947,
+          "renderAt": 378540,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-29"
+      ],
+      "comments": [
+        {
+          "id": "unknown-377981-380981-aq1j1y::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "You can feel the weight of their frustration—just wishing to be heard, you know?",
+          "createdAt": 1758868073211,
+          "renderAt": 378893.80000000005,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-377981-380981-aq1j1y::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "Repeating that line feels like a clumsy way to hammer home urgency—could’ve been more subtle., narratively.",
+          "createdAt": 1758868076671,
+          "renderAt": 379258.80000000005,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-377981-380981-aq1j1y::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "excuse me Wow, nothing says romance like a hostage negotiation—bring on the mood lighting!",
+          "createdAt": 1758868074914,
+          "renderAt": 379382.80000000005,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-30"
+      ],
+      "comments": [
+        {
+          "id": "unknown-374795-377795-4syrj4::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can you believe they’re stuck in this loop? It’s like a waiting room for creativity!",
+          "createdAt": 1758868071531,
+          "renderAt": 375362,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-374795-377795-4syrj4::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "They’re just trying to find their way, and that’s so relatable—everyone needs a buddy like Santiago!",
+          "createdAt": 1758868075136,
+          "renderAt": 375699,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-374795-377795-4syrj4::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That repetition really amplifies their frustration, framing the waiting as a character-defining moment",
+          "createdAt": 1758868076843,
+          "renderAt": 376013,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-31"
+      ],
+      "comments": [
+        {
+          "id": "unknown-384136-387136-vrvaoy::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "aww That back-and-forth is so relatable; juggling responsibilities while craving connection is a real struggle.",
+          "createdAt": 1758868076958,
+          "renderAt": 385322.30000000005,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-32"
+      ],
+      "comments": [
+        {
+          "id": "unknown-381384-384384-3sxe5k::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Wow, nothing says romance like a quick detour to save the world.",
+          "createdAt": 1758868077077,
+          "renderAt": 382579.6000000001,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-381384-384384-3sxe5k::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Taking Santiago is a power move! Let’s see how this plays out!",
+          "createdAt": 1758868075311,
+          "renderAt": 382545.6000000001,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-381384-384384-3sxe5k::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "Aww, you can feel that mix of determination and care—Santiago’s definitely important to them.",
+          "createdAt": 1758868073652,
+          "renderAt": 382816.6000000001,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-33"
+      ],
+      "comments": [
+        {
+          "id": "unknown-373165-376165-g5js8e::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This absurd setup hints at escapism—what’s the deeper void they’re trying to fill?",
+          "createdAt": 1758868077137,
+          "renderAt": 373828.1000000001,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-373165-376165-g5js8e::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "honestly Aww, it’s wild and playful, but I sense a deeper need for connection here.",
+          "createdAt": 1758868071816,
+          "renderAt": 374040.1000000001,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-373165-376165-g5js8e::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Renting a tiger cub? Talk about taking “date night” to a whole new wild level!, wild.",
+          "createdAt": 1758868075350,
+          "renderAt": 374604.1000000001,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-34"
+      ],
+      "comments": [
+        {
+          "id": "unknown-382986-385986-3sxe5k::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "aww Omg, their eagerness is so cute—can’t wait for that date to happen!",
+          "createdAt": 1758868075583,
+          "renderAt": 384052.5,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-35"
+      ],
+      "comments": [
+        {
+          "id": "unknown-373977-376977-g5js8e::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Aww, they’re both feeling the weight of it all—just trying to find a little joy amidst the chaos., my heart...",
+          "createdAt": 1758868077327,
+          "renderAt": 374907.19999999995,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-373977-376977-g5js8e::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This repetition highlights their confusion, setting up a comedic yet poignant exploration of impulsive decisions.",
+          "createdAt": 1758868071815,
+          "renderAt": 375176.19999999995,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-36"
+      ],
+      "comments": [
+        {
+          "id": "unknown-381985-384985-3sxe5k::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetition really underscores the stakes; it’s a clever way to heighten urgency before the act break.",
+          "createdAt": 1758868074688,
+          "renderAt": 382906.1000000001,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-381985-384985-3sxe5k::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can you believe they’re trying to juggle a mission and a date? Classic!, buddy.",
+          "createdAt": 1758868077501,
+          "renderAt": 383202.1000000001,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-37"
+      ],
+      "comments": [
+        {
+          "id": "unknown-402015-405015-q5o8l6::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Dang, this is like the ultimate \"I swear it was for a good reason\" trope! Classic tension!",
+          "createdAt": 1758868096942,
+          "renderAt": 402833.6000000001,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-402015-405015-q5o8l6::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Look, baby, I’m sorry—sounds like the Captain's dating life needs a rescue mission too!",
+          "createdAt": 1758868094557,
+          "renderAt": 403083.6000000001,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-38"
+      ],
+      "comments": [
+        {
+          "id": "unknown-408021-411021-h0jots::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Omg, that mix of guilt and determination is so relatable—makes me root for them even harder!",
+          "createdAt": 1758868100622,
+          "renderAt": 409072.1000000001,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-39"
+      ],
+      "comments": [
+        {
+          "id": "unknown-405017-408017-q5o8l6::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "composition-wise The echoing lines really highlight the emotional turmoil—it's like the camera’s lingering close-up on their faces captures that inner conflict perfectly.",
+          "createdAt": 1758868097918,
+          "renderAt": 406148.19999999995,
+          "durationMs": 7840
+        },
+        {
+          "id": "unknown-405017-408017-q5o8l6::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Man, this feels like the world's longest apology tour—someone just break the cycle already!, let's go.",
+          "createdAt": 1758868102362,
+          "renderAt": 406204.19999999995,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-40"
+      ],
+      "comments": [
+        {
+          "id": "unknown-404018-407018-q5o8l6::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "buddy Dang, this tension is unreal! Captain’s got everyone on edge, let’s see how they get out of this!",
+          "createdAt": 1758868098522,
+          "renderAt": 404892.5,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-404018-407018-q5o8l6::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "Now it’s just overkill—three times, really? We get it, the Captain's in trouble.",
+          "createdAt": 1758868096756,
+          "renderAt": 405165.5,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-404018-407018-q5o8l6::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Impulse decisions and life-threatening drama? Sounds like a Tuesday for these folks.",
+          "createdAt": 1758868100141,
+          "renderAt": 405509.5,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-41"
+      ],
+      "comments": [
+        {
+          "id": "unknown-401411-404411-q5o8l6::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This moment captures the tension perfectly—impulsive choices can lead to life-altering consequences, echoing earlier stakes., structurally...",
+          "createdAt": 1758868102500,
+          "renderAt": 402533.40000000014,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-401411-404411-q5o8l6::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "my heart You can feel the weight of that choice—sacrificing one thing to protect another is such a tough spot.",
+          "createdAt": 1758868100806,
+          "renderAt": 402498.40000000014,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-401411-404411-q5o8l6::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "So, saving Captain’s life is the ultimate “get out of jail free” card, huh?",
+          "createdAt": 1758868094007,
+          "renderAt": 403089.40000000014,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-42"
+      ],
+      "comments": [
+        {
+          "id": "unknown-403017-406017-q5o8l6::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That echoing apology feels like a pressure cooker—building tension before a potential emotional explosion.",
+          "createdAt": 1758868097846,
+          "renderAt": 404135,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-403017-406017-q5o8l6::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Captain's in danger? Sounds like someone needs a better backup plan than impulse decisions!",
+          "createdAt": 1758868099477,
+          "renderAt": 404122,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-403017-406017-q5o8l6::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Dang, that impulse decision is gonna come back to haunt them! Can’t wait to see the fallout!",
+          "createdAt": 1758868102973,
+          "renderAt": 404578,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-43"
+      ],
+      "comments": [
+        {
+          "id": "unknown-407020-410020-h0jots::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "I can feel the urgency there—it's tough to make split-second choices, but they just want to protect each other.",
+          "createdAt": 1758868099725,
+          "renderAt": 408170.30000000005,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-407020-410020-h0jots::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "That frantic delivery captures the pressure—it's a raw moment that really highlights the stakes for everyone involved.",
+          "createdAt": 1758868101376,
+          "renderAt": 408158.30000000005,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-44"
+      ],
+      "comments": [
+        {
+          "id": "unknown-411078-414078-g4lpls::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "narratively That loop just drags on; it’s like they’re trying to sell the urgency but it’s just getting stale",
+          "createdAt": 1758868103723,
+          "renderAt": 411937.5,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-45"
+      ],
+      "comments": [
+        {
+          "id": "unknown-409021-412021-h0jots::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s like they’re justifying a tough choice—hoping for understanding in the midst of all this.",
+          "createdAt": 1758868102060,
+          "renderAt": 410113.19999999995,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-46"
+      ],
+      "comments": [
+        {
+          "id": "unknown-406326-409326-h0jots::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "Repetition here just drags out the urgency instead of building it—less is often more in these moments., narratively.",
+          "createdAt": 1758868099196,
+          "renderAt": 407521.90000000014,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-406326-409326-h0jots::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Ah yes, the classic \"impulse decision\"—also known as the plot twist of the week.",
+          "createdAt": 1758868102498,
+          "renderAt": 407426.90000000014,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-406326-409326-h0jots::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Dang, that whole “impulse decision” bit is hitting hard—talk about high stakes!",
+          "createdAt": 1758868100840,
+          "renderAt": 407778.90000000014,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-47"
+      ],
+      "comments": [
+        {
+          "id": "unknown-422974-425974-89r522::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "So, not a spontaneous decision? Guess they really took the slow train to chaos!, honestly...",
+          "createdAt": 1758868115876,
+          "renderAt": 423906,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-48"
+      ],
+      "comments": [
+        {
+          "id": "unknown-424064-427064-89r522::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Man, this feels like that classic “you thought I was kidding?” reveal! What a build-up!",
+          "createdAt": 1758868116893,
+          "renderAt": 424916.90000000014,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-49"
+      ],
+      "comments": [
+        {
+          "id": "unknown-431079-434079-tcqqta::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Omg, that back-and-forth is so awkwardly sweet—like they’re trying to navigate this together!, aww...",
+          "createdAt": 1758868127178,
+          "renderAt": 432217.19999999995,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-50"
+      ],
+      "comments": [
+        {
+          "id": "unknown-437084-440084-b0h12y::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "no way Wow, this feels like a recipe for drama—talk about walking into a minefield!",
+          "createdAt": 1758868129779,
+          "renderAt": 438041.1000000001,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-51"
+      ],
+      "comments": [
+        {
+          "id": "unknown-438315-441315-42a1xc::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "That repetitive line feels like a blunt instrument—could've packed more punch with fewer words.",
+          "createdAt": 1758868130710,
+          "renderAt": 439141.19999999995,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-438315-441315-42a1xc::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Whoa, that back-and-forth is super awkward! You can feel the tension in the air!",
+          "createdAt": 1758868132912,
+          "renderAt": 439403.19999999995,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-52"
+      ],
+      "comments": [
+        {
+          "id": "unknown-439087-442087-42a1xc::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "narratively The mirrored lines feel like a mantra, reinforcing the tension and showing how trapped they really are",
+          "createdAt": 1758868131642,
+          "renderAt": 440050.5,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-439087-442087-42a1xc::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "wild Oh, the Captain’s really committed to this “less talking, more awkward silence” strategy, huh?",
+          "createdAt": 1758868133341,
+          "renderAt": 440409.5,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-53"
+      ],
+      "comments": [
+        {
+          "id": "unknown-435104-438104-b0h12y::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "They’re both feeling so cornered—just longing for a little clarity and connection in all this confusion.",
+          "createdAt": 1758868127687,
+          "renderAt": 436201.5,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-435104-438104-b0h12y::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "vibe check Wow, it's like they’re stuck in a bad déjà vu—somebody hit the reset button already!",
+          "createdAt": 1758868133612,
+          "renderAt": 436200.5,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-435104-438104-b0h12y::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Ah yes, the classic “maybe I should stop digging my own grave” strategy!",
+          "createdAt": 1758868131658,
+          "renderAt": 436657.5,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-54"
+      ],
+      "comments": [
+        {
+          "id": "unknown-432080-435080-tcqqta::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "There’s a real tension here—trying to align their truths while the pressure mounts is so relatable.",
+          "createdAt": 1758868126825,
+          "renderAt": 432979.90000000014,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-432080-435080-tcqqta::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetitive phrasing cleverly emphasizes their disarray, hinting at a larger conflict brewing beneath the surface.",
+          "createdAt": 1758868130471,
+          "renderAt": 433452.90000000014,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-55"
+      ],
+      "comments": [
+        {
+          "id": "unknown-441528-444528-kkywwe::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "That repetition really underscores the tension—they’re seeking reassurance amidst the chaos.",
+          "createdAt": 1758868134187,
+          "renderAt": 442533.5,
+          "durationMs": 5420
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-56"
+      ],
+      "comments": [
+        {
+          "id": "unknown-436082-439082-b0h12y::alex_memer",
+          "personaId": "alex_memer",
+          "text": "This back-and-forth is giving me major sitcom vibes—like, can you say awkward tension?, dang.",
+          "createdAt": 1758868134358,
+          "renderAt": 437146.19999999995,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-436082-439082-b0h12y::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "You can really feel the pressure—they're caught in a tricky spot, and it’s so tense.",
+          "createdAt": 1758868128963,
+          "renderAt": 437216.19999999995,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-436082-439082-b0h12y::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "The echoing lines just muddle the tension instead of sharpening it; feels like they’re playing it safe",
+          "createdAt": 1758868132538,
+          "renderAt": 437602.19999999995,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-57"
+      ],
+      "comments": [
+        {
+          "id": "unknown-440087-443087-42a1xc::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetition really builds a sense of urgency—feels like we're on the edge of a big decision., structurally.",
+          "createdAt": 1758868132770,
+          "renderAt": 441056.19999999995,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-440087-443087-42a1xc::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Good to see they’ve embraced the art of repetition—real character development right there.",
+          "createdAt": 1758868134390,
+          "renderAt": 441425.19999999995,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    }
+  ]
+}

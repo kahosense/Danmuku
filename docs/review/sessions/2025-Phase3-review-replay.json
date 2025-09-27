@@ -1,0 +1,170 @@
+{
+  "generatedAt": "2025-09-26T02:08:33.951Z",
+  "input": "docs/review/sessions/2025-Phase3-review.json",
+  "transcript": [
+    {
+      "cueIds": [
+        "unknown-175225-178225-rf2m4k"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_fangirl",
+          "text": "sam_fangirl: The first time Riley ran away,we called in the cavalry immediately. The first ti, omg...",
+          "renderAtMs": 176089.7999999998
+        },
+        {
+          "personaId": "jordan_structuralist",
+          "text": "jordan_structuralist: The first time Riley ran away,we called in the cavalry immediately. The first ti",
+          "renderAtMs": 176344.7999999998
+        },
+        {
+          "personaId": "casey_theatrical",
+          "text": "excuse me casey_theatrical: The first time Riley ran away,we called in the cavalry immediately. The first ti.",
+          "renderAtMs": 176811.7999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 3,
+        "candidatesGenerated": 12,
+        "prunedByReranker": 9
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-184284-187284-w3rsr0"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_grounded",
+          "text": "sam_grounded: That being said, if you do find him,I urge you, approach with caution. That bein, honestly.",
+          "renderAtMs": 185166.5
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 5,
+        "prunedByReranker": 4
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-185249-188249-w3rsr0"
+      ],
+      "comments": [
+        {
+          "personaId": "jordan_skeptic",
+          "text": "narratively jordan_skeptic: That being said, if you do find him,I urge you, approach with caution. That bein...",
+          "renderAtMs": 186442.2000000002
+        },
+        {
+          "personaId": "alex_memer",
+          "text": "throwback alex_memer: That being said, if you do find him,I urge you, approach with caution. That bein",
+          "renderAtMs": 186405.2000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 7,
+        "prunedByReranker": 5
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-193271-196271-yd0cr4"
+      ],
+      "comments": [
+        {
+          "personaId": "sam_supportive",
+          "text": "sam_supportive: and quite frankly,his foster parents were scared of him. and quite frankly, his, aww",
+          "renderAtMs": 194416.7999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 3,
+        "prunedByReranker": 2
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-194272-197272-yd0cr4"
+      ],
+      "comments": [
+        {
+          "personaId": "casey_deadpan",
+          "text": "casey_deadpan: and quite frankly,his foster parents were scared of him. and quite frankly, his.",
+          "renderAtMs": 195154.5
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 4,
+        "prunedByReranker": 3
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-195272-198272-yd0cr4"
+      ],
+      "comments": [
+        {
+          "personaId": "jordan_formalist",
+          "text": "jordan_formalist: and quite frankly,his foster parents were scared of him. and quite frankly, his",
+          "renderAtMs": 196413.2999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 3,
+        "prunedByReranker": 2
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-203953-206953-2ujmsq"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_hypecast",
+          "text": "alex_hypecast: [Walter] Thank you for that, Evelyn.Now, let's get out there. [Walter] Thank you, no way.",
+          "renderAtMs": 205037.7000000002
+        },
+        {
+          "personaId": "casey_quipper",
+          "text": "honestly casey_quipper: [Walter] Thank you for that, Evelyn.Now, let's get out there. [Walter] Thank you.",
+          "renderAtMs": 205194.7000000002
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 2,
+        "candidatesGenerated": 3,
+        "prunedByReranker": 1
+      }
+    },
+    {
+      "cueIds": [
+        "unknown-213331-216331-e99eko"
+      ],
+      "comments": [
+        {
+          "personaId": "alex_watchparty",
+          "text": "alex_watchparty: Victor, you run the searchfor the town heading east. Andrew… Victor, you run the...",
+          "renderAtMs": 214192.2999999998
+        }
+      ],
+      "metrics": {
+        "cacheHits": 0,
+        "cacheMisses": 1,
+        "candidatesGenerated": 1,
+        "prunedByReranker": 0
+      }
+    }
+  ]
+}

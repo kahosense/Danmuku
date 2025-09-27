@@ -1,0 +1,1573 @@
+{
+  "generatedAt": "2025-09-26T07:54:47.609Z",
+  "transcript": [
+    {
+      "cueIds": [
+        "manual-0"
+      ],
+      "comments": [
+        {
+          "id": "unknown-67505-70505-vel27k::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This feels like a loop of frustration, but hey, at least it’s consistent with their chaotic energy.",
+          "createdAt": 1758873125619,
+          "renderAt": 68161.79999999981,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-67505-70505-vel27k::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you believe they’re hitting that “I’m gonna cut somebody” vibe? Classic overreaction!",
+          "createdAt": 1758873123931,
+          "renderAt": 68318.79999999981,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-67505-70505-vel27k::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "So we’re cutting people now? Guess that’s one way to solve a disagreement.",
+          "createdAt": 1758873121962,
+          "renderAt": 68400.79999999981,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-1"
+      ],
+      "comments": [
+        {
+          "id": "unknown-64907-67907-1ivina::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "There’s such a raw frustration there—like they’re desperate for honesty in a chaotic moment., aww.",
+          "createdAt": 1758873119636,
+          "renderAt": 65743.20000000019,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-64907-67907-1ivina::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The repetition here amps tension, highlighting escalating frustration—definitely a setup for a volatile payoff.",
+          "createdAt": 1758873123139,
+          "renderAt": 66338.20000000019,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-64907-67907-1ivina::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "It's like they’re auditioning for “Cutthroat Kitchen” without the culinary skills!",
+          "createdAt": 1758873124917,
+          "renderAt": 66420.20000000019,
+          "durationMs": 5420
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-2"
+      ],
+      "comments": [
+        {
+          "id": "unknown-70919-73919-6kthwo::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Aww, they’re so frustrated, but that humor really brings a lightness to the chaos!",
+          "createdAt": 1758873125741,
+          "renderAt": 71558.39999999944,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-70919-73919-6kthwo::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Honestly, if this is a joke, I’m ready for the punchline to drop!, excuse me.",
+          "createdAt": 1758873127430,
+          "renderAt": 72103.39999999944,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-3"
+      ],
+      "comments": [
+        {
+          "id": "unknown-69742-72742-6kthwo::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "structurally The frantic repetition amps up tension, but the humor undercuts it—great contrast in character frustration!",
+          "createdAt": 1758873124354,
+          "renderAt": 70467.79999999981,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-69742-72742-6kthwo::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Whoa, the tension is real—can they pull off a comeback or what?",
+          "createdAt": 1758873127773,
+          "renderAt": 70581.79999999981,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-69742-72742-6kthwo::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "That mix of frustration and humor really shows how much they care, even when it’s tough.",
+          "createdAt": 1758873126034,
+          "renderAt": 70910.79999999981,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-4"
+      ],
+      "comments": [
+        {
+          "id": "unknown-67908-70908-vel27k::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The way they’re losing it together just shows how deep their bond runs—so chaotic but endearing!",
+          "createdAt": 1758873124386,
+          "renderAt": 68593,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-67908-70908-vel27k::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The repetition in their shouts amplifies frustration, visually punctuated by tight framing that tightens the stakes even more.",
+          "createdAt": 1758873128006,
+          "renderAt": 68933,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-67908-70908-vel27k::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Yikes, I didn’t know we were auditioning for a tragedy with a side of melodrama",
+          "createdAt": 1758873126212,
+          "renderAt": 69083,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-5"
+      ],
+      "comments": [
+        {
+          "id": "unknown-71920-74920-6kthwo::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Their frustration is so loud, but you can almost feel the bond growing stronger through the chaos!",
+          "createdAt": 1758873126300,
+          "renderAt": 72722.29999999981,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-6"
+      ],
+      "comments": [
+        {
+          "id": "unknown-66909-69909-95k6v4::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "dang Dang, the tension is so thick I can practically feel the awkwardness on my couch!",
+          "createdAt": 1758873126390,
+          "renderAt": 67589.39999999944,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-66909-69909-95k6v4::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "wild If he keeps repeating it, I’m gonna start thinking it’s a new motivational mantra!",
+          "createdAt": 1758873121406,
+          "renderAt": 67618.39999999944,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-66909-69909-95k6v4::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "Their frustration just shows how much they care—it’s like a storm before the rainbow!",
+          "createdAt": 1758873128027,
+          "renderAt": 67790.39999999944,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-7"
+      ],
+      "comments": [
+        {
+          "id": "unknown-65909-68909-95k6v4::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Wow, they’re really drowning in frustration right now—feeling seen can be such a relief!",
+          "createdAt": 1758873128974,
+          "renderAt": 66495.79999999981,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-65909-68909-95k6v4::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This repetition builds frustration but risks dulling the emotional punch—needs a fresh angle to elevate it.",
+          "createdAt": 1758873127259,
+          "renderAt": 66592.79999999981,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-65909-68909-95k6v4::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "the meltdown right now? The tension’s off the charts!",
+          "createdAt": 1758873125442,
+          "renderAt": 66963.79999999981,
+          "durationMs": 4980
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-8"
+      ],
+      "comments": [
+        {
+          "id": "unknown-68910-71910-vel27k::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That repetitive buildup feels like a tension balloon—ready to pop, but it risks losing impact if overdone.",
+          "createdAt": 1758873125267,
+          "renderAt": 69796.79999999981,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-68910-71910-vel27k::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Whoa, they’re really feeling it—just need a moment to breathe and let it out!",
+          "createdAt": 1758873123358,
+          "renderAt": 70213.79999999981,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-68910-71910-vel27k::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Wow, someone’s really hitting the \"dramatic irony\" button like it’s a stress toy!",
+          "createdAt": 1758873127135,
+          "renderAt": 70450.79999999981,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-9"
+      ],
+      "comments": [
+        {
+          "id": "unknown-92949-95949-k24p3s::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This back-and-forth feels more like a shouting match than real concern—does anyone actually care?",
+          "createdAt": 1758873147677,
+          "renderAt": 93762.29999999981,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-92949-95949-k24p3s::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Dang, it’s like they’re stuck in a loop—this tension's giving me serious Groundhog Day vibes!",
+          "createdAt": 1758873149538,
+          "renderAt": 93807.29999999981,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-92949-95949-k24p3s::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Chef’s first big test? More like chef's first big stress audition—pass the espresso!",
+          "createdAt": 1758873153744,
+          "renderAt": 94252.29999999981,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-10"
+      ],
+      "comments": [
+        {
+          "id": "unknown-91827-94827-k24p3s::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Dang, 40 minutes left and the pressure's building! Who's gonna nail that signature dish?, dang...",
+          "createdAt": 1758873150600,
+          "renderAt": 92680.59999999963,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-91827-94827-k24p3s::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It’s wild how they’re wrestling with feelings—trying to connect while chaos swirls around them.",
+          "createdAt": 1758873152323,
+          "renderAt": 92707.59999999963,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-91827-94827-k24p3s::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "What a riveting exchange! Did we just stumble into the world’s least productive therapy session?, honestly.",
+          "createdAt": 1758873153993,
+          "renderAt": 92916.59999999963,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-11"
+      ],
+      "comments": [
+        {
+          "id": "unknown-93951-96951-k24p3s::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The countdown adds urgency, and the close-ups on the chef’s face really draw us into their rising anxiety.",
+          "createdAt": 1758873148438,
+          "renderAt": 95031.79999999981,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-93951-96951-k24p3s::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Oyster and potato stew? Bold choice—nothing says ‘signature’ like an identity crisis in a bowl., wild...",
+          "createdAt": 1758873152056,
+          "renderAt": 95298.79999999981,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-93951-96951-k24p3s::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "vibe check they’re going all in on oyster and potato? That combo’s a bold move, buddy!",
+          "createdAt": 1758873154086,
+          "renderAt": 95401.79999999981,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-12"
+      ],
+      "comments": [
+        {
+          "id": "unknown-97958-100958-1m2puo::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Aww, that oyster and potato stew feels like a cozy hug—perfect for sharing those vibes!",
+          "createdAt": 1758873152323,
+          "renderAt": 98872.79999999981,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-13"
+      ],
+      "comments": [
+        {
+          "id": "unknown-99961-102961-1m2puo::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "I love how food brings them together, even in all this chaos—comfort’s on the way!",
+          "createdAt": 1758873154488,
+          "renderAt": 100863.70000000019,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-14"
+      ],
+      "comments": [
+        {
+          "id": "unknown-95955-98955-6hzvdg::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The quick cuts between the chefs emphasize their pressure, making that oyster and potato stew feel like a ticking time bomb.",
+          "createdAt": 1758873152353,
+          "renderAt": 97104.89999999944,
+          "durationMs": 7620
+        },
+        {
+          "id": "unknown-95955-98955-6hzvdg::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "The clock's ticking, and you can feel the weight of their hopes hanging in the air.",
+          "createdAt": 1758873150486,
+          "renderAt": 97275.89999999944,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-95955-98955-6hzvdg::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Oyster and potato stew? That combo's like a fancy dinner party in a cozy seaside shack!",
+          "createdAt": 1758873154517,
+          "renderAt": 97549.89999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-15"
+      ],
+      "comments": [
+        {
+          "id": "unknown-95334-98334-6hzvdg::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That determined look in the chef's eyes is like fire; you can just feel the passion bubbling up!, omg.",
+          "createdAt": 1758873151299,
+          "renderAt": 96270.59999999963,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-95334-98334-6hzvdg::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This countdown ramps up the stakes nicely, setting up for a nail-biting climax.",
+          "createdAt": 1758873149528,
+          "renderAt": 96655.59999999963,
+          "durationMs": 5860
+        },
+        {
+          "id": "unknown-95334-98334-6hzvdg::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Ooh, an oyster and potato stew? That’s a bold choice—let’s see if it pays off!",
+          "createdAt": 1758873153290,
+          "renderAt": 96994.59999999963,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-16"
+      ],
+      "comments": [
+        {
+          "id": "unknown-98961-101961-1m2puo::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It’s like they’re stuck in a loop, trying to find connection amidst all this chaos., my heart",
+          "createdAt": 1758873155291,
+          "renderAt": 99737.79999999981,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-98961-101961-1m2puo::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "narratively That echoing dialogue feels like a pressure cooker—let's hope the release is worth the buildup.",
+          "createdAt": 1758873153468,
+          "renderAt": 100001.79999999981,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-17"
+      ],
+      "comments": [
+        {
+          "id": "unknown-101074-104074-2gexc::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That back-and-forth feels like a dance—great for building character dynamics, but it could use some variation to stay engaging.",
+          "createdAt": 1758873155781,
+          "renderAt": 102022.20000000019,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-18"
+      ],
+      "comments": [
+        {
+          "id": "unknown-97206-100206-1m2puo::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "structurally This signature dish repetition’s a bit much—are we building tension or just stuck in a culinary Groundhog Day?",
+          "createdAt": 1758873153354,
+          "renderAt": 97872.5,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-19"
+      ],
+      "comments": [
+        {
+          "id": "unknown-118220-121220-nb7ths::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "I love how their playful banter shows just how much they care for each other, even when things get wild!",
+          "createdAt": 1758873178227,
+          "renderAt": 119061.09999999963,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-118220-121220-nb7ths::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Orange soda and collard greens? That's a combo I didn't see coming! What’s next, pineapple on pizza?",
+          "createdAt": 1758873174789,
+          "renderAt": 119217.09999999963,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-118220-121220-nb7ths::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Cooking greens in orange soda? That's one way to guarantee a surprise party for your taste buds.",
+          "createdAt": 1758873176492,
+          "renderAt": 119489.09999999963,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-20"
+      ],
+      "comments": [
+        {
+          "id": "unknown-123223-126223-czxdzm::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "Cooking greens like that? It’s a quirky way to bond over tradition and surprise.",
+          "createdAt": 1758873177449,
+          "renderAt": 124030.29999999981,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-123223-126223-czxdzm::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Cooking greens in orange soda? That’s a culinary adventure I didn’t sign up for.",
+          "createdAt": 1758873179236,
+          "renderAt": 124254.29999999981,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-21"
+      ],
+      "comments": [
+        {
+          "id": "unknown-120561-123561-6la4os::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The playful back-and-forth here reveals character quirks, while the tight shots create an intimate, almost claustrophobic vibe.",
+          "createdAt": 1758873175090,
+          "renderAt": 121175.79999999981,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-120561-123561-6la4os::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The playful insistence here a cozy little inside joke—so sweet and relatable!",
+          "createdAt": 1758873176856,
+          "renderAt": 121430.79999999981,
+          "durationMs": 5640
+        },
+        {
+          "id": "unknown-120561-123561-6la4os::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "This dialogue’s got more loops than a rollercoaster—someone’s really pushing the “replay” button!",
+          "createdAt": 1758873180346,
+          "renderAt": 121677.79999999981,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-22"
+      ],
+      "comments": [
+        {
+          "id": "unknown-121998-124998-6la4os::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "narratively This repetitive exchange is amusing but could use a twist to keep it lively and not just a gag.",
+          "createdAt": 1758873180493,
+          "renderAt": 122905.20000000019,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-121998-124998-6la4os::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can you imagine cooking greens in orange soda? That’s a culinary plot twist I didn’t see coming!",
+          "createdAt": 1758873178697,
+          "renderAt": 122819.20000000019,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-23"
+      ],
+      "comments": [
+        {
+          "id": "unknown-118991-121991-nb7ths::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This obsession with orange soda and collard greens feels like a quirky gimmick—what's it really adding to the story?",
+          "createdAt": 1758873180611,
+          "renderAt": 119585.70000000019,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-118991-121991-nb7ths::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "buddy Cooking greens in orange soda? That’s a game changer, buddy! Can’t wait to see how this turns out!",
+          "createdAt": 1758873178893,
+          "renderAt": 119995.70000000019,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-118991-121991-nb7ths::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Orange soda and collard greens? That’s a culinary twist even my taste buds can’t handle!, wild.",
+          "createdAt": 1758873175433,
+          "renderAt": 120281.70000000019,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-24"
+      ],
+      "comments": [
+        {
+          "id": "unknown-120998-123998-6la4os::alex_memer",
+          "personaId": "alex_memer",
+          "text": "buddy Cooking greens in orange soda? That’s a culinary flex I didn’t see coming!",
+          "createdAt": 1758873180926,
+          "renderAt": 121809,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-120998-123998-6la4os::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "aww The chef’s curious smile paired with that quirky twist in cooking is such a delightful surprise!",
+          "createdAt": 1758873179287,
+          "renderAt": 122045,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-120998-123998-6la4os::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Who knew collard greens were a secret portal to a soda-themed culinary revolution?",
+          "createdAt": 1758873177517,
+          "renderAt": 122446,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-25"
+      ],
+      "comments": [
+        {
+          "id": "unknown-119992-122992-nb7ths::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This quirky exchange adds texture to their relationship, but it could benefit from a twist to keep it lively., structurally",
+          "createdAt": 1758873176361,
+          "renderAt": 120827.70000000019,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-119992-122992-nb7ths::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "The way he reminisces while cooking a warm hug from the past—so beautiful!, my heart.",
+          "createdAt": 1758873181506,
+          "renderAt": 121184.70000000019,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-119992-122992-nb7ths::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly This feels like a culinary version of Groundhog Day—just with less charm and more confusion!",
+          "createdAt": 1758873179766,
+          "renderAt": 121106.70000000019,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-26"
+      ],
+      "comments": [
+        {
+          "id": "unknown-125002-128002-czxdzm::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It’s kind of bittersweet—like after all those years, this little win feels so fresh and exciting.",
+          "createdAt": 1758873179872,
+          "renderAt": 125804.59999999963,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-125002-128002-czxdzm::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "he’s pulling from almost 30 years of experience and still hitting new milestones? That’s some serious growth!",
+          "createdAt": 1758873182018,
+          "renderAt": 126260.59999999963,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-27"
+      ],
+      "comments": [
+        {
+          "id": "unknown-124001-127001-czxdzm::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "composition-wise The humor in that unexpected cooking method highlights character quirks, adding a playful layer to the tension.",
+          "createdAt": 1758873180366,
+          "renderAt": 124797.89999999944,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-124001-127001-czxdzm::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "honestly Cooking greens in orange soda? Now that's a culinary plot twist I didn't see coming!",
+          "createdAt": 1758873182063,
+          "renderAt": 125094.89999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-28"
+      ],
+      "comments": [
+        {
+          "id": "unknown-143045-146045-v0cpcw::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This constant praise feels like a bit of filler—are they really impressed, or just playing nice?, structurally.",
+          "createdAt": 1758873201060,
+          "renderAt": 143863.09999999963,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-143045-146045-v0cpcw::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Making your own sausages? Next, they'll be launching a reality show called \"Sausage Wars!",
+          "createdAt": 1758873199347,
+          "renderAt": 144199.09999999963,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-143045-146045-v0cpcw::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "let's go Making sausages, huh? I’m intrigued—anyone else getting MasterChef vibes here?",
+          "createdAt": 1758873197445,
+          "renderAt": 144368.09999999963,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-29"
+      ],
+      "comments": [
+        {
+          "id": "unknown-146981-149981-uze42k::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "This playful banter builds rapport, but a shift in tone could elevate the scene’s impact., narratively...",
+          "createdAt": 1758873201380,
+          "renderAt": 147884.2999999998,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-30"
+      ],
+      "comments": [
+        {
+          "id": "unknown-145054-148054-hctp6q::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "the Chef's getting this kind of praise? a culinary love fest!",
+          "createdAt": 1758873199710,
+          "renderAt": 145893.39999999944,
+          "durationMs": 5420
+        },
+        {
+          "id": "unknown-145054-148054-hctp6q::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Wow, repetition level: expert! Next, they’ll start asking if they like it in Morse code!, honestly.",
+          "createdAt": 1758873201558,
+          "renderAt": 146145.39999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-31"
+      ],
+      "comments": [
+        {
+          "id": "unknown-141779-144779-v0cpcw::alex_memer",
+          "personaId": "alex_memer",
+          "text": "buddy This bangers and mash moment is like a callback to classic cooking shows—love that nostalgic vibe!",
+          "createdAt": 1758873200545,
+          "renderAt": 142547.7000000002,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-141779-144779-v0cpcw::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That confident grin while cooking is like the spark in their chemistry—so endearing, I can't!",
+          "createdAt": 1758873204113,
+          "renderAt": 142829.7000000002,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-141779-144779-v0cpcw::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Bangers and mash? Sounds like someone’s ready to elevate breakfast to an Olympic sport",
+          "createdAt": 1758873196589,
+          "renderAt": 142971.7000000002,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-32"
+      ],
+      "comments": [
+        {
+          "id": "unknown-144051-147051-hctp6q::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The playful banter, paired with those close-ups, really showcases their camaraderie, making the stakes feel personal and warm., structurally.",
+          "createdAt": 1758873202301,
+          "renderAt": 144983,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-144051-147051-hctp6q::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It's like they’re both taking a leap, embracing the fun while hoping it all comes together.",
+          "createdAt": 1758873204139,
+          "renderAt": 145064,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-144051-147051-hctp6q::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "This chef loves sausage-making so much, I half-expect him to start a fan club!, wild",
+          "createdAt": 1758873200364,
+          "renderAt": 145435,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-33"
+      ],
+      "comments": [
+        {
+          "id": "unknown-148061-151061-uze42k::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "Their back-and-forth is such a sweet reminder of how connection can thrive even in chaos!",
+          "createdAt": 1758873204652,
+          "renderAt": 148769.2999999998,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-148061-151061-uze42k::alex_memer",
+          "personaId": "alex_memer",
+          "text": "This back-and-forth is like a pasta-themed echo chamber—totally feels like a comedy sketch!",
+          "createdAt": 1758873202665,
+          "renderAt": 149100.2999999998,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-34"
+      ],
+      "comments": [
+        {
+          "id": "unknown-143581-146581-hctp6q::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "honestly So, we’re all just gonna act like this sausage saga isn’t the plot twist of the year?",
+          "createdAt": 1758873201945,
+          "renderAt": 144225,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-143581-146581-hctp6q::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "This back-and-forth is like a cooking version of Groundhog Day—can we get a new line, chef?, vibe check.",
+          "createdAt": 1758873200092,
+          "renderAt": 144694,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-143581-146581-hctp6q::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "composition-wise The back-and-forth banter, layered with those close-ups, really captures the tension between ambition and self-doubt.",
+          "createdAt": 1758873205532,
+          "renderAt": 144699,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-35"
+      ],
+      "comments": [
+        {
+          "id": "unknown-164094-167094-2nal14::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "wild Oh look, it’s a self-love echo chamber—everyone should definitely invest in a mirror!",
+          "createdAt": 1758873218713,
+          "renderAt": 165146.89999999944,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-36"
+      ],
+      "comments": [
+        {
+          "id": "unknown-168108-171108-xk2leq::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "no way Wow, Nicole's going for that pantry —boxed pasta and canned tomatoes? A total comfort food move!",
+          "createdAt": 1758873222880,
+          "renderAt": 169291.2999999998,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-37"
+      ],
+      "comments": [
+        {
+          "id": "unknown-165095-168095-2nal14::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This repetitive mantra feels like a safety net—are they really confident, or just trying to convince themselves?, structurally...",
+          "createdAt": 1758873221268,
+          "renderAt": 166267.89999999944,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-165095-168095-2nal14::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Canned tomatoes and boxed pasta—now that’s what I call a gourmet experience on a budget., yikes.",
+          "createdAt": 1758873225129,
+          "renderAt": 166318.89999999944,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-165095-168095-2nal14::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Nicole's really leaning into that pantry—who knew boxed pasta could be so dramatic?",
+          "createdAt": 1758873223335,
+          "renderAt": 166535.89999999944,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-38"
+      ],
+      "comments": [
+        {
+          "id": "unknown-167336-170336-xk2leq::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The repetitive mention of boxed pasta and canned tomatoes subtly underscores their resourcefulness, hinting at deeper aspirations despite the simplicity",
+          "createdAt": 1758873227804,
+          "renderAt": 168489.89999999944,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-167336-170336-xk2leq::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can we get a new recipe here? This feels like a culinary rerun, am I right?",
+          "createdAt": 1758873225487,
+          "renderAt": 168694.89999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-39"
+      ],
+      "comments": [
+        {
+          "id": "unknown-170113-173113-xk2leq::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "It’s sweet but a bit tense—like they’re both hoping this little dish brings them closer.",
+          "createdAt": 1758873226463,
+          "renderAt": 171036,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-170113-173113-xk2leq::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you believe they’re roasting boxed pasta like it’s a culinary crime? Classic sitcom banter right there!, dang...",
+          "createdAt": 1758873228161,
+          "renderAt": 171371,
+          "durationMs": 6960
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-40"
+      ],
+      "comments": [
+        {
+          "id": "unknown-172114-175114-94xfdi::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That little eyebrow raise while debating pasta choices is just the cutest peek into their chemistry!",
+          "createdAt": 1758873226574,
+          "renderAt": 172949.09999999963,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-41"
+      ],
+      "comments": [
+        {
+          "id": "unknown-169110-172110-xk2leq::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "narratively This repetitive jab at the dish feels light but risks losing depth—let’s hope for a flavorful twist ahead.",
+          "createdAt": 1758873227491,
+          "renderAt": 170110,
+          "durationMs": 7180
+        },
+        {
+          "id": "unknown-169110-172110-xk2leq::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "pls That cheeky little smirk while they joke about the boxed pasta such a cozy moment!",
+          "createdAt": 1758873229877,
+          "renderAt": 170192,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-42"
+      ],
+      "comments": [
+        {
+          "id": "unknown-179515-182515-fhm15a::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Excuse me, is this a cooking show or a poetry slam? Because I’m feeling the sea vibes!",
+          "createdAt": 1758873235715,
+          "renderAt": 180700.5,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-43"
+      ],
+      "comments": [
+        {
+          "id": "unknown-181953-184953-fhm15a::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "my heart I feel like they're finding a rhythm together—such a beautiful way to weather the storm!",
+          "createdAt": 1758873236599,
+          "renderAt": 182942.39999999944,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-181953-184953-fhm15a::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "If repetition were a sport, this character would be an Olympic gold medalist!, wild.",
+          "createdAt": 1758873238600,
+          "renderAt": 183278.39999999944,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-44"
+      ],
+      "comments": [
+        {
+          "id": "unknown-183986-186986-z11gk8::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Dang, repeating lines like that they’re building up to something big! What’s Dafne hiding?",
+          "createdAt": 1758873240508,
+          "renderAt": 184595.7000000002,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-183986-186986-z11gk8::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "my heart It’s so heartwarming to see them lean on each other like this—real friendship shines through!",
+          "createdAt": 1758873238545,
+          "renderAt": 184882.7000000002,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-45"
+      ],
+      "comments": [
+        {
+          "id": "unknown-192264-195264-c8rn9s::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "That line's getting a bit too much airtime—are we exploring connection or just spinning our wheels?",
+          "createdAt": 1758873246673,
+          "renderAt": 193367.39999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-46"
+      ],
+      "comments": [
+        {
+          "id": "unknown-194929-197929-pv6do8::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Ah, ten years of crazy chefs? Sounds like a masterclass in chaos management with a side of pasta",
+          "createdAt": 1758873251109,
+          "renderAt": 196033.39999999944,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-194929-197929-pv6do8::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you imagine juggling all that kitchen chaos while repping your culture? Total superhero vibes, for real!",
+          "createdAt": 1758873249387,
+          "renderAt": 196262.39999999944,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-47"
+      ],
+      "comments": [
+        {
+          "id": "unknown-193153-196153-c8rn9s::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "Dafne's line hints at her resilience—let's see how her past shapes her future choices.",
+          "createdAt": 1758873251668,
+          "renderAt": 194028.5,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-193153-196153-c8rn9s::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "excuse me Cacio e Pepe and fiery chefs? Sounds like a culinary adventure I’d binge-watch!",
+          "createdAt": 1758873253271,
+          "renderAt": 194305.5,
+          "durationMs": 6300
+        },
+        {
+          "id": "unknown-193153-196153-c8rn9s::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Dafne’s about to drop some real kitchen wisdom—bet those chefs were wild!",
+          "createdAt": 1758873249715,
+          "renderAt": 194736.5,
+          "durationMs": 5640
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-48"
+      ],
+      "comments": [
+        {
+          "id": "unknown-199868-202868-uk2p5s::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "aww That playful roll of their eyes while sharing stories makes the whole kitchen feel like home!",
+          "createdAt": 1758873254272,
+          "renderAt": 200740.59999999963,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-49"
+      ],
+      "comments": [
+        {
+          "id": "unknown-198160-201160-pv6do8::alex_memer",
+          "personaId": "alex_memer",
+          "text": "Can you imagine the chaos of ten years in that kitchen? It’s like a reality show gone wild!",
+          "createdAt": 1758873252780,
+          "renderAt": 199185,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-198160-201160-pv6do8::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "So, Italian food’s basically a five-alarm fire of flavor that never stops screaming.",
+          "createdAt": 1758873254510,
+          "renderAt": 199576,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-50"
+      ],
+      "comments": [
+        {
+          "id": "unknown-196157-199157-pv6do8::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "You can feel the weight of those years—it’s like they’re wrestling with all that pressure together.",
+          "createdAt": 1758873251078,
+          "renderAt": 197286.09999999963,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-196157-199157-pv6do8::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The frantic energy of her experience with those chefs contrasts beautifully with her identity, hinting at a struggle for self-acceptance.",
+          "createdAt": 1758873253009,
+          "renderAt": 197507.09999999963,
+          "durationMs": 7400
+        },
+        {
+          "id": "unknown-196157-199157-pv6do8::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Dafne’s vibe with those chefs is wild—like, who needs a soundtrack when you have that chaos?",
+          "createdAt": 1758873257823,
+          "renderAt": 197564.09999999963,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-51"
+      ],
+      "comments": [
+        {
+          "id": "unknown-199161-202161-pv6do8::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Yo, this chef’s about to unleash some serious Italian magic—let’s see that passion turn into flavor!",
+          "createdAt": 1758873257903,
+          "renderAt": 200039,
+          "durationMs": 6520
+        },
+        {
+          "id": "unknown-199161-202161-pv6do8::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "Italian food's practically running through this guy's veins—I'm surprised he isn't sprouting spaghetti!",
+          "createdAt": 1758873255934,
+          "renderAt": 200457,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-52"
+      ],
+      "comments": [
+        {
+          "id": "unknown-197159-200159-pv6do8::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "That line's becoming a catchphrase—funny, but it needs a fresh angle to keep it from getting stale.",
+          "createdAt": 1758873254607,
+          "renderAt": 198358.2999999998,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-197159-200159-pv6do8::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That slight laugh and shared look after the chaos—pure warmth, like they’re in their own little bubble!",
+          "createdAt": 1758873252112,
+          "renderAt": 198498.2999999998,
+          "durationMs": 6740
+        },
+        {
+          "id": "unknown-197159-200159-pv6do8::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "He’s so pumped about Italian cuisine, I’m surprised he doesn’t have pasta tattoos!",
+          "createdAt": 1758873258239,
+          "renderAt": 198703.2999999998,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-53"
+      ],
+      "comments": [
+        {
+          "id": "unknown-209345-212345-95vgna::sam_supportive",
+          "personaId": "sam_supportive",
+          "text": "It’s so real to see them supporting each other through the nerves—what a true bond!",
+          "createdAt": 1758873263881,
+          "renderAt": 210170.89999999944,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-54"
+      ],
+      "comments": [
+        {
+          "id": "unknown-216197-219197-87bjz8::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This mantra's wearing thin—what's it really revealing about the character beyond their culinary fixation?",
+          "createdAt": 1758873270770,
+          "renderAt": 217120.5,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-216197-219197-87bjz8::alex_memer",
+          "personaId": "alex_memer",
+          "text": "This feels like the ultimate comfort food moment—maple and squash are such a cozy combo!",
+          "createdAt": 1758873272741,
+          "renderAt": 217471.5,
+          "durationMs": 6300
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-55"
+      ],
+      "comments": [
+        {
+          "id": "unknown-218203-221203-2dbr7w::jordan_skeptic",
+          "personaId": "jordan_skeptic",
+          "text": "This feels like overkill—how many times do we need to hear about that risotto?",
+          "createdAt": 1758873272765,
+          "renderAt": 219104.7999999998,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-56"
+      ],
+      "comments": [
+        {
+          "id": "unknown-216890-219890-2dbr7w::jordan_structuralist",
+          "personaId": "jordan_structuralist",
+          "text": "The pressure’s mounting with Ramsay’s looming presence; it’s a solid setup for a potential culinary breakthrough or disaster.",
+          "createdAt": 1758873278510,
+          "renderAt": 217886.89999999944,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-216890-219890-2dbr7w::casey_theatrical",
+          "personaId": "casey_theatrical",
+          "text": "Ah, yes, the ancient art of repeating “maple butternut squash risotto”—a culinary mantra for the ages!",
+          "createdAt": 1758873271388,
+          "renderAt": 218147.89999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-57"
+      ],
+      "comments": [
+        {
+          "id": "unknown-219528-222528-a46ngm::alex_watchparty",
+          "personaId": "alex_watchparty",
+          "text": "Can we talk about how intense it is to impress Ramsay? That pressure is real, buddy!, let's go.",
+          "createdAt": 1758873277600,
+          "renderAt": 220663.39999999944,
+          "durationMs": 6960
+        },
+        {
+          "id": "unknown-219528-222528-a46ngm::casey_quipper",
+          "personaId": "casey_quipper",
+          "text": "This guy talks risotto like it’s the elixir of life—next, he'll be offering tasting notes on his blood type!",
+          "createdAt": 1758873279469,
+          "renderAt": 220608.39999999944,
+          "durationMs": 7180
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-58"
+      ],
+      "comments": [
+        {
+          "id": "unknown-225216-228216-tpz0z4::sam_grounded",
+          "personaId": "sam_grounded",
+          "text": "You can sense the nerves—they’re really hoping to step up and prove themselves under Ramsay's gaze.",
+          "createdAt": 1758873279795,
+          "renderAt": 226018.39999999944,
+          "durationMs": 6520
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-59"
+      ],
+      "comments": [
+        {
+          "id": "unknown-228216-231216-22lfvk::jordan_formalist",
+          "personaId": "jordan_formalist",
+          "text": "The repeated questioning creates palpable pressure, emphasizing their struggle against time and expectations in this culinary dance.",
+          "createdAt": 1758873282678,
+          "renderAt": 229026.39999999944,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-60"
+      ],
+      "comments": [
+        {
+          "id": "unknown-226150-229150-tpz0z4::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That persistent, teasing nudge reminds me of how playful love can be—adorably persistent!",
+          "createdAt": 1758873281256,
+          "renderAt": 227005.39999999944,
+          "durationMs": 5860
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-61"
+      ],
+      "comments": [
+        {
+          "id": "unknown-230224-233224-kb95n4::alex_hypecast",
+          "personaId": "alex_hypecast",
+          "text": "Man, cooking for Ramsay? That’s a high-pressure gig—definitely not the day for risotto drama!",
+          "createdAt": 1758873284881,
+          "renderAt": 231295.2999999998,
+          "durationMs": 6080
+        }
+      ],
+      "metrics": {}
+    },
+    {
+      "cueIds": [
+        "manual-62"
+      ],
+      "comments": [
+        {
+          "id": "unknown-228830-231830-kb95n4::casey_deadpan",
+          "personaId": "casey_deadpan",
+          "text": "Risotto for Chef Ramsay? That’s like asking a cat to take a bath—yikes., yikes",
+          "createdAt": 1758873285380,
+          "renderAt": 229882.2999999998,
+          "durationMs": 6080
+        },
+        {
+          "id": "unknown-228830-231830-kb95n4::sam_fangirl",
+          "personaId": "sam_fangirl",
+          "text": "That teasing laugh and the way they lean in, like they're sharing a secret—it’s just too sweet!",
+          "createdAt": 1758873283646,
+          "renderAt": 230019.2999999998,
+          "durationMs": 6740
+        }
+      ],
+      "metrics": {}
+    }
+  ]
+}
