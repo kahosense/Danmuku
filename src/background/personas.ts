@@ -2,13 +2,50 @@ import variantFile from './persona-variants.json';
 import { logger } from '../shared/logger';
 import { getVirtualUsersForVariant } from '../shared/persona/roster';
 import type { VirtualUserProfile } from '../shared/persona/types';
+import type { EnergyState as SharedEnergyState } from '../shared/types';
+import type { SceneTone } from './scene-analyzer';
+
+export type EnergyState = SharedEnergyState;
+
+export interface PersonaLengthProfile {
+  mean: number;
+  stdDev: number;
+  min: number;
+  max: number;
+}
+
+export interface PersonaWeightPackage {
+  length?: number;
+  novelty?: number;
+  recency?: number;
+  energy?: number;
+  tone?: number;
+  relevance?: number;
+  style?: number;
+}
+
+export type PersonaStateMap<T> = Partial<Record<EnergyState, T>>;
 
 export interface PersonaFewShotExample {
+  id: string;
   user: string;
   assistant: string;
   scenario?: string;
   tags?: string[];
+  sceneTag?: SceneTone;
+  energy?: 'low' | 'medium' | 'high';
+  lexicalShape?: string;
 }
+
+export interface ToneAdjustment {
+  lengthShift?: number;
+  punctuation?: 'period' | 'exclaim' | 'question' | 'ellipsis' | 'none';
+  preferLexical?: string[];
+  avoidLexical?: string[];
+  styleBias?: number;
+}
+
+export type ToneAdjustmentMap = Partial<Record<SceneTone, ToneAdjustment>>;
 
 export interface PersonaVirtualUserMeta {
   id: string;
@@ -42,6 +79,16 @@ export interface PersonaDefinition {
   weight?: number;
   /** Virtual user metadata resolved at runtime. */
   virtualUser?: PersonaVirtualUserMeta;
+  /** Target word-count distribution for soft nudging. */
+  lengthProfile?: PersonaLengthProfile;
+  /** State-aware cadence overrides (seconds). */
+  stateCadenceSeconds?: PersonaStateMap<number>;
+  /** Rerank weight multipliers keyed by energy state. */
+  stateWeightMultipliers?: PersonaStateMap<PersonaWeightPackage>;
+  /** Probability threshold for favouring [skip] in specific states. */
+  skipBias?: PersonaStateMap<number>;
+  /** Tone-specific adjustments for scoring and prompting. */
+  toneAdjustments?: ToneAdjustmentMap;
 }
 
 export interface PersonaVariantDefinition {
@@ -160,6 +207,7 @@ export function getPersona(personaId: string): PersonaDefinition | undefined {
 function cloneFewShotExample(example: PersonaFewShotExample): PersonaFewShotExample {
   return {
     ...example,
+    id: example.id,
     tags: example.tags ? [...example.tags] : undefined
   };
 }
@@ -177,8 +225,48 @@ function clonePersonaDefinition(persona: PersonaDefinition): PersonaDefinition {
           ...persona.virtualUser,
           traits: [...persona.virtualUser.traits]
         }
+      : undefined,
+    lengthProfile: persona.lengthProfile ? { ...persona.lengthProfile } : undefined,
+    stateCadenceSeconds: persona.stateCadenceSeconds
+      ? { ...persona.stateCadenceSeconds }
+      : undefined,
+    stateWeightMultipliers: cloneStateWeightMultipliers(persona.stateWeightMultipliers),
+    skipBias: persona.skipBias ? { ...persona.skipBias } : undefined,
+    toneAdjustments: persona.toneAdjustments
+      ? cloneToneAdjustments(persona.toneAdjustments)
       : undefined
   };
+}
+
+function cloneStateWeightMultipliers(
+  weights?: PersonaStateMap<PersonaWeightPackage>
+): PersonaStateMap<PersonaWeightPackage> | undefined {
+  if (!weights) {
+    return undefined;
+  }
+  const result: PersonaStateMap<PersonaWeightPackage> = {};
+  (Object.keys(weights) as EnergyState[]).forEach((state) => {
+    const pack = weights[state];
+    if (pack) {
+      result[state] = { ...pack };
+    }
+  });
+  return result;
+}
+
+function cloneToneAdjustments(map: ToneAdjustmentMap): ToneAdjustmentMap {
+  const result: ToneAdjustmentMap = {};
+  (Object.keys(map) as SceneTone[]).forEach((tone) => {
+    const adjustment = map[tone];
+    if (adjustment) {
+      result[tone] = {
+        ...adjustment,
+        preferLexical: adjustment.preferLexical ? [...adjustment.preferLexical] : undefined,
+        avoidLexical: adjustment.avoidLexical ? [...adjustment.avoidLexical] : undefined
+      };
+    }
+  });
+  return result;
 }
 
 function dedupeStrings(values: Array<string | undefined>): string[] {

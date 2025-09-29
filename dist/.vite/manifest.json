@@ -5,16 +5,16 @@
     "src": "../../../@crx/manifest",
     "isEntry": true
   },
-  "_index.ts-loader-BkMofOhN.js": {
-    "file": "assets/index.ts-loader-BkMofOhN.js",
-    "src": "_index.ts-loader-BkMofOhN.js"
+  "_index.ts-loader-BQ-4mogT.js": {
+    "file": "assets/index.ts-loader-BQ-4mogT.js",
+    "src": "_index.ts-loader-BQ-4mogT.js"
   },
   "_messages-BONoywxy.js": {
     "file": "assets/messages-BONoywxy.js",
     "name": "messages"
   },
   "src/background/index.ts": {
-    "file": "assets/index.ts-Clbac902.js",
+    "file": "assets/index.ts-BcwaftyW.js",
     "name": "index.ts",
     "src": "src/background/index.ts",
     "isEntry": true,
@@ -23,7 +23,7 @@
     ]
   },
   "src/content/index.ts": {
-    "file": "assets/index.ts-Dz6OiMWV.js",
+    "file": "assets/index.ts-DPPiPj2N.js",
     "name": "index.ts",
     "src": "src/content/index.ts",
     "isEntry": true,

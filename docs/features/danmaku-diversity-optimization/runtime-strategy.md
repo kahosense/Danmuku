@@ -10,29 +10,27 @@
   - 阈值 (`MIN_RELEVANCE_SCORE=0.4`, `MIN_STYLE_FIT_SCORE=0.5`) 以下直接丢弃。
   - Rerank 权重更新，纳入相关度与风格项。
 
-## 阶段 2（规划中）
+## 阶段 2（已上线，监控调优中）
 - **长度/节奏分布**：
-  - 定义 persona 级目标：`mean`、`stdev`、`min/max`。
-  - 采用软 nudging：偏差超过阈值时仅施加 30-40% 校正。
-  - 引入“自由采样回弹”避免锯齿。
+  - `src/background/persona-variants.json` 补齐 `lengthProfile`、`stateCadenceSeconds`，运行时根据 persona 均值/方差做软 nudging。
+  - `#computeLengthScore` 在偏差较大时仅衰减 30%-40%，结合状态 bias 避免拉扯过猛。
+  - Orchestrator 维护滑窗字数历史，指标新增 `lengthMean`、`lengthStdDev`、`lengthDeviation` 方便复盘。
 - **能量状态机**：
-  - 状态 CALM / ACTIVE / PEAK / COOLDOWN。
-  - 输入：scene energy、近期弹幕密度、tone 重复。
-  - 输出：rerank 权重包、允许的 cadence/长度范围、最低出声率约束。
+  - 引入 CALM / ACTIVE / PEAK / COOLDOWN 状态机，综合 scene energy、弹幕密度、tone streak。
+  - 每个状态对应独立 rerank 权重包与 cadence 下限；`skipBias` 让 `[skip]` 协同状态偏好。
+  - 指标新增 `energyState`、`stateOccupancy`、`stateSoftSkips`，窗口默认 120 秒。
 
-## 阶段 3（规划中）
-- **口头禅频控**：
-  - 滑窗统计 + 阈值，超限时加入临时禁用列表并提示 LLM 避免。
-  - 避免后处理替换，改为评分阶段降权。
-- **动态禁词**：
-  - 10 分钟 TTL，最大列表长度 + LRU。
-  - 候选枯竭时优先释放动态禁词。
+## 阶段 3（已上线）
+- **口头禅频控 + 动态禁词**：
+  - `speech_tic` 滑窗阈值触发 10 分钟 TTL 的动态禁词，随生成更新并在候选枯竭时按 LRU 释放。
+  - 候选命中禁词时在评估阶段直接降权/拒绝，避免事后替换。
+  - 指标新增 `speechTicBans` / `speechTicViolations` / `dynamicBanReleases`。
 - **Tone 参数化**：
-  - 配置 lengthShift、punctuationMode、词汇偏好等。
-  - style-fit 扩展 tone 校验，监控命中率。
+  - Persona 配置 `toneAdjustments`，按场景 tone 调整长度、标点、偏好词汇与 style bias。
+  - `#computeToneAlignment` 将 tone 配置折算进 style-fit，并输出命中/未命中计数。
 - **few-shot 冷却**：
-  - few-shot 元数据增加 `sceneTag`、`energy`、`lexicalShape`。
-  - 采样时保证多句式、多视角，并对同类示例加冷却。
+  - few-shot 示例补充 `sceneTag`、`energy`、`lexicalShape` 元数据，`#selectFewShotExamples` 依据匹配度与冷却时间挑选。
+  - 保证多句式覆盖，并追踪 `fewShotSelections` / `fewShotCooldownSkips` 监控多样性。
 
 ## 阶段 4（规划中）
 - **监控面板**：

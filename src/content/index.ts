@@ -118,6 +118,7 @@ chrome.runtime.onMessage.addListener((message: RuntimeMessage, _sender, sendResp
       cacheSizeActiveMb: message.metrics.cacheSizeActiveBytes / (1024 * 1024),
       cacheSizeGlobalMb: message.metrics.cacheSizeGlobalBytes / (1024 * 1024),
       fallbackResponses: message.metrics.fallbackResponses,
+      llmCalls: message.metrics.llmCalls,
       windowCommentTotal: message.metrics.windowCommentTotal ?? 0,
       dynamicBans,
       toneWarnings: message.metrics.toneRepetitionWarnings ?? 0,
@@ -126,7 +127,27 @@ chrome.runtime.onMessage.addListener((message: RuntimeMessage, _sender, sendResp
       duplicateHardRejects: message.metrics.duplicateHardRejects ?? 0,
       semanticRejects: message.metrics.semanticRejects ?? 0,
       lowRelevanceDrops: message.metrics.lowRelevanceDrops ?? 0,
-      styleFitDrops: message.metrics.styleFitDrops ?? 0
+      styleFitDrops: message.metrics.styleFitDrops ?? 0,
+      stateGatedSkips: message.metrics.skippedByState ?? 0,
+      stateSoftSkips: message.metrics.stateSoftSkips ?? 0,
+      stateForcedEmissions: message.metrics.stateForcedEmissions ?? 0,
+      energyState: message.metrics.energyState ?? 'calm',
+      ...(message.metrics.stateOccupancy
+        ? { stateOccupancy: message.metrics.stateOccupancy }
+        : {}),
+      lengthMean: message.metrics.lengthMean ?? 0,
+      lengthStdDev: message.metrics.lengthStdDev ?? 0,
+      lengthRollingMean: message.metrics.lengthRollingMean ?? 0,
+      lengthRollingStdDev: message.metrics.lengthRollingStdDev ?? 0,
+      lengthDeviation: message.metrics.lengthDeviation ?? 0,
+      lengthSamples: message.metrics.lengthSampleSize ?? 0,
+      dynamicBanReleases: message.metrics.dynamicBanReleases ?? 0,
+      speechTicBans: message.metrics.speechTicBans ?? 0,
+      speechTicViolations: message.metrics.speechTicViolations ?? 0,
+      toneAlignmentHits: message.metrics.toneAlignmentHits ?? 0,
+      toneAlignmentMisses: message.metrics.toneAlignmentMisses ?? 0,
+      fewShotSelections: message.metrics.fewShotSelections ?? 0,
+      fewShotCooldownSkips: message.metrics.fewShotCooldownSkips ?? 0
     });
     if (currentPreferences?.developerMode) {
       console.debug('[content] Metrics update', message.metrics);

@@ -9,19 +9,25 @@
 | 多样性 | 句式熵、主题熵 | 基于句式 shape 与 topic ledger | 相较基线 +12%-15% |
 | 节奏 | 长度分布偏差 | 均值/标准差偏离度 | < 10% |
 | 节奏 | 节奏合规率 | 状态机各态占比 vs 目标 | < 10% 偏差 |
-| 风格 | tone 命中率 | toneConfig 命中项 / 总项 | ≥ 80% |
-| 风格 | 口头禅超用次数 | 超阈值事件数 | 持续下降 |
+| 节奏 | 窗口平均长度 / 标准差 | `lengthMean` / `lengthStdDev` | Δ均值 < ±1.5 词，σ 稳定 |
+| 节奏 | 能量状态占比 | `stateOccupancy` | CALM/ACTIVE/PEAK≈45/40/15（±10%） |
+| 风格 | tone 命中率 | `toneAlignmentHits / (hits+misses)` | ≥ 80% |
+| 风格 | 口头禅超用次数 | `speechTicBans` / `speechTicViolations` | 持续下降 |
+| 引导 | 动态禁词释放 | `dynamicBanReleases` | 异常升高需排查 |
+| few-shot | 取样数量 / 冷却跳过 | `fewShotSelections` / `fewShotCooldownSkips` | 取样>0 且跳过可控 |
 | 质量 | 超长率 (>20 词) | 10 分钟窗口 | < 3% |
 | 质量 | 短噪率 (<4 词) | 10 分钟窗口 | < 8% |
 | 体验 | 用户隐藏/举报率 | 如有外部反馈数据 | 不上升或下降 |
 
 ## 数据来源
 - `OrchestratorMetrics` 新增字段：`duplicateHardRejects`、`semanticRejects`、`lowRelevanceDrops`、`styleFitDrops`。
+- 阶段 2 加入：`lengthMean` / `lengthStdDev` / `lengthDeviation`、`lengthRollingMean`、`energyState`、`stateOccupancy`、`stateSoftSkips`、`stateForcedEmissions`、`skippedByState`。
+- 阶段 3 加入：`speechTicBans`、`speechTicViolations`、`dynamicBanReleases`、`toneAlignmentHits` / `toneAlignmentMisses`、`fewShotSelections`、`fewShotCooldownSkips`。
 - 计划在阶段 2-4 增加：tone 命中率、长度/节奏偏差、口头禅统计。
 - HUD（开发者模式）显示实时快照；同时写入调试日志以便回溯。
 
 ## 仪表盘规划
-1. **实时面板（Dev HUD）**：显示当前窗口内重复率、拒绝原因、tone 命中率、平均长度。
+1. **实时面板（Dev HUD）**：显示当前窗口内重复率、拒绝原因、tone 命中率、平均长度、状态占比与发声/跳过计数。
 2. **历史面板（Grafana/Looker）**：按日/场次汇总，支持过滤 persona、内容 ID。
 3. **A/B 报告模板**：对比指标 + 用户反馈，给出通过/阻塞结论。
 

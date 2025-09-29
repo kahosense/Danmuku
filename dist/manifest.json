@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.ts-loader-BkMofOhN.js"
+        "assets/index.ts-loader-BQ-4mogT.js"
       ],
       "matches": [
         "https://www.netflix.com/watch/*"
@@ -51,7 +51,7 @@
         "assets/*",
         "content/*",
         "assets/messages-BONoywxy.js",
-        "assets/index.ts-Dz6OiMWV.js"
+        "assets/index.ts-DPPiPj2N.js"
       ],
       "use_dynamic_url": false
     }

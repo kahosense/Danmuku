@@ -4,8 +4,13 @@ import {
   getActivePersonaVariant,
   getActivePersonas,
   subscribePersonaVariant,
+  type EnergyState,
   type PersonaDefinition,
-  type PersonaVirtualUserMeta
+  type PersonaLengthProfile,
+  type PersonaVirtualUserMeta,
+  type PersonaWeightPackage,
+  type PersonaFewShotExample,
+  type ToneAdjustment
 } from './personas';
 import { analyzeScene, type SceneAnalysis, type SceneTone } from './scene-analyzer';
 import { logger } from '../shared/logger';
@@ -34,10 +39,84 @@ const MAX_MEMORY_HISTORY = 5;
 const MAX_SCENE_TONE_HISTORY = 12;
 const MAX_KEYWORD_HISTORY = 40;
 const MAX_DYNAMIC_BAN_HISTORY = 5;
-const DYNAMIC_BAN_THRESHOLD = 2;
-const GLOBAL_KEYWORD_THRESHOLD = 2;
-const MAX_DYNAMIC_BAN_TERMS = 5;
+const DYNAMIC_BAN_THRESHOLD = 3;
+const GLOBAL_KEYWORD_THRESHOLD = 3;
+const MAX_DYNAMIC_BAN_TERMS = 3;
 const MAX_COMMENT_CHARACTERS = 90;
+const MAX_PERSONA_LENGTH_HISTORY = 30;
+const MAX_GLOBAL_LENGTH_HISTORY = 120;
+const STATE_HISTORY_WINDOW_MS = 120_000;
+const COOLDOWN_PERSIST_MS = 20_000;
+const FORCED_EMISSION_FACTOR = 1.5;
+const DYNAMIC_BAN_TTL_MS = 600_000;
+const MAX_TOTAL_DYNAMIC_BANS = 12;
+const SPEECH_TIC_WINDOW_MS = 180_000;
+const SPEECH_TIC_THRESHOLD = 2;
+const FEW_SHOT_TARGET = 4;
+const FEW_SHOT_COOLDOWN_MS = 180_000;
+const FEW_SHOT_SHAPE_HISTORY = 6;
+
+const ENERGY_STATES: EnergyState[] = ['calm', 'active', 'peak', 'cooldown'];
+
+const DEFAULT_LENGTH_PROFILE: PersonaLengthProfile = {
+  mean: 12,
+  stdDev: 3,
+  min: 6,
+  max: 18
+};
+
+const DEFAULT_STATE_CADENCE_SECONDS: Record<EnergyState, number> = {
+  calm: 24,
+  active: 16,
+  peak: 8,
+  cooldown: 18
+};
+
+const DEFAULT_WEIGHT_MULTIPLIERS: Record<EnergyState, PersonaWeightPackage> = {
+  calm: {
+    length: 1.1,
+    novelty: 0.9,
+    recency: 0.65,
+    energy: 0.75,
+    tone: 0.9,
+    relevance: 1,
+    style: 1
+  },
+  active: {
+    length: 1,
+    novelty: 1,
+    recency: 1,
+    energy: 1,
+    tone: 1,
+    relevance: 1,
+    style: 1
+  },
+  peak: {
+    length: 0.85,
+    novelty: 1.2,
+    recency: 1.3,
+    energy: 1.2,
+    tone: 1.05,
+    relevance: 1,
+    style: 0.95
+  },
+  cooldown: {
+    length: 1.05,
+    novelty: 0.95,
+    recency: 0.75,
+    energy: 0.85,
+    tone: 0.9,
+    relevance: 1,
+    style: 1.05
+  }
+};
+
+const DEFAULT_SKIP_BIAS: Record<EnergyState, number> = {
+  calm: 0.6,
+  active: 0.2,
+  peak: 0.1,
+  cooldown: 0.45
+};
 
 const PROMPT_STOP_WORDS = new Set([
   'the',
@@ -129,8 +208,8 @@ const FILLER_WORDS = new Set([
 const NGRAM_SIZE = 4;
 const NGRAM_WINDOW_MS = 90_000;
 const SEMANTIC_WINDOW_MS = 300_000;
-const SEMANTIC_DUPLICATE_THRESHOLD = 0.88;
-const MIN_RELEVANCE_SCORE = 0.4;
+const SEMANTIC_DUPLICATE_THRESHOLD = 0.9;
+const MIN_RELEVANCE_SCORE = 0.2;
 const MIN_STYLE_FIT_SCORE = 0.5;
 
 const TONE_DESCRIPTOR_MAP: Record<SceneTone, string[]> = {
@@ -190,6 +269,14 @@ interface PersonaMemory {
   history: Array<{ text: string; at: number; keywords: string[] }>;
 }
 
+interface DynamicBanEntry {
+  token: string;
+  source: 'keyword' | 'speech_tic' | 'global';
+  createdAt: number;
+  expiresAt: number;
+  hits: number;
+}
+
 interface MetricsAccumulator {
   cacheHits: number;
   cacheMisses: number;
@@ -201,6 +288,7 @@ interface MetricsAccumulator {
   skippedByThrottle: number;
   skippedByHeuristics: number;
   skippedByLock: number;
+  skippedByState: number;
   duplicatesFiltered: number;
   sanitizedDrops: number;
   fallbackResponses: number;
@@ -214,6 +302,21 @@ interface MetricsAccumulator {
   semanticRejects: number;
   lowRelevanceDrops: number;
   styleFitDrops: number;
+  stateSoftSkips: number;
+  stateForcedEmissions: number;
+  stateCounts: Record<EnergyState, number>;
+  currentEnergyState: EnergyState;
+  lengthObservationCount: number;
+  totalWordCount: number;
+  totalWordCountSquared: number;
+  targetWordCountSum: number;
+  speechTicBans: number;
+  speechTicViolations: number;
+  dynamicBanReleases: number;
+  toneAlignmentHits: number;
+  toneAlignmentMisses: number;
+  fewShotSelections: number;
+  fewShotCooldownSkips: number;
 }
 
 interface CandidateEntry {
@@ -255,6 +358,20 @@ export class Orchestrator {
   #recentToneHistory: string[] = [];
   #sceneToneHistory: SceneAnalysis['tone'][] = [];
   #recentKeywordHistory: string[] = [];
+  #personaLengthHistory = new Map<string, number[]>();
+  #globalLengthHistory: number[] = [];
+  #currentEnergyState: EnergyState = 'calm';
+  #stateChangedAt = 0;
+  #energyStateHistory: Array<{ state: EnergyState; timestamp: number }> = [];
+  #personaDynamicBans = new Map<string, Map<string, DynamicBanEntry>>();
+  #globalDynamicBans = new Map<string, DynamicBanEntry>();
+  #speechTicUsage = new Map<string, Array<{ token: string; timestamp: number }>>();
+  #fewShotCooldowns = new Map<string, Map<string, number>>();
+  #fewShotShapeHistory = new Map<string, string[]>();
+  #lifecycleCounters = {
+    speechTicBans: 0,
+    dynamicBanReleases: 0
+  };
   #playbackStatus: PlaybackStatus = {
     state: 'paused',
     positionMs: 0,
@@ -276,6 +393,238 @@ export class Orchestrator {
     });
   }
 
+  #computeLengthScore(
+    wordCount: number,
+    persona: PersonaDefinition,
+    state: EnergyState,
+    toneAdjustment?: ToneAdjustment
+  ) {
+    const profile = this.#getLengthProfile(persona);
+    const targetMean = profile.mean + (toneAdjustment?.lengthShift ?? 0);
+    const effectiveMean = Math.max(profile.min, Math.min(profile.max, targetMean));
+    const normalizedDelta = Math.abs(wordCount - effectiveMean) / Math.max(1, profile.stdDev);
+    const deviationPenalty = normalizedDelta * 0.35;
+    let baseScore = Math.max(0, 1 - deviationPenalty);
+
+    if (wordCount < profile.min) {
+      const deficit = (profile.min - wordCount) / Math.max(1, profile.min);
+      baseScore *= Math.max(0.35, 1 - deficit * 0.6);
+    } else if (wordCount > profile.max) {
+      const overflow = (wordCount - profile.max) / Math.max(1, profile.max);
+      baseScore *= Math.max(0.35, 1 - overflow * 0.7);
+    }
+
+    baseScore *= this.#lengthStateBias(state, wordCount, profile, toneAdjustment);
+    return Math.max(0, Math.min(1, baseScore));
+  }
+
+  #lengthStateBias(
+    state: EnergyState,
+    wordCount: number,
+    profile: PersonaLengthProfile,
+    toneAdjustment?: ToneAdjustment
+  ) {
+    const targetMean = profile.mean + (toneAdjustment?.lengthShift ?? 0);
+    const clampedMean = Math.max(profile.min, Math.min(profile.max, targetMean));
+    const aboveMean = wordCount > clampedMean;
+    const delta = Math.abs(wordCount - clampedMean) / Math.max(1, profile.stdDev);
+    let bias = 1;
+
+    switch (state) {
+      case 'calm':
+        bias = aboveMean ? 0.85 - Math.min(delta * 0.1, 0.25) : 1.05 + Math.min(delta * 0.08, 0.2);
+        break;
+      case 'active':
+        bias = 1;
+        break;
+      case 'peak':
+        bias = aboveMean ? 1.1 + Math.min(delta * 0.1, 0.25) : 0.9 - Math.min(delta * 0.05, 0.2);
+        break;
+      case 'cooldown':
+        bias = aboveMean ? 0.9 - Math.min(delta * 0.05, 0.15) : 1.05 + Math.min(delta * 0.05, 0.15);
+        break;
+      default:
+        bias = 1;
+        break;
+    }
+
+    return Math.max(0.6, Math.min(1.3, bias));
+  }
+
+  #getLengthProfile(persona: PersonaDefinition): PersonaLengthProfile {
+    if (persona.lengthProfile) {
+      return persona.lengthProfile;
+    }
+    const fallbackMax = persona.maxWords;
+    const mean = Math.min(fallbackMax - 2, Math.max(6, Math.round(fallbackMax * 0.65)));
+    const stdDev = Math.max(2, Math.round(fallbackMax * 0.2));
+    const min = Math.max(4, mean - stdDev);
+    const max = fallbackMax;
+    return { mean, stdDev, min, max };
+  }
+
+  #getWeightMultipliers(persona: PersonaDefinition, state: EnergyState): PersonaWeightPackage {
+    const pack = persona.stateWeightMultipliers?.[state] ?? DEFAULT_WEIGHT_MULTIPLIERS[state];
+    return pack ? { ...pack } : {};
+  }
+
+  #getSkipBias(persona: PersonaDefinition, state: EnergyState) {
+    const bias = persona.skipBias?.[state];
+    if (typeof bias === 'number' && Number.isFinite(bias)) {
+      return Math.max(0, Math.min(1, bias));
+    }
+    return DEFAULT_SKIP_BIAS[state] ?? 0;
+  }
+
+  #getStateCadenceMs(persona: PersonaDefinition, state: EnergyState) {
+    const seconds = persona.stateCadenceSeconds?.[state] ?? DEFAULT_STATE_CADENCE_SECONDS[state];
+    const ms = Math.max(2, seconds ?? DEFAULT_STATE_CADENCE_SECONDS.active) * 1000;
+    return Math.max(2000, Math.round(ms));
+  }
+
+  #evaluatePersonaEmission(
+    persona: PersonaDefinition,
+    state: EnergyState,
+    now: number,
+    preferences: UserPreferences
+  ) {
+    const runtime = this.#personaState.get(persona.id);
+    const lastAt = runtime?.lastEmittedAt ?? 0;
+    const sinceLast = lastAt === 0 ? Number.MAX_SAFE_INTEGER : now - lastAt;
+    const defaultCadenceMs = persona.cadenceSeconds * 1000;
+    const stateCadenceMs = this.#getStateCadenceMs(persona, state);
+    const densityMs = DENSITY_INTERVALS[preferences.density];
+    const minInterval = Math.max(defaultCadenceMs, stateCadenceMs, densityMs);
+    const dueForEmission = sinceLast >= minInterval * FORCED_EMISSION_FACTOR;
+    const allowEmission = lastAt === 0 || sinceLast >= minInterval || dueForEmission;
+    return { allowEmission, dueForEmission, minInterval, sinceLast };
+  }
+
+  #noteLengthObservation(candidate: CandidateEntry, metrics: MetricsAccumulator) {
+    const words = candidate.comment.text.split(/\s+/).filter(Boolean).length;
+    metrics.lengthObservationCount += 1;
+    metrics.totalWordCount += words;
+    metrics.totalWordCountSquared += words * words;
+    const profile = this.#getLengthProfile(candidate.persona);
+    metrics.targetWordCountSum += profile.mean;
+  }
+
+  #updateEnergyState(scene: SceneAnalysis, timestamp: number) {
+    const densityPerSecond = this.#recentCommentLog.length / Math.max(1, WINDOW_MS / 1000);
+    const densityScore = Math.min(densityPerSecond / 0.35, 1);
+    const sceneEnergyScore = scene.energy === 'high' ? 1 : scene.energy === 'medium' ? 0.6 : 0.25;
+    const toneScore = Math.min(this.#getToneStreak(scene.tone) / 4, 1);
+    const composite = sceneEnergyScore * 0.55 + densityScore * 0.3 + toneScore * 0.15;
+
+    let nextState: EnergyState;
+    if (composite >= 0.82) {
+      nextState = 'peak';
+    } else if (composite >= 0.58) {
+      nextState = 'active';
+    } else {
+      nextState = 'calm';
+    }
+
+    if (this.#currentEnergyState === 'peak' && nextState === 'active') {
+      if (timestamp - this.#stateChangedAt <= COOLDOWN_PERSIST_MS) {
+        nextState = 'cooldown';
+      }
+    }
+
+    if (this.#currentEnergyState === 'peak' && nextState === 'calm') {
+      nextState = 'cooldown';
+    }
+
+    if (this.#currentEnergyState === 'cooldown') {
+      if (composite >= 0.65) {
+        nextState = 'active';
+      } else if (timestamp - this.#stateChangedAt > COOLDOWN_PERSIST_MS && composite < 0.5) {
+        nextState = 'calm';
+      } else {
+        nextState = 'cooldown';
+      }
+    }
+
+    if (this.#currentEnergyState !== nextState) {
+      this.#currentEnergyState = nextState;
+      this.#stateChangedAt = timestamp;
+      this.#energyStateHistory.push({ state: this.#currentEnergyState, timestamp });
+    } else if (this.#energyStateHistory.length === 0) {
+      this.#energyStateHistory.push({ state: this.#currentEnergyState, timestamp });
+    }
+
+    this.#trimEnergyStateHistory(timestamp);
+  }
+
+  #trimEnergyStateHistory(timestamp: number) {
+    while (
+      this.#energyStateHistory.length > 1 &&
+      timestamp - this.#energyStateHistory[0].timestamp > STATE_HISTORY_WINDOW_MS
+    ) {
+      this.#energyStateHistory.shift();
+    }
+
+    const first = this.#energyStateHistory[0];
+    if (first && timestamp - first.timestamp > STATE_HISTORY_WINDOW_MS) {
+      first.timestamp = timestamp - STATE_HISTORY_WINDOW_MS;
+    }
+  }
+
+  #summarizeStateOccupancy() {
+    const now = Date.now();
+    this.#trimEnergyStateHistory(now);
+    const durations: Record<EnergyState, number> = {
+      calm: 0,
+      active: 0,
+      peak: 0,
+      cooldown: 0
+    };
+
+    if (this.#energyStateHistory.length === 0) {
+      return durations;
+    }
+
+    for (let index = 0; index < this.#energyStateHistory.length; index += 1) {
+      const current = this.#energyStateHistory[index];
+      const nextTimestamp =
+        index < this.#energyStateHistory.length - 1
+          ? this.#energyStateHistory[index + 1].timestamp
+          : now;
+      const span = Math.max(1, nextTimestamp - current.timestamp);
+      durations[current.state] += span;
+    }
+
+    const total = ENERGY_STATES.reduce((sum, state) => sum + durations[state], 0);
+    if (total === 0) {
+      return durations;
+    }
+
+    const occupancy: Record<EnergyState, number> = {
+      calm: 0,
+      active: 0,
+      peak: 0,
+      cooldown: 0
+    };
+
+    ENERGY_STATES.forEach((state) => {
+      occupancy[state] = durations[state] / total;
+    });
+    return occupancy;
+  }
+
+  #computeRollingLengthStats() {
+    if (this.#globalLengthHistory.length === 0) {
+      return { mean: 0, stdDev: 0 };
+    }
+    const total = this.#globalLengthHistory.reduce((sum, value) => sum + value, 0);
+    const mean = total / this.#globalLengthHistory.length;
+    const variance = this.#globalLengthHistory.reduce((sum, value) => {
+      const diff = value - mean;
+      return sum + diff * diff;
+    }, 0) / this.#globalLengthHistory.length;
+    return { mean, stdDev: Math.sqrt(variance) };
+  }
+
   #applyPersonaVariant() {
     this.#personas = getActivePersonas();
     this.#personaIndex = new Map();
@@ -287,6 +636,11 @@ export class Orchestrator {
     this.#recentToneHistory = [];
     this.#sceneToneHistory = [];
     this.#recentKeywordHistory = [];
+    this.#personaDynamicBans = new Map();
+    this.#globalDynamicBans = new Map();
+    this.#speechTicUsage = new Map();
+    this.#fewShotCooldowns = new Map();
+    this.#fewShotShapeHistory = new Map();
 
     this.#personas.forEach((persona) => {
       const preferenceKey = persona.preferenceKey ?? persona.basePersonaId ?? persona.id;
@@ -315,6 +669,10 @@ export class Orchestrator {
         lastAt: 0,
         history: []
       });
+      this.#personaDynamicBans.set(persona.id, new Map());
+      this.#speechTicUsage.set(persona.id, []);
+      this.#fewShotCooldowns.set(persona.id, new Map());
+      this.#fewShotShapeHistory.set(persona.id, []);
     });
 
     const maxGlobal = Math.max(1, MAX_RECENT_OUTPUTS * this.#personas.length);
@@ -392,7 +750,10 @@ export class Orchestrator {
     const scene = analyzeScene(this.#cueWindow);
     this.#noteSceneKeywords(scene.keywords);
     this.#recordSceneTone(scene);
+    this.#updateEnergyState(scene, Date.now());
     const metrics = this.#createMetricsAccumulator();
+    metrics.currentEnergyState = this.#currentEnergyState;
+    metrics.stateCounts[this.#currentEnergyState] += 1;
 
     if (!scene.shouldRespond) {
       metrics.skippedByHeuristics += 1;
@@ -418,6 +779,8 @@ export class Orchestrator {
       if (!preferences.personaEnabled[preferenceKey]) {
         continue;
       }
+
+      metrics.stateCounts[this.#currentEnergyState] += 1;
 
       const baseKey = persona.basePersonaId ?? preferenceKey;
       const basePersonaId = baseKey;
@@ -449,17 +812,45 @@ export class Orchestrator {
         continue;
       }
 
-      const personaStart = Date.now();
-      const runtime = this.#personaState.get(persona.id);
-      const cadenceMs = persona.cadenceSeconds * 1000;
-      const densityMs = DENSITY_INTERVALS[preferences.density];
-      const minInterval = Math.max(cadenceMs, densityMs);
+      const personaTimestamp = Date.now();
+      const emissionGate = this.#evaluatePersonaEmission(
+        persona,
+        this.#currentEnergyState,
+        personaTimestamp,
+        preferences
+      );
 
-      if (runtime && personaStart - runtime.lastEmittedAt < minInterval) {
+      if (!emissionGate.allowEmission) {
         metrics.skippedByThrottle += 1;
-        logger.debug('[orchestrator] Persona throttled', { persona: persona.id });
+        metrics.skippedByState += 1;
+        logger.debug('[orchestrator] Persona gated by state cadence', {
+          persona: persona.id,
+          state: this.#currentEnergyState
+        });
         continue;
       }
+
+      let forcedEmission = emissionGate.dueForEmission;
+      if (!forcedEmission) {
+        const skipBias = this.#getSkipBias(persona, this.#currentEnergyState);
+        if (skipBias > 0) {
+          const skipRoll = this.#seededRandom(`${persona.id}:${latestCue.cueId}:state-skip`);
+          if (skipRoll < skipBias) {
+            metrics.skippedByState += 1;
+            metrics.stateSoftSkips += 1;
+            logger.debug('[orchestrator] Persona skipped by state bias', {
+              persona: persona.id,
+              state: this.#currentEnergyState,
+              skipBias
+            });
+            continue;
+          }
+        }
+      } else {
+        metrics.stateForcedEmissions += 1;
+      }
+
+      const personaStart = personaTimestamp;
 
       const cacheKey = this.#buildCacheKey(latestCue.cueId, persona.id);
       const cached = await cacheStore.get(cacheKey);
@@ -535,6 +926,13 @@ export class Orchestrator {
       try {
         const { messages, telemetry } = this.#buildMessages({ persona, preferences, scene });
         metrics.dynamicBanTermsApplied += telemetry.dynamicBanCount;
+        metrics.dynamicBanReleases += telemetry.dynamicBanReleased;
+        if (telemetry.dynamicBanReleased > 0) {
+          this.#lifecycleCounters.dynamicBanReleases = Math.max(
+            0,
+            this.#lifecycleCounters.dynamicBanReleases - telemetry.dynamicBanReleased
+          );
+        }
         metrics.keywordEvaluations += telemetry.evaluatedKeywordCount;
         metrics.filteredKeywordDrops += telemetry.filteredKeywordCount;
         if (telemetry.toneRepetitionWarning) {
@@ -542,6 +940,12 @@ export class Orchestrator {
         }
         if (telemetry.personaHotwordReminder) {
           metrics.personaHotwordReminders += 1;
+        }
+        if (telemetry.fewShotSelected > 0) {
+          metrics.fewShotSelections += telemetry.fewShotSelected;
+        }
+        if (telemetry.fewShotCooldownSkips > 0) {
+          metrics.fewShotCooldownSkips += telemetry.fewShotCooldownSkips;
         }
         const temperature = this.#jitterValue(
           persona.temperature,
@@ -694,6 +1098,7 @@ export class Orchestrator {
 
       metrics.generatedCount += 1;
       results.push(finalized);
+      this.#noteLengthObservation(candidate, metrics);
       selectionIndex += 1;
     }
 
@@ -725,6 +1130,18 @@ export class Orchestrator {
     this.#recentToneHistory = [];
     this.#recentNGramIndex.clear();
     this.#recentSemanticHistory = [];
+    this.#personaLengthHistory.clear();
+    this.#globalLengthHistory = [];
+    this.#energyStateHistory = [];
+    this.#currentEnergyState = 'calm';
+    this.#stateChangedAt = Date.now();
+    this.#personaDynamicBans.forEach((ledger) => ledger.clear());
+    this.#globalDynamicBans.clear();
+    this.#speechTicUsage.forEach((usage) => usage.splice(0, usage.length));
+    this.#fewShotCooldowns.forEach((cooldowns) => cooldowns.clear());
+    this.#fewShotShapeHistory.forEach((shapes) => shapes.splice(0, shapes.length));
+    this.#lifecycleCounters.speechTicBans = 0;
+    this.#lifecycleCounters.dynamicBanReleases = 0;
     if (resetCadence) {
       this.#personaState.forEach((state, personaId) => {
         this.#personaState.set(personaId, { ...state, lastEmittedAt: 0 });
@@ -751,7 +1168,7 @@ export class Orchestrator {
   }
 
   #createMetricsAccumulator(): MetricsAccumulator {
-    return {
+    const accumulator: MetricsAccumulator = {
       cacheHits: 0,
       cacheMisses: 0,
       llmCalls: 0,
@@ -762,6 +1179,7 @@ export class Orchestrator {
       skippedByThrottle: 0,
       skippedByHeuristics: 0,
       skippedByLock: 0,
+      skippedByState: 0,
       duplicatesFiltered: 0,
       sanitizedDrops: 0,
       fallbackResponses: 0,
@@ -774,11 +1192,52 @@ export class Orchestrator {
       duplicateHardRejects: 0,
       semanticRejects: 0,
       lowRelevanceDrops: 0,
-      styleFitDrops: 0
+      styleFitDrops: 0,
+      stateSoftSkips: 0,
+      stateForcedEmissions: 0,
+      stateCounts: {
+        calm: 0,
+        active: 0,
+        peak: 0,
+        cooldown: 0
+      },
+      currentEnergyState: this.#currentEnergyState,
+      lengthObservationCount: 0,
+      totalWordCount: 0,
+      totalWordCountSquared: 0,
+      targetWordCountSum: 0,
+      speechTicBans: this.#lifecycleCounters.speechTicBans,
+      speechTicViolations: 0,
+      dynamicBanReleases: this.#lifecycleCounters.dynamicBanReleases,
+      toneAlignmentHits: 0,
+      toneAlignmentMisses: 0,
+      fewShotSelections: 0,
+      fewShotCooldownSkips: 0
     };
+    this.#lifecycleCounters.speechTicBans = 0;
+    this.#lifecycleCounters.dynamicBanReleases = 0;
+    return accumulator;
   }
 
   #finalizeMetrics(acc: MetricsAccumulator): OrchestratorMetrics {
+    acc.currentEnergyState = this.#currentEnergyState;
+    const lengthObservationCount = acc.lengthObservationCount;
+    const batchMean =
+      lengthObservationCount > 0 ? acc.totalWordCount / lengthObservationCount : 0;
+    const batchVariance =
+      lengthObservationCount > 0
+        ? Math.max(
+            0,
+            acc.totalWordCountSquared / lengthObservationCount - batchMean * batchMean
+          )
+        : 0;
+    const batchStdDev = Math.sqrt(batchVariance);
+    const targetMean =
+      lengthObservationCount > 0 ? acc.targetWordCountSum / lengthObservationCount : 0;
+    const lengthDeviation = batchMean - targetMean;
+    const rollingStats = this.#computeRollingLengthStats();
+    const stateOccupancy = this.#summarizeStateOccupancy();
+
     return {
       timestamp: Date.now(),
       cacheHits: acc.cacheHits,
@@ -790,6 +1249,7 @@ export class Orchestrator {
       skippedByThrottle: acc.skippedByThrottle,
       skippedByHeuristics: acc.skippedByHeuristics,
       skippedByLock: acc.skippedByLock,
+      skippedByState: acc.skippedByState,
       duplicatesFiltered: acc.duplicatesFiltered,
       sanitizedDrops: acc.sanitizedDrops,
       fallbackResponses: acc.fallbackResponses,
@@ -807,7 +1267,24 @@ export class Orchestrator {
       duplicateHardRejects: acc.duplicateHardRejects,
       semanticRejects: acc.semanticRejects,
       lowRelevanceDrops: acc.lowRelevanceDrops,
-      styleFitDrops: acc.styleFitDrops
+      styleFitDrops: acc.styleFitDrops,
+      stateSoftSkips: acc.stateSoftSkips,
+      stateForcedEmissions: acc.stateForcedEmissions,
+      energyState: acc.currentEnergyState,
+      stateOccupancy,
+      lengthMean: batchMean,
+      lengthStdDev: batchStdDev,
+      lengthDeviation,
+      lengthSampleSize: lengthObservationCount,
+      lengthRollingMean: rollingStats.mean,
+      lengthRollingStdDev: rollingStats.stdDev,
+      speechTicBans: acc.speechTicBans,
+      speechTicViolations: acc.speechTicViolations,
+      dynamicBanReleases: acc.dynamicBanReleases,
+      toneAlignmentHits: acc.toneAlignmentHits,
+      toneAlignmentMisses: acc.toneAlignmentMisses,
+      fewShotSelections: acc.fewShotSelections,
+      fewShotCooldownSkips: acc.fewShotCooldownSkips
     };
   }
 
@@ -950,8 +1427,9 @@ export class Orchestrator {
       return [];
     }
 
+    const energyState = this.#currentEnergyState;
     pool.forEach((candidate) => {
-      candidate.score = this.#scoreCandidate(candidate, scene, anchorTime);
+      candidate.score = this.#scoreCandidate(candidate, scene, anchorTime, energyState);
     });
 
     const sorted = [...pool].sort((a, b) => b.score - a.score);
@@ -1015,7 +1493,21 @@ export class Orchestrator {
       return { accepted: false, relevance, styleFit: 0 };
     }
 
-    const styleFit = this.#computeStyleFitScore(text, persona);
+    let styleFit = this.#computeStyleFitScore(text, persona);
+    const banHit = this.#detectActiveBanHit(persona.id, text);
+    if (banHit) {
+      if (banHit.source === 'speech_tic') {
+        metrics.speechTicViolations += 1;
+        styleFit = Math.min(styleFit, 0.2);
+      } else {
+        styleFit = Math.min(styleFit, 0.35);
+      }
+    }
+
+    const toneAlignment = this.#computeToneAlignment(text, persona, scene, metrics);
+    styleFit *= toneAlignment.multiplier;
+    styleFit = Math.max(0, Math.min(1, styleFit));
+
     if (styleFit < MIN_STYLE_FIT_SCORE) {
       metrics.styleFitDrops += 1;
       return { accepted: false, relevance, styleFit };
@@ -1024,10 +1516,20 @@ export class Orchestrator {
     return { accepted: true, relevance, styleFit };
   }
 
-  #scoreCandidate(candidate: CandidateEntry, scene: SceneAnalysis, anchorTime: number) {
+  #scoreCandidate(
+    candidate: CandidateEntry,
+    scene: SceneAnalysis,
+    anchorTime: number,
+    state: EnergyState
+  ) {
     const wordCount = candidate.comment.text.split(/\s+/).filter(Boolean).length;
-    const target = Math.min(candidate.persona.maxWords, 18);
-    const lengthScore = 1 - Math.min(Math.abs(wordCount - target) / Math.max(1, target), 1);
+    const toneAdjustment = this.#getToneAdjustmentForTone(candidate.persona, candidate.sceneTone);
+    const lengthScore = this.#computeLengthScore(
+      wordCount,
+      candidate.persona,
+      state,
+      toneAdjustment
+    );
     const noveltyScore = this.#keywordNoveltyScore(candidate.persona.id, candidate.keywords);
     const runtime = this.#personaState.get(candidate.persona.id);
     const cadenceMs = candidate.persona.cadenceSeconds * 1000;
@@ -1043,15 +1545,23 @@ export class Orchestrator {
 
     const relevanceScore = candidate.relevance;
     const styleFitScore = candidate.styleFit;
+    const weights = this.#getWeightMultipliers(candidate.persona, state);
+    const lengthWeight = 0.18 * (weights.length ?? 1);
+    const noveltyWeight = 0.18 * (weights.novelty ?? 1);
+    const recencyWeight = 0.14 * (weights.recency ?? 1);
+    const energyWeight = 0.12 * (weights.energy ?? 1);
+    const toneWeight = 0.12 * (weights.tone ?? 1);
+    const relevanceWeight = 0.16 * (weights.relevance ?? 1);
+    const styleWeight = 0.1 * (weights.style ?? 1) * (toneAdjustment?.styleBias ?? 1);
 
     return (
-      lengthScore * 0.18 +
-      noveltyScore * 0.18 +
-      recencyScore * 0.14 +
-      energyBias * 0.12 +
-      toneScore * 0.12 +
-      relevanceScore * 0.16 +
-      styleFitScore * 0.1 +
+      lengthScore * lengthWeight +
+      noveltyScore * noveltyWeight +
+      recencyScore * recencyWeight +
+      energyBias * energyWeight +
+      toneScore * toneWeight +
+      relevanceScore * relevanceWeight +
+      styleFitScore * styleWeight +
       weightBias * 0.04 +
       sourceBias +
       jitter * 0.06
@@ -1139,6 +1649,73 @@ export class Orchestrator {
   #weightBias(weight: number) {
     const clamped = Math.max(0.3, Math.min(weight, 2));
     return clamped / 2;
+  }
+
+  #getToneAdjustmentForTone(persona: PersonaDefinition, tone: SceneAnalysis['tone']) {
+    return persona.toneAdjustments?.[tone];
+  }
+
+  #computeToneAlignment(
+    text: string,
+    persona: PersonaDefinition,
+    scene: SceneAnalysis,
+    metrics: MetricsAccumulator
+  ) {
+    const adjustment = this.#getToneAdjustmentForTone(persona, scene.tone);
+    if (!adjustment) {
+      metrics.toneAlignmentHits += 1;
+      return { multiplier: 1, alignment: 1, styleBias: 1 };
+    }
+    const lower = text.toLowerCase();
+    let alignmentScore = 1;
+    let multiplier = 1;
+    if (adjustment.preferLexical && adjustment.preferLexical.length > 0) {
+      const hasPreferred = adjustment.preferLexical.some((lex) =>
+        lower.includes(lex.toLowerCase())
+      );
+      if (!hasPreferred) {
+        alignmentScore -= 0.2;
+        multiplier *= 0.9;
+      }
+    }
+    if (adjustment.avoidLexical && adjustment.avoidLexical.length > 0) {
+      const triggered = adjustment.avoidLexical.some((lex) =>
+        lower.includes(lex.toLowerCase())
+      );
+      if (triggered) {
+        alignmentScore -= 0.4;
+        multiplier *= 0.6;
+      }
+    }
+    if (adjustment.punctuation && adjustment.punctuation !== 'none') {
+      const trimmed = text.trim();
+      const ending = trimmed.charAt(trimmed.length - 1);
+      let matches = false;
+      if (adjustment.punctuation === 'exclaim') {
+        matches = ending === '!';
+      } else if (adjustment.punctuation === 'question') {
+        matches = ending === '?';
+      } else if (adjustment.punctuation === 'ellipsis') {
+        matches = /\.\.\.$/.test(trimmed);
+      } else if (adjustment.punctuation === 'period') {
+        matches = ending === '.';
+      }
+      if (!matches) {
+        alignmentScore -= 0.2;
+        multiplier *= 0.9;
+      }
+    }
+    alignmentScore = Math.max(0, Math.min(1, alignmentScore));
+    if (alignmentScore >= 0.75) {
+      metrics.toneAlignmentHits += 1;
+    } else {
+      metrics.toneAlignmentMisses += 1;
+    }
+    return {
+      multiplier,
+      alignment: alignmentScore,
+      styleBias: adjustment.styleBias ?? 1
+    };
   }
 
   #computeRenderTimestamp(
@@ -1266,21 +1843,11 @@ export class Orchestrator {
     while (this.#recentKeywordHistory.length > MAX_KEYWORD_HISTORY) {
       this.#recentKeywordHistory.shift();
     }
+    this.#updateGlobalKeywordBans(Date.now());
   }
 
   #collectGlobalKeywordBans() {
-    if (this.#recentKeywordHistory.length === 0) {
-      return [] as string[];
-    }
-    const counts = new Map<string, number>();
-    this.#recentKeywordHistory.forEach((keyword) => {
-      counts.set(keyword, (counts.get(keyword) ?? 0) + 1);
-    });
-    return Array.from(counts.entries())
-      .filter(([, total]) => total >= GLOBAL_KEYWORD_THRESHOLD)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, MAX_DYNAMIC_BAN_TERMS)
-      .map(([keyword]) => keyword);
+    return this.#getActiveGlobalDynamicBans();
   }
 
   #recordSceneTone(scene: SceneAnalysis) {
@@ -1315,14 +1882,56 @@ export class Orchestrator {
     return matches.filter((token) => token.length > 3 && !PROMPT_STOP_WORDS.has(token));
   }
 
-  #collectPersonaHotWords(personaId: string) {
+  #updateDynamicBanState(personaId: string, text: string, keywords: string[]) {
+    const now = Date.now();
+    this.#trackSpeechTicUsage(personaId, text, now);
+    this.#refreshKeywordBanLedger(personaId, now);
+  }
+
+  #trackSpeechTicUsage(personaId: string, text: string, timestamp: number) {
+    const persona = this.#personaIndex.get(personaId);
+    if (!persona || !persona.speechTics || persona.speechTics.length === 0) {
+      return;
+    }
+    const usage = this.#speechTicUsage.get(personaId) ?? [];
+    const lower = text.toLowerCase();
+    persona.speechTics.forEach((tic) => {
+      const normalized = tic.toLowerCase().trim();
+      if (!normalized) {
+        return;
+      }
+      const pattern = new RegExp(`\\b${this.#escapeRegExp(normalized)}\\b`, 'i');
+      if (pattern.test(lower)) {
+        usage.push({ token: normalized, timestamp });
+      }
+    });
+    const pruned = usage.filter((entry) => timestamp - entry.timestamp <= SPEECH_TIC_WINDOW_MS);
+    this.#speechTicUsage.set(personaId, pruned);
+    const counts = new Map<string, number>();
+    pruned.forEach((entry) => {
+      counts.set(entry.token, (counts.get(entry.token) ?? 0) + 1);
+    });
+    counts.forEach((total, token) => {
+      if (total > SPEECH_TIC_THRESHOLD) {
+        const added = this.#ensurePersonaDynamicBan(personaId, token, 'speech_tic', timestamp);
+        if (added) {
+          this.#lifecycleCounters.speechTicBans += 1;
+        }
+      }
+    });
+  }
+
+  #refreshKeywordBanLedger(personaId: string, now: number) {
     const memory = this.#personaMemory.get(personaId);
-    if (!memory || memory.history.length === 0) {
-      return [] as string[];
+    if (!memory) {
+      return;
+    }
+    const history = memory.history.slice(-MAX_DYNAMIC_BAN_HISTORY);
+    if (history.length === 0) {
+      return;
     }
     const counts = new Map<string, number>();
-    const recentHistory = memory.history.slice(-MAX_DYNAMIC_BAN_HISTORY);
-    recentHistory.forEach((entry) => {
+    history.forEach((entry) => {
       const tokens = this.#tokenizeForBans(entry.text ?? '');
       tokens.forEach((token) => {
         counts.set(token, (counts.get(token) ?? 0) + 1);
@@ -1345,23 +1954,250 @@ export class Orchestrator {
       });
     });
 
-    return Array.from(counts.entries())
-      .filter(([, total]) => total >= DYNAMIC_BAN_THRESHOLD)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, MAX_DYNAMIC_BAN_TERMS)
-      .map(([token]) => token);
+    counts.forEach((total, token) => {
+      if (total >= DYNAMIC_BAN_THRESHOLD) {
+        this.#ensurePersonaDynamicBan(personaId, token, 'keyword', now);
+      }
+    });
+  }
+
+  #ensurePersonaDynamicBan(
+    personaId: string,
+    token: string,
+    source: 'keyword' | 'speech_tic',
+    now: number
+  ) {
+    const ledger = this.#personaDynamicBans.get(personaId);
+    if (!ledger) {
+      return false;
+    }
+    const normalized = token.toLowerCase();
+    const existing = ledger.get(normalized);
+    if (existing && existing.expiresAt > now) {
+      existing.expiresAt = now + DYNAMIC_BAN_TTL_MS;
+      existing.hits += 1;
+      return false;
+    }
+    const entry: DynamicBanEntry = {
+      token: normalized,
+      source,
+      createdAt: now,
+      expiresAt: now + DYNAMIC_BAN_TTL_MS,
+      hits: existing ? existing.hits + 1 : 1
+    };
+    ledger.set(normalized, entry);
+    this.#enforcePersonaDynamicBanCap(personaId, ledger);
+    return !existing;
+  }
+
+  #enforcePersonaDynamicBanCap(
+    personaId: string,
+    ledger: Map<string, DynamicBanEntry>
+  ) {
+    while (ledger.size > MAX_DYNAMIC_BAN_TERMS) {
+      const oldest = Array.from(ledger.entries()).sort(
+        (a, b) => a[1].createdAt - b[1].createdAt
+      )[0];
+      if (!oldest) {
+        break;
+      }
+      ledger.delete(oldest[0]);
+      this.#lifecycleCounters.dynamicBanReleases += 1;
+    }
+    this.#pruneDynamicBans(personaId);
+  }
+
+  #pruneDynamicBans(personaId: string) {
+    const ledger = this.#personaDynamicBans.get(personaId);
+    if (!ledger || ledger.size === 0) {
+      return;
+    }
+    const now = Date.now();
+    Array.from(ledger.entries()).forEach(([token, entry]) => {
+      if (entry.expiresAt <= now) {
+        ledger.delete(token);
+      }
+    });
+  }
+
+  #ensureGlobalDynamicBan(token: string, now: number) {
+    const normalized = token.toLowerCase();
+    const existing = this.#globalDynamicBans.get(normalized);
+    if (existing && existing.expiresAt > now) {
+      existing.expiresAt = now + DYNAMIC_BAN_TTL_MS;
+      existing.hits += 1;
+      return;
+    }
+    this.#globalDynamicBans.set(normalized, {
+      token: normalized,
+      source: 'global',
+      createdAt: now,
+      expiresAt: now + DYNAMIC_BAN_TTL_MS,
+      hits: existing ? existing.hits + 1 : 1
+    });
+    this.#enforceGlobalDynamicBanCap();
+  }
+
+  #enforceGlobalDynamicBanCap() {
+    while (this.#globalDynamicBans.size > MAX_TOTAL_DYNAMIC_BANS) {
+      const oldest = Array.from(this.#globalDynamicBans.entries()).sort(
+        (a, b) => a[1].createdAt - b[1].createdAt
+      )[0];
+      if (!oldest) {
+        break;
+      }
+      this.#globalDynamicBans.delete(oldest[0]);
+      this.#lifecycleCounters.dynamicBanReleases += 1;
+    }
+    this.#pruneGlobalDynamicBans();
+  }
+
+  #pruneGlobalDynamicBans(now: number = Date.now()) {
+    if (this.#globalDynamicBans.size === 0) {
+      return;
+    }
+    Array.from(this.#globalDynamicBans.entries()).forEach(([token, entry]) => {
+      if (entry.expiresAt <= now) {
+        this.#globalDynamicBans.delete(token);
+      }
+    });
+  }
+
+  #updateGlobalKeywordBans(now: number) {
+    if (this.#recentKeywordHistory.length === 0) {
+      return;
+    }
+    const counts = new Map<string, number>();
+    this.#recentKeywordHistory.forEach((keyword) => {
+      counts.set(keyword, (counts.get(keyword) ?? 0) + 1);
+    });
+    counts.forEach((total, token) => {
+      if (total >= GLOBAL_KEYWORD_THRESHOLD) {
+        this.#ensureGlobalDynamicBan(token, now);
+      }
+    });
+    this.#pruneGlobalDynamicBans(now);
+  }
+
+  #getActivePersonaDynamicBans(personaId: string) {
+    this.#pruneDynamicBans(personaId);
+    const ledger = this.#personaDynamicBans.get(personaId);
+    if (!ledger) {
+      return [] as string[];
+    }
+    return Array.from(ledger.keys());
+  }
+
+  #getActiveGlobalDynamicBans() {
+    this.#pruneGlobalDynamicBans();
+    return Array.from(this.#globalDynamicBans.keys());
+  }
+
+  #getPersonaDynamicBanEntries(personaId: string) {
+    this.#pruneDynamicBans(personaId);
+    const ledger = this.#personaDynamicBans.get(personaId);
+    if (!ledger) {
+      return [] as DynamicBanEntry[];
+    }
+    return Array.from(ledger.values());
+  }
+
+  #getActiveSpeechTicBans(personaId: string) {
+    return this.#getPersonaDynamicBanEntries(personaId)
+      .filter((entry) => entry.source === 'speech_tic')
+      .map((entry) => entry.token);
+  }
+
+  #releaseOldestDynamicBan(personaId: string) {
+    const ledger = this.#personaDynamicBans.get(personaId);
+    if (!ledger || ledger.size === 0) {
+      return null;
+    }
+    const oldest = Array.from(ledger.entries()).sort(
+      (a, b) => a[1].createdAt - b[1].createdAt
+    )[0];
+    if (!oldest) {
+      return null;
+    }
+    ledger.delete(oldest[0]);
+    this.#lifecycleCounters.dynamicBanReleases += 1;
+    return oldest[1].token;
+  }
+
+  #releaseOldestGlobalDynamicBan() {
+    if (this.#globalDynamicBans.size === 0) {
+      return null;
+    }
+    const oldest = Array.from(this.#globalDynamicBans.entries()).sort(
+      (a, b) => a[1].createdAt - b[1].createdAt
+    )[0];
+    if (!oldest) {
+      return null;
+    }
+    this.#globalDynamicBans.delete(oldest[0]);
+    this.#lifecycleCounters.dynamicBanReleases += 1;
+    return oldest[1].token;
+  }
+
+  #detectActiveBanHit(personaId: string, text: string): DynamicBanEntry | null {
+    const normalized = text.toLowerCase();
+    const personaLedger = this.#personaDynamicBans.get(personaId);
+    if (personaLedger) {
+      for (const [token, entry] of personaLedger.entries()) {
+        if (normalized.includes(token)) {
+          entry.hits += 1;
+          return entry;
+        }
+      }
+    }
+    for (const [token, entry] of this.#globalDynamicBans.entries()) {
+      if (normalized.includes(token)) {
+        entry.hits += 1;
+        return entry;
+      }
+    }
+    return null;
+  }
+
+  #escapeRegExp(value: string) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  #collectPersonaHotWords(personaId: string) {
+    return this.#getActivePersonaDynamicBans(personaId);
   }
 
   #buildKeywordGuards(personaId: string, keywords: string[]) {
-    const personaHotWords = this.#collectPersonaHotWords(personaId);
-    const globalHotWords = this.#collectGlobalKeywordBans();
-    const dynamicBanSet = new Set<string>();
-    personaHotWords.forEach((token) => dynamicBanSet.add(token));
-    globalHotWords.forEach((token) => dynamicBanSet.add(token));
-    const filteredKeywords = keywords.filter((keyword) => {
+    this.#pruneDynamicBans(personaId);
+    this.#pruneGlobalDynamicBans();
+
+    let personaHotWords = this.#getActivePersonaDynamicBans(personaId);
+    let globalHotWords = this.#getActiveGlobalDynamicBans();
+    let dynamicBanSet = new Set<string>([...personaHotWords, ...globalHotWords]);
+    let filteredKeywords = keywords.filter((keyword) => {
       const normalized = keyword.toLowerCase();
       return !dynamicBanSet.has(normalized);
     });
+    const releasedTokens: string[] = [];
+
+    if (filteredKeywords.length === 0 && keywords.length > 0 && dynamicBanSet.size > 0) {
+      const releasedPersona = this.#releaseOldestDynamicBan(personaId);
+      if (releasedPersona) {
+        releasedTokens.push(releasedPersona);
+      } else {
+        const releasedGlobal = this.#releaseOldestGlobalDynamicBan();
+        if (releasedGlobal) {
+          releasedTokens.push(releasedGlobal);
+        }
+      }
+      personaHotWords = this.#getActivePersonaDynamicBans(personaId);
+      globalHotWords = this.#getActiveGlobalDynamicBans();
+      dynamicBanSet = new Set<string>([...personaHotWords, ...globalHotWords]);
+      filteredKeywords = keywords.filter((keyword) => {
+        const normalized = keyword.toLowerCase();
+        return !dynamicBanSet.has(normalized);
+      });
+    }
 
     if (filteredKeywords.length === 0 && keywords.length > 0) {
       const fallbackKeyword = keywords.find((keyword) => {
@@ -1371,6 +2207,8 @@ export class Orchestrator {
       if (fallbackKeyword) {
         filteredKeywords.push(fallbackKeyword);
         dynamicBanSet.delete(fallbackKeyword.toLowerCase());
+        personaHotWords = this.#getActivePersonaDynamicBans(personaId);
+        globalHotWords = this.#getActiveGlobalDynamicBans();
       }
     }
 
@@ -1378,11 +2216,89 @@ export class Orchestrator {
       filteredKeywords,
       personaHotWords,
       globalHotWords,
-      dynamicBans: Array.from(dynamicBanSet)
+      dynamicBans: Array.from(dynamicBanSet),
+      releasedTokens
     };
   }
 
-  #composeToneInstruction(scene: SceneAnalysis) {
+  #selectFewShotExamples(persona: PersonaDefinition, scene: SceneAnalysis) {
+    const examples = persona.fewShotExamples ?? [];
+    if (examples.length === 0) {
+      return { examples: [] as PersonaFewShotExample[], cooled: 0 };
+    }
+    const now = Date.now();
+    const cooldowns = this.#fewShotCooldowns.get(persona.id) ?? new Map<string, number>();
+    const shapeHistory = this.#fewShotShapeHistory.get(persona.id) ?? [];
+    const scored = examples.map((example) => {
+      let score = 0;
+      if (example.sceneTag && example.sceneTag === scene.tone) {
+        score += 1.5;
+      }
+      if (example.energy && example.energy === scene.energy) {
+        score += 1;
+      }
+      if (example.tags && example.tags.length > 0) {
+        const keywordSet = new Set(scene.keywords.map((keyword) => keyword.toLowerCase()));
+        if (example.tags.some((tag) => keywordSet.has(tag.toLowerCase()))) {
+          score += 0.4;
+        }
+      }
+      if (example.lexicalShape && shapeHistory.includes(example.lexicalShape.toLowerCase())) {
+        score -= 0.35;
+      }
+      const lastUsed = cooldowns.get(example.id) ?? 0;
+      const since = now - lastUsed;
+      if (since < FEW_SHOT_COOLDOWN_MS) {
+        const penalty = 0.7 * (1 - since / FEW_SHOT_COOLDOWN_MS);
+        score -= penalty;
+      }
+      return {
+        example,
+        score,
+        lastUsed
+      };
+    });
+
+    scored.sort((a, b) => b.score - a.score);
+    const selected: PersonaFewShotExample[] = [];
+    const usedShapes = new Set<string>();
+    let cooled = 0;
+
+    for (const candidate of scored) {
+      if (selected.length >= Math.min(FEW_SHOT_TARGET, examples.length)) {
+        break;
+      }
+      const shape = candidate.example.lexicalShape?.toLowerCase();
+      if (shape && usedShapes.has(shape)) {
+        cooled += 1;
+        continue;
+      }
+      selected.push(candidate.example);
+      if (shape) {
+        usedShapes.add(shape);
+      }
+    }
+
+    selected.forEach((example) => {
+      cooldowns.set(example.id, now);
+    });
+    this.#fewShotCooldowns.set(persona.id, cooldowns);
+
+    const history = this.#fewShotShapeHistory.get(persona.id) ?? [];
+    selected.forEach((example) => {
+      if (example.lexicalShape) {
+        history.push(example.lexicalShape.toLowerCase());
+      }
+    });
+    while (history.length > FEW_SHOT_SHAPE_HISTORY) {
+      history.shift();
+    }
+    this.#fewShotShapeHistory.set(persona.id, history);
+
+    return { examples: selected, cooled };
+  }
+
+  #composeToneInstruction(persona: PersonaDefinition, scene: SceneAnalysis) {
     const templates = TONE_DESCRIPTOR_MAP[scene.tone] ?? [
       `The scene leans ${scene.tone}—call out a detail that keeps it fresh.`
     ];
@@ -1394,7 +2310,25 @@ export class Orchestrator {
       ? 'Tone signal feels tentative—anchor the take in concrete observations.'
       : '';
     const energyNote = scene.energy !== 'medium' ? ` Energy: ${scene.energy}.` : '';
-    return `${descriptor} Intensity: ${scene.toneIntensity}. ${intensityNote}${confidenceNote ? ` ${confidenceNote}` : ''}${energyNote}`.trim();
+    const adjustment = this.#getToneAdjustmentForTone(persona, scene.tone);
+    const lexicalCue = adjustment?.preferLexical?.length
+      ? ` Lean on expressions like ${adjustment.preferLexical.join(', ')} when natural.`
+      : '';
+    const avoidCue = adjustment?.avoidLexical?.length
+      ? ` Avoid leaning on phrases such as ${adjustment.avoidLexical.join(', ')}.`
+      : '';
+    const punctuationCue = adjustment?.punctuation && adjustment.punctuation !== 'none'
+      ? ` End with ${
+          adjustment.punctuation === 'exclaim'
+            ? 'an exclamation'
+            : adjustment.punctuation === 'question'
+            ? 'a question mark'
+            : adjustment.punctuation === 'ellipsis'
+            ? 'an ellipsis'
+            : 'a period'
+        } if it fits.`
+      : '';
+    return `${descriptor} Intensity: ${scene.toneIntensity}. ${intensityNote}${confidenceNote ? ` ${confidenceNote}` : ''}${energyNote}${lexicalCue}${avoidCue}${punctuationCue}`.trim();
   }
 
   #buildToneRepetitionInstruction(scene: SceneAnalysis) {
@@ -1420,10 +2354,14 @@ export class Orchestrator {
     messages: ChatMessage[];
     telemetry: {
       dynamicBanCount: number;
+      dynamicBanReleased: number;
       evaluatedKeywordCount: number;
       filteredKeywordCount: number;
       toneRepetitionWarning: boolean;
       personaHotwordReminder: boolean;
+      speechTicReminder: boolean;
+      fewShotSelected: number;
+      fewShotCooldownSkips: number;
     };
   } {
     const now = Date.now();
@@ -1445,6 +2383,8 @@ export class Orchestrator {
     const keywordsInstruction = filteredKeywords.length
       ? this.#pickFromList(keywordSeed, KEYWORD_TEMPLATES)(filteredKeywords.join(', '))
       : this.#pickFromList(`keywords:fallback:${cueSeed}`, KEYWORD_FALLBACK_TEMPLATES);
+    const speechTicBans = this.#getActiveSpeechTicBans(persona.id);
+    const fewShotPlan = this.#selectFewShotExamples(persona, scene);
 
     const combinedBanSet = new Set<string>();
     const combinedBanList: string[] = [];
@@ -1466,10 +2406,13 @@ export class Orchestrator {
     });
 
     const reuseGuardInstruction = combinedBanList.length
-      ? `Never reuse: ${combinedBanList.join(', ')}. Reach for synonyms or a fresh detail.`
+      ? `尽量避免重复使用这些词: ${combinedBanList.join(', ')}，若必须提及请换个角度或同义表达。`
+      : null;
+    const speechTicInstruction = speechTicBans.length
+      ? `你的口头禅「${speechTicBans.join('、')}」最近出现太多，本轮请不要再使用。`
       : null;
 
-    const toneDescriptor = this.#composeToneInstruction(scene);
+    const toneDescriptor = this.#composeToneInstruction(persona, scene);
     const toneRepetitionInstruction = this.#buildToneRepetitionInstruction(scene);
 
     const speakerInstruction = scene.speakers.length
@@ -1534,6 +2477,7 @@ export class Orchestrator {
       toneRepetitionInstruction,
       speakerInstruction,
       keywordsInstruction,
+      speechTicInstruction,
       reuseGuardInstruction,
       skipInstruction
     ]
@@ -1565,7 +2509,7 @@ export class Orchestrator {
       { role: 'system', content: systemContent }
     ];
 
-    persona.fewShotExamples.forEach((example) => {
+    fewShotPlan.examples.forEach((example) => {
       messages.push({ role: 'user', content: example.user });
       messages.push({ role: 'assistant', content: example.assistant });
     });
@@ -1576,10 +2520,14 @@ export class Orchestrator {
       messages,
       telemetry: {
         dynamicBanCount: dynamicBanList.length,
+        dynamicBanReleased: keywordGuards.releasedTokens.length,
         evaluatedKeywordCount: scene.keywords.length,
         filteredKeywordCount: scene.keywords.length - filteredKeywords.length,
         toneRepetitionWarning: Boolean(toneRepetitionInstruction),
-        personaHotwordReminder: keywordGuards.personaHotWords.length > 0
+        personaHotwordReminder: keywordGuards.personaHotWords.length > 0,
+        speechTicReminder: speechTicBans.length > 0,
+        fewShotSelected: fewShotPlan.examples.length,
+        fewShotCooldownSkips: fewShotPlan.cooled
       }
     };
   }
@@ -1663,11 +2611,13 @@ export class Orchestrator {
       return 0;
     }
     const tokenSet = new Set(tokens);
+
     let keywordScore = 0;
     if (scene.keywords.length > 0) {
       const hits = scene.keywords.filter((keyword) => tokenSet.has(keyword.toLowerCase())).length;
       keywordScore = hits / scene.keywords.length;
     }
+
     let speakerScore = 0;
     if (scene.speakers.length > 0) {
       const lowerText = text.toLowerCase();
@@ -1676,11 +2626,36 @@ export class Orchestrator {
       ).length;
       speakerScore = speakerHits / scene.speakers.length;
     }
+
     const questionScore = scene.hasQuestion && /\?/u.test(text) ? 1 : 0;
     const exclamationScore = scene.hasExclamation && /!/u.test(text) ? 1 : 0;
+
+    let summaryScore = 0;
+    if (scene.summary) {
+      const summaryTokens = this.#tokenizeWords(scene.summary);
+      if (summaryTokens.length > 0) {
+        const summarySet = new Set(summaryTokens);
+        let overlap = 0;
+        tokens.forEach((token) => {
+          if (summarySet.has(token)) {
+            overlap += 1;
+          }
+        });
+        summaryScore = Math.min(overlap / Math.max(4, summaryTokens.length), 1);
+      }
+    }
+
+    const coverageScore = Math.min(tokens.length / 14, 1);
+
     const composite =
-      keywordScore * 0.55 + speakerScore * 0.2 + questionScore * 0.15 + exclamationScore * 0.1;
-    return Math.max(0, Math.min(1, composite));
+      keywordScore * 0.4 +
+      speakerScore * 0.15 +
+      questionScore * 0.1 +
+      exclamationScore * 0.05 +
+      summaryScore * 0.2 +
+      coverageScore * 0.1;
+
+    return Math.max(0.15, Math.min(1, composite));
   }
 
   #computeStyleFitScore(text: string, persona: PersonaDefinition) {
@@ -1915,6 +2890,16 @@ export class Orchestrator {
     this.#indexNGrams(tokens, now);
     this.#recentSemanticHistory.push({ timestamp: now, tokens });
     this.#trimSemanticHistory(now);
+    const lengthHistory = this.#personaLengthHistory.get(personaId) ?? [];
+    lengthHistory.push(tokens.length);
+    while (lengthHistory.length > MAX_PERSONA_LENGTH_HISTORY) {
+      lengthHistory.shift();
+    }
+    this.#personaLengthHistory.set(personaId, lengthHistory);
+    this.#globalLengthHistory.push(tokens.length);
+    while (this.#globalLengthHistory.length > MAX_GLOBAL_LENGTH_HISTORY) {
+      this.#globalLengthHistory.shift();
+    }
     const memory = this.#personaMemory.get(personaId) ?? {
       topics: [],
       lastText: null,
@@ -1944,6 +2929,7 @@ export class Orchestrator {
         this.#recentToneHistory.shift();
       }
     }
+    this.#updateDynamicBanState(personaId, text, keywords);
     this.#logMemoryEvent('remember', {
       personaId,
       text,

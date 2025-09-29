@@ -10,6 +10,8 @@ export interface SubtitleCue {
 
 export type DensitySetting = 'low' | 'medium' | 'high';
 
+export type EnergyState = 'calm' | 'active' | 'peak' | 'cooldown';
+
 export type FeedbackCategory = 'too_noisy' | 'too_robotic' | 'great' | 'other';
 
 export interface FeedbackEntry {
@@ -67,6 +69,7 @@ export interface OrchestratorMetrics {
   skippedByThrottle: number;
   skippedByHeuristics: number;
   skippedByLock: number;
+  skippedByState?: number;
   duplicatesFiltered: number;
   sanitizedDrops: number;
   fallbackResponses: number;
@@ -84,6 +87,23 @@ export interface OrchestratorMetrics {
   semanticRejects?: number;
   lowRelevanceDrops?: number;
   styleFitDrops?: number;
+  stateSoftSkips?: number;
+  stateForcedEmissions?: number;
+  energyState?: EnergyState;
+  stateOccupancy?: Partial<Record<EnergyState, number>>;
+  lengthMean?: number;
+  lengthStdDev?: number;
+  lengthDeviation?: number;
+  lengthSampleSize?: number;
+  lengthRollingMean?: number;
+  lengthRollingStdDev?: number;
+  speechTicBans?: number;
+  speechTicViolations?: number;
+  dynamicBanReleases?: number;
+  toneAlignmentHits?: number;
+  toneAlignmentMisses?: number;
+  fewShotSelections?: number;
+  fewShotCooldownSkips?: number;
 }
 
 export interface OrchestratorResult {
